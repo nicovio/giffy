@@ -1,0 +1,19 @@
+.links-container {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: #09f;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(2, 98, 161);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}

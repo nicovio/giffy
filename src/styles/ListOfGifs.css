@@ -1,0 +1,4 @@
+.listOfGifs {
+  columns: 4 200px;
+  column-gap: 0.5rem;
+}

@@ -1,3 +1,7 @@
+:root {
+  --content-padding: calc(16vw - 8vh + 1rem);
+}
+
 .App-content {
   background-color: #282c34;
   min-height: 100vh;
@@ -7,7 +11,7 @@
   align-items: center;
   color: white;
   box-sizing: border-box;
-  padding: 1rem;
+  padding: 1rem var(--content-padding);
 }
 
 .logo {

@@ -11,7 +11,7 @@ export default function ListOfGifs({ gifs, loading }) {
       ) : (
         <div className="listOfGifs">
           {gifs.map((gif) => (
-            <Gif key={gif.id} gif={gif} />
+            <Gif clickeable={true} key={gif.id} gif={gif} />
           ))}
         </div>
       )}

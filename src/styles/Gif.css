@@ -1,6 +1,4 @@
-.gif {
-  /* border-radius: 6px; */
-  /* flex-direction: column; */
+.list-gif {
   display: flex;
   position: relative;
   box-sizing: border-box;
@@ -10,7 +8,7 @@
   width: 100%;
 }
 
-.gif h4 {
+.list-gif h4 {
   color: #fff;
   background-color: rgba(49, 49, 49, 0.5);
   font-size: 0.6rem;
@@ -20,6 +18,6 @@
   padding: 0.2rem;
 }
 
-.gif img {
+.list-gif img {
   width: 100%;
 }

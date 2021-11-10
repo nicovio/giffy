@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useLocation } from 'wouter'
-import Category from '../components/Category'
-import ListOfGifs from '../components/ListOfGifs'
-import useGifs from '../hooks/useGifs'
-import '../styles/Home.css'
+import ListOfGifs from 'components/ListOfGifs'
+import TrendingSearches from 'components/TrendingSearches'
+import useGifs from 'hooks/useGifs'
+import 'styles/Home.css'
 
 const GIFS_POPULARES = ['Matrix', 'Argentina', 'Colombia', 'Ecuador']
 

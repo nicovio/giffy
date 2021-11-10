@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/ListOfGifs.css'
+import 'styles/ListOfGifs.css'
 import ListGif from './ListGif'
 import Spinner from './Spinner'
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Gif from '../components/Gif'
-import Spinner from '../components/Spinner'
-import useGlobalGifs from '../hooks/useGlobalGifs'
-import { gifService } from '../services/gifService'
+import Gif from 'components/Gif'
+import Spinner from 'components/Spinner'
+import useGlobalGifs from 'hooks/useGlobalGifs'
+import { gifService } from 'services/gifService'
 
 export default function Detail({ params }) {
   const [gif, setGif] = useState({})

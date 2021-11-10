@@ -1,9 +1,9 @@
+import { GifsContextProvider } from 'context/GifsContext'
+import Detail from 'pages/Detail'
+import Home from 'pages/Home'
+import SearchResults from 'pages/SearchResults'
 import { Link, Route } from 'wouter'
 import './App.css'
-import { GifsContextProvider } from './context/GifsContext'
-import Detail from './pages/Detail'
-import Home from './pages/Home'
-import SearchResults from './pages/SearchResults'
 
 function App() {
   return (

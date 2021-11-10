@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'wouter'
 import Gif from './Gif'
-import '../styles/ListGif.css'
+import 'styles/ListGif.css'
 
 export default function ListGif({ gif }) {
   return (

@@ -6,8 +6,8 @@ export default function Gif({ gif }) {
 
   return (
     <>
-      <h4>{title}</h4>
-      <img className="gif-img" src={url} alt={title} />
+      <h4 className="App-title">{title}</h4>
+      <img className="Gif-img" src={url} alt={title} />
     </>
   )
 }

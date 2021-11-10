@@ -1,7 +1,7 @@
 .Category-list {
   display: flex;
   flex-wrap: wrap;
-  gap:1rem;
+  gap: 1rem;
 }
 
 .Category-link {

@@ -6,7 +6,7 @@ import '../styles/ListGif.css'
 export default function ListGif({ gif }) {
   return (
     <Link href={`/gif/${gif.id}`}>
-      <a href="replace" className="gif-link">
+      <a href="replace" className="Gif-link">
         <Gif gif={gif}></Gif>
       </a>
     </Link>

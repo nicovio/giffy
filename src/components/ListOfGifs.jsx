@@ -9,7 +9,7 @@ export default function ListOfGifs({ gifs, loading }) {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="listOfGifs">
+        <div className="Gifs-container">
           {gifs.map((gif) => (
             <ListGif key={gif.id} gif={gif} />
           ))}

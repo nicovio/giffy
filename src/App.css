@@ -1,9 +1,14 @@
 :root {
-  --content-padding: calc(16vw - 8vh + 1rem);
+  --content-padding: calc(12vw - 8vh + 2rem);
+}
+
+.App-title {
+  color: white;
+  margin: 1rem 0;
 }
 
 .App-content {
-  background-color: #282c34;
+  background-color: #121212;
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
   display: flex;
@@ -14,7 +19,36 @@
   padding: 1rem var(--content-padding);
 }
 
-.logo {
+.App-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.App-category {
+  width: 100%;
+}
+
+.App-logo {
+  padding: 1rem 0;
+  width: 8rem;
   cursor: pointer;
-  margin-bottom: 1rem;
+}
+
+.App-logo img {
+  object-fit: cover;
+  width: 100%;
+}
+
+@media screen and (min-width: 640px) {
+  .App-main {
+    flex-direction: row;
+  }
+
+  .App-category {
+    padding: 0 2em;
+    position: sticky;
+    top: 0;
+    width: 40%;
+  }
 }

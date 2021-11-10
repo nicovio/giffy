@@ -1,4 +1,12 @@
-.listOfGifs {
+.Gifs-container {
   columns: 4 200px;
-  column-gap: 0.5rem;
+  gap: 0.5rem;
+}
+
+.Gifs-container h4 {
+  margin: 0;
+}
+
+.Gifs-container img {
+  width: 100%;
 }

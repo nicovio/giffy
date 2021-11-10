@@ -17,5 +17,46 @@ h4,
 h5,
 h6 {
   margin: 0;
-  margin-top: 1rem;
+}
+
+button {
+  background: #09f;
+  border: 0;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+a {
+  color: #09f;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(2, 98, 161);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+input[type='text'] {
+  padding: 1rem;
+  margin: 0;
+  width: 100%;
+  font-size: 1.2rem;
+  border: none;
+}
+
+input[type='text']:focus {
+  outline: none;
 }

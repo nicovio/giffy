@@ -1,14 +1,17 @@
-.gif-link {
+.Gif-link {
   display: flex;
   position: relative;
   box-sizing: border-box;
-  margin-bottom: 0.5rem;
   break-inside: avoid;
-  padding: 0.2rem;
   width: 100%;
+  margin-top: 0.5rem;
 }
 
-.gif-link h4 {
+.Gif-link:first-child {
+  margin-top: 0;
+}
+
+.Gif-link h4 {
   color: #fff;
   background-color: rgba(49, 49, 49, 0.5);
   font-size: 0.6rem;

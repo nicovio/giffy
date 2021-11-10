@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Link, useLocation } from 'wouter'
+import { useLocation } from 'wouter'
+import Category from '../components/Category'
 import ListOfGifs from '../components/ListOfGifs'
 import useGifs from '../hooks/useGifs'
 import '../styles/Home.css'
@@ -8,7 +9,7 @@ const GIFS_POPULARES = ['Matrix', 'Argentina', 'Colombia', 'Ecuador']
 
 export default function Home() {
   const [keyword, setKeyword] = useState('')
-  const [path, pushLocation] = useLocation()
+  const [, pushLocation] = useLocation()
   const { loading, gifs } = useGifs()
 
   const handleSubmit = (event) => {
@@ -23,19 +24,18 @@ export default function Home() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input aria-label="Buscar" placeholder="Buscar..." type="text" onChange={handleChange} value={keyword} />
         <button>Buscar</button>
+        <input aria-label="Buscar" placeholder="Ej: taxi driver" type="text" onChange={handleChange} value={keyword} />
       </form>
-      <h3>Última busqueda</h3>
-      <ListOfGifs gifs={gifs} loading={loading} />
-      <h3>Los gifs más populares</h3>
-      <ul>
-        {GIFS_POPULARES.map((gif) => (
-          <li key={gif}>
-            <Link to={`/search/${gif}`}>{gif}</Link>
-          </li>
-        ))}
-      </ul>
+      <div className="App-main">
+        <div className="App-results">
+          <h3 className="App-title">Última busqueda</h3>
+          <ListOfGifs gifs={gifs} loading={loading} />
+        </div>
+        <div className="App-category">
+          <Category name="Categorias populares" options={GIFS_POPULARES} />
+        </div>
+      </div>
     </div>
   )
 }

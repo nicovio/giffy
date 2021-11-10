@@ -10,7 +10,9 @@ function App() {
     <div className="App">
       <section className="App-content">
         <Link to="/">
-          <img className="logo" width="100px" src="/logo.svg" alt="Giffy logo" />
+          <figure className="App-logo">
+            <img alt="Giffy logo" src="/logo.png" />
+          </figure>
         </Link>
         <GifsContextProvider>
           <Route path="/" component={Home} />

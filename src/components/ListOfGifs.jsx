@@ -1,7 +1,7 @@
 import React from 'react'
-import Gif from './Gif'
-import Spinner from './Spinner'
 import '../styles/ListOfGifs.css'
+import ListGif from './ListGif'
+import Spinner from './Spinner'
 
 export default function ListOfGifs({ gifs, loading }) {
   return (
@@ -11,7 +11,7 @@ export default function ListOfGifs({ gifs, loading }) {
       ) : (
         <div className="listOfGifs">
           {gifs.map((gif) => (
-            <Gif clickeable={true} key={gif.id} gif={gif} />
+            <ListGif key={gif.id} gif={gif} />
           ))}
         </div>
       )}

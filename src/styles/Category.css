@@ -1,0 +1,15 @@
+.Category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap:1rem;
+}
+
+.Category-link {
+  color: white;
+  font-size: 1em;
+  transition: color ease-in 0.1s;
+}
+
+.Category-link:hover {
+  color: #8c55a2;
+}

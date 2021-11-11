@@ -1,22 +1,30 @@
+import { API_KEY, API_URL } from "./settings"
 
-const apikey = 'ufxe0pCXs2KYWHgM7PxcVVkKHx8GWdOZ'
+const fromImageDataToGif = imageData => {
+    const { id, title, images } = imageData
+    return { id, title, url: images.downsized_medium.url }
+}
 
-const apiURL = `https://api.giphy.com/v1/gifs`
-
-const fetchGifs = async ({ keyword = 'morty' } = {}) => {
-    const url = `${apiURL}/search?api_key=${apikey}&limit=15&offset=0&rating=g&lang=en&q=${keyword}`
+const fetchGifs = async ({ limit = 25, keyword = 'morty', page = 0 } = {}) => {
+    const url = `${API_URL}/gifs/search?api_key=${API_KEY}&limit=${limit}&offset=${page * limit}&rating=g&lang=en&q=${keyword}`
     const response = await fetch(url)
     const { data } = await response.json()
-    const gifs = data.map(({ id, title, images, }) => ({ id, title, url: images.downsized_medium.url, }))
+    const gifs = data.map(fromImageDataToGif)
     return gifs
 }
 
 const getGifById = async (gifId) => {
-    const url = `${apiURL}/${gifId}?api_key=${apikey}`
+    const url = `${API_URL}/gifs/${gifId}?api_key=${API_KEY}`
     const response = await fetch(url)
     const { data } = await response.json()
-    const { id, title, images } = data
-    return { id, title, url: images.downsized_medium.url }
+    return fromImageDataToGif(data)
 }
 
-export const gifService = { fetchGifs, getGifById }
+const getTrendingTerms = async () => {
+    const url = `${API_URL}/trending/searches?api_key=${API_KEY}`
+    const response = await fetch(url)
+    const { data } = await response.json()
+    return data
+}
+
+export const gifService = { fetchGifs, getGifById, getTrendingTerms }

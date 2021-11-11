@@ -13,3 +13,9 @@
 .Category-link:hover {
   color: #8c55a2;
 }
+
+@media screen and (min-width: 640px) {
+  .Category-list {
+    flex-direction: column;
+  }
+}

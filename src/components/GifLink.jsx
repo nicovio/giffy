@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'wouter'
 import Gif from './Gif'
-import 'styles/ListGif.css'
+import 'styles/GifLink.css'
 
-export default function ListGif({ gif }) {
+export default function GifLink({ gif }) {
   return (
     <Link href={`/gif/${gif.id}`}>
       <a href="replace" className="Gif-link">

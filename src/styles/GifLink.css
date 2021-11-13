@@ -1,0 +1,9 @@
+.Gif-link h4 {
+  color: #fff;
+  background-color: rgba(49, 49, 49, 0.7);
+  font-size: 0.6rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0.2rem;
+}

@@ -1,6 +1,16 @@
 .Gifs-container {
-  columns: 4 200px;
-  gap: 0.5rem;
+  display: grid;
+  margin: auto;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--gap);
+  align-items: center;
+  min-height: 100vh;
+}
+
+.Gifs-container > .Gif-link {
+  display: flex;
+  position: relative;
+  margin-top: var(--gap);
 }
 
 .Gifs-container h4 {
@@ -9,4 +19,16 @@
 
 .Gifs-container img {
   width: 100%;
+}
+
+@supports (grid-template-rows: masonry) {
+  .Gifs-container {
+    display: grid;
+    grid-template-rows: masonry;
+    grid-auto-flow: dense;
+  }
+
+  .Gifs-container > .Gif-link {
+    --gap: 0;
+  }
 }

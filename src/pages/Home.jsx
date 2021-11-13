@@ -20,7 +20,7 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit}>
         <button>Buscar</button>
         <input aria-label="Buscar" placeholder="Ej: taxi driver" type="text" onChange={handleChange} value={keyword} />
@@ -34,6 +34,6 @@ export default function Home() {
           <TrendingSearches />
         </div>
       </div>
-    </div>
+    </>
   )
 }

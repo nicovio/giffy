@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
 import Gif from 'components/Gif'
 import Spinner from 'components/Spinner'
 import useGlobalGifs from 'hooks/useGlobalGifs'
+import React, { useEffect, useState } from 'react'
 import { gifService } from 'services/gifService'
 
 export default function Detail({ params }) {
@@ -13,8 +13,8 @@ export default function Detail({ params }) {
     const getGifById = async (id) => {
       try {
         setLoading(true)
-        const gif = gifs.find((gif) => gif.id === id) || (await gifService.getGifById(params.id))
-        setGif(gif)
+        const apiGif = gifs.find((gif) => gif.id === id) || (await gifService.getGifById(params.id))
+        setGif(apiGif)
       } catch (e) {
         console.log(e)
       } finally {

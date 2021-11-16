@@ -1,34 +1,46 @@
-.Gifs-container {
-  display: grid;
-  margin: auto;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: var(--gap);
-  align-items: center;
-  min-height: 100vh;
+.masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: calc(-1 * var(--masonry-gap)); /* gutter size offset */
+  width: auto;
 }
 
-.Gifs-container > .Gif-link {
+.masonry-grid_column {
+  padding-left: var(--masonry-gap); /* gutter size */
+  background-clip: padding-box;
+}
+
+.masonry-grid .Gif-link {
   display: flex;
   position: relative;
-  margin-top: var(--gap);
+  background: grey;
+  border-radius: var(--gif-border-radius);
 }
 
-.Gifs-container h4 {
+.masonry-grid_column .Gif-link {
+  margin-bottom: var(--masonry-gap);
+}
+
+.masonry-grid h4 {
   margin: 0;
+  border-radius: 0 0 0 var(--gif-border-radius);
 }
 
-.Gifs-container img {
+.masonry-grid video {
   width: 100%;
+  border-radius: var(--gif-border-radius);
 }
 
 @supports (grid-template-rows: masonry) {
-  .Gifs-container {
+  /* .Gifs-container {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-template-rows: masonry;
     grid-auto-flow: dense;
   }
 
   .Gifs-container > .Gif-link {
-    --gap: 0;
-  }
+    --masonry-gap: 0;
+  } */
 }

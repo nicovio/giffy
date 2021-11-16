@@ -1,6 +1,7 @@
 :root {
   --content-padding: calc(16vw - 8vh + 2rem);
-  --gap: 0.5rem;
+  --masonry-gap: 0.8rem;
+  --gif-border-radius: 5px;
 }
 
 .App-title {
@@ -20,11 +21,11 @@
   padding: 1rem var(--content-padding);
 }
 
-/* .App-main {
+.App-main {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-} */
+}
 
 .App-results {
   min-height: 100vh;
@@ -46,7 +47,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  max-width: 100%;
+  width: 100%;
 }
 
 @media screen and (min-width: 640px) {

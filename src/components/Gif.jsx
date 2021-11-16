@@ -1,13 +1,17 @@
 import React from 'react'
 import 'styles/Gif.css'
 
-export default function Gif({ gif }) {
-  const { title, url } = gif
+const Gif = ({ gif }) => {
+  const { title, image } = gif
 
   return (
     <>
       <h4 className="App-title">{title}</h4>
-      <img className="Gif-img" src={url} alt={title} />
+      <video autoPlay loop muted playsInline>
+        <source src={image?.mp4} type="video/mp4" />
+      </video>
     </>
   )
 }
+
+export default Gif

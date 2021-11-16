@@ -1,6 +1,6 @@
-import React from 'react'
 import ListOfGifs from 'components/ListOfGifs'
 import useGifs from 'hooks/useGifs'
+import React from 'react'
 
 function SearchResults({ params }) {
   const keyword = decodeURI(params.keyword)
@@ -11,11 +11,11 @@ function SearchResults({ params }) {
   }
 
   return (
-    <>
+    <div className="App-results">
       <h3 className="App-title">{keyword}</h3>
       <ListOfGifs gifs={gifs} loading={loading} />
       <button onClick={handleNextPage}>Próxima página</button>
-    </>
+    </div>
   )
 }
 export default SearchResults

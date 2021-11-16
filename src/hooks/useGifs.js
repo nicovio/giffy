@@ -14,7 +14,8 @@ const useGifs = ({ keyword } = {}) => {
     useEffect(() => {
         async function getGifs() {
             setLoading(true)
-            setGifs(await gifService.fetchGifs({ keyword: keywordToUse }))
+            const apiGifs = await gifService.fetchGifs({ keyword: keywordToUse })
+            setGifs(apiGifs)
             setLoading(false)
             localStorage.setItem("lastKeyword", keywordToUse)
         }

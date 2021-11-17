@@ -1,8 +1,6 @@
 .masonry-grid {
-  display: -webkit-box; /* Not needed if autoprefixing */
-  display: -ms-flexbox; /* Not needed if autoprefixing */
   display: flex;
-  margin-left: calc(-1 * var(--masonry-gap)); /* gutter size offset */
+  margin-left: calc(-1 * var(--masonry-gap));
   width: auto;
 }
 
@@ -11,29 +9,13 @@
   background-clip: padding-box;
 }
 
-.masonry-grid .Gif-link {
-  display: flex;
-  position: relative;
-  background: grey;
-  border-radius: var(--gif-border-radius);
-}
-
-.masonry-grid_column .Gif-link {
-  margin-bottom: var(--masonry-gap);
-}
-
-.masonry-grid h4 {
-  margin: 0;
-  border-radius: 0 0 0 var(--gif-border-radius);
-}
-
 .masonry-grid video {
   width: 100%;
   border-radius: var(--gif-border-radius);
 }
 
-@supports (grid-template-rows: masonry) {
-  /* .Gifs-container {
+/* @supports (grid-template-rows: masonry) {
+  .Gifs-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-template-rows: masonry;
@@ -42,5 +24,5 @@
 
   .Gifs-container > .Gif-link {
     --masonry-gap: 0;
-  } */
-}
+  }
+} */

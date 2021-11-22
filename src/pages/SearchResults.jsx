@@ -23,6 +23,10 @@ function SearchResults({ params }) {
     }
   }, [isNearScreen, debounceHandleNextPage])
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
   return (
     <div className="App-results">
       <h3 className="App-title">{keyword}</h3>

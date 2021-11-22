@@ -5,7 +5,7 @@ const fromImageDataToGif = imageData => {
     return { id, title, image: images.original_mp4 }
 }
 
-const fetchGifs = async ({ limit = 5, keyword = 'morty', page = 0 } = {}) => {
+const fetchGifs = async ({ limit = 8, keyword = 'morty', page = 0 } = {}) => {
     const url = `${API_URL}/gifs/search?api_key=${API_KEY}&limit=${limit}&offset=${page * limit}&rating=g&lang=en&q=${keyword}`
     const response = await fetch(url)
     const { data } = await response.json()

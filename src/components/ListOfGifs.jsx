@@ -5,9 +5,8 @@ import GifLink from './GifLink'
 import Spinner from './Spinner'
 
 const breakpointColumnsObj = {
-  default: 4,
-  1100: 3,
-  890: 2,
+  default: 3,
+  1100: 2,
   500: 1,
 }
 

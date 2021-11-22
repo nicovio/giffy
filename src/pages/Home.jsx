@@ -8,7 +8,7 @@ import 'styles/Home.css'
 export default function Home() {
   const [keyword, setKeyword] = useState('')
   const [, pushLocation] = useLocation()
-  const { loading, gifs } = useGifs()
+  const { loading, gifs } = useGifs({ limit: 10 })
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -27,7 +27,7 @@ export default function Home() {
       </form>
       <div className="App-main">
         <div className="App-results">
-          <h3 className="App-title">Última busqueda</h3>
+          <h3 className="App-title">Última búsqueda</h3>
           <ListOfGifs gifs={gifs} loading={loading} />
         </div>
         <div className="App-category">

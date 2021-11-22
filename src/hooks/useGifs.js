@@ -1,10 +1,11 @@
 import GifsContext from "context/GifsContext"
 import { useContext, useEffect, useState } from "react"
 import { gifService } from "services/gifService"
+import { compareGifsBySize } from './utils'
 
 const INITIAL_PAGE = 0
 
-const useGifs = ({ keyword } = {}) => {
+const useGifs = ({ keyword, limit } = {}) => {
     const [loading, setLoading] = useState(false)
     const [loadingNextPage, setLoadingNextPage] = useState(false)
     const { gifs, setGifs } = useContext(GifsContext)
@@ -14,26 +15,24 @@ const useGifs = ({ keyword } = {}) => {
     useEffect(() => {
         async function getGifs() {
             setLoading(true)
-            const apiGifs = await gifService.fetchGifs({ keyword: keywordToUse })
-            setGifs(apiGifs)
+            const responseGifs = await gifService.fetchGifs({ keyword: keywordToUse, limit })
+            setGifs(responseGifs.sort(compareGifsBySize))
             setLoading(false)
             localStorage.setItem("lastKeyword", keywordToUse)
         }
         getGifs()
-    }, [keywordToUse, setGifs])
+    }, [keywordToUse, setGifs, limit])
 
     useEffect(() => {
         async function getNextGifs() {
             setLoadingNextPage(true)
-            const nextGifs = await gifService.fetchGifs({ keyword: keywordToUse, page })
-            setGifs(prevGifs => {
-                return prevGifs.concat(nextGifs)
-            })
+            const nextGifs = await gifService.fetchGifs({ keyword: keywordToUse, page, limit })
+            setGifs(prevGifs => prevGifs.concat(nextGifs.sort(compareGifsBySize)))
             setLoadingNextPage(false)
         }
         if (page === INITIAL_PAGE) return
         getNextGifs()
-    }, [keywordToUse, page, setGifs])
+    }, [keywordToUse, page, setGifs, limit])
 
     return { loading, loadingNextPage, gifs, setPage }
 }

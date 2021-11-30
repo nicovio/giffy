@@ -1,28 +1,33 @@
 .masonry-grid {
-  display: flex;
-  margin-left: calc(-1 * var(--masonry-gap));
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+  gap: var(--masonry-gap);
   width: auto;
-}
-
-.masonry-grid_column {
-  padding-left: var(--masonry-gap); /* gutter size */
-  background-clip: padding-box;
 }
 
 .masonry-grid video {
   width: 100%;
+  max-height: 15rem;
   border-radius: var(--gif-border-radius);
 }
 
-/* @supports (grid-template-rows: masonry) {
-  .Gifs-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+@media screen and (max-width: 650px) {
+  .masonry-grid video {
+    max-height: 100%;
+  }
+}
+
+@supports (grid-template-rows: masonry) {
+  .masonry-grid {
     grid-template-rows: masonry;
     grid-auto-flow: dense;
   }
 
-  .Gifs-container > .Gif-link {
+  .masonry-grid > .Gif-link {
     --masonry-gap: 0;
   }
-} */
+
+  .masonry-grid video {
+    max-height: 100%;
+  }
+}

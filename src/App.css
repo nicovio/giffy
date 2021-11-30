@@ -1,5 +1,5 @@
 :root {
-  --content-padding: calc(16vw - 8vh + 2rem);
+  --content-padding: max(1rem, calc(16vw - 8vh + 2rem));
   --masonry-gap: 0.8rem;
   --gif-border-radius: 5px;
 }
@@ -24,6 +24,8 @@
 .App-results {
   min-height: 100vh;
   width: 100%;
+  display:flex;
+  flex-direction: column;
 }
 
 .App-logo {

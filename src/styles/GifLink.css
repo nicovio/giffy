@@ -1,9 +1,8 @@
 .Gif-link {
   display: flex;
   position: relative;
-  background: grey;
+  background-color: #222222;
   border-radius: var(--gif-border-radius);
-  margin-bottom: var(--masonry-gap);
 }
 
 .Gif-link h4 {
@@ -17,7 +16,7 @@
   padding: 0.2rem;
   margin: 0;
   border-radius: 0 0 0 var(--gif-border-radius);
-  transition: opacity .5s ease;
+  transition: opacity 0.5s ease;
 }
 
 .Gif-link:hover h4 {

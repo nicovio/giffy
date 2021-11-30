@@ -1,7 +1,3 @@
-export function compareGifsBySize(gif, gifToCompare) {
-    const size = +gif.image.height
-    const sizeToCompare = +gifToCompare.image.height
-    if (size < sizeToCompare) return -1
-    if (sizeToCompare > size) return 1
-    return 0
+export function isNew(gif, currentGifs) {
+    return currentGifs.every(currentGif => currentGif.id !== gif.id)
 }

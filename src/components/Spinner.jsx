@@ -1,7 +1,7 @@
 import 'styles/Spinner.css'
 
-const Spinner = () => {
-  return <div className="Spinner"></div>
+const Spinner = ({ size }) => {
+  return <div className={`Spinner ${size}`}></div>
 }
 
 export default Spinner

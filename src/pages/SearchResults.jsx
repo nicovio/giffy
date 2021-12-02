@@ -4,6 +4,7 @@ import useNearScreen from 'hooks/useNearScreen'
 import debounce from 'just-debounce-it'
 import React, { useCallback, useEffect, useRef } from 'react'
 import Spinner from './../components/Spinner'
+import 'styles/SearchResults.css'
 
 function SearchResults({ params }) {
   const keyword = decodeURI(params.keyword)

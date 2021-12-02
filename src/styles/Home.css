@@ -6,10 +6,6 @@
   width: 100%;
 }
 
-.nextGifs-button {
-  margin: 2rem auto;
-}
-
 @media screen and (min-width: 640px) {
   .App-main {
     flex-direction: row;

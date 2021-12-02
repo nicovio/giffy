@@ -1,24 +1,26 @@
+import Logo from 'components/Logo'
 import { GifsContextProvider } from 'context/GifsContext'
-import Detail from 'pages/Detail'
-import Home from 'pages/Home'
-import SearchResults from 'pages/SearchResults'
-import { Link, Route } from 'wouter'
+import React, { Suspense } from 'react'
+import { Route } from 'wouter'
 import './App.css'
+
+// Code splitting con fines didácticos
+const HomePage = React.lazy(() => import('./pages/Home'))
+const SearchResultsPage = React.lazy(() => import('./pages/SearchResults'))
+const DetailPage = React.lazy(() => import('./pages/Detail'))
 
 function App() {
   return (
     <div className="App">
       <section className="App-content">
-        <Link to="/">
-          <figure className="App-logo">
-            <img alt="Giffy logo" src="/logo.png" />
-          </figure>
-        </Link>
-        <GifsContextProvider>
-          <Route path="/" component={Home} />
-          <Route path="/search/:keyword" component={SearchResults} />
-          <Route path="/gif/:id" component={Detail} />
-        </GifsContextProvider>
+        <Suspense fallback={<Logo />}>
+          <Logo />
+          <GifsContextProvider>
+            <Route path="/" component={HomePage} />
+            <Route path="/search/:keyword" component={SearchResultsPage} />
+            <Route path="/gif/:id" component={DetailPage} />
+          </GifsContextProvider>
+        </Suspense>
       </section>
     </div>
   )

@@ -1,4 +1,4 @@
-import Gif from 'components/Gif'
+import Gif from 'components/Gif/Gif'
 import Spinner from 'components/Spinner'
 import useGlobalGifs from 'hooks/useGlobalGifs'
 import React, { useEffect, useState } from 'react'

@@ -7,9 +7,11 @@ const Gif = ({ gif }) => {
   return (
     <>
       <h4 className="App-title">{title}</h4>
-      <video autoPlay loop muted playsInline>
-        <source src={image?.mp4} type="video/mp4" />
-      </video>
+      {gif.image && (
+        <video autoPlay loop muted playsInline>
+          <source src={image.mp4} type="video/mp4" />
+        </video>
+      )}
     </>
   )
 }

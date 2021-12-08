@@ -22,7 +22,9 @@ export default function Home() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <button data-testid="boton-buscar" disabled={!keyword}>Buscar</button>
+        <button data-testid="boton-buscar" disabled={!keyword}>
+          Buscar
+        </button>
         <input aria-label="Buscar" placeholder="Ej: taxi driver" type="text" onChange={handleChange} value={keyword} />
       </form>
       <div className="App-main">

@@ -10,13 +10,15 @@ const useGifs = ({ keyword, limit } = {}) => {
     const [loadingNextPage, setLoadingNextPage] = useState(false)
     const { gifs, setGifs } = useContext(GifsContext)
     const [page, setPage] = useState(INITIAL_PAGE)
+    const [hasNextPage, setHasNextPage] = useState(true)
     const keywordToUse = keyword || localStorage.getItem("lastKeyword") || 'random'
 
     useEffect(() => {
         async function getGifs() {
             setLoading(true)
-            const responseGifs = await gifService.fetchGifs({ keyword: keywordToUse, limit })
-            setGifs(responseGifs)
+            const { gifs, hasNextPage } = await gifService.fetchGifs({ keyword: keywordToUse, limit })
+            setGifs(gifs)
+            if (!hasNextPage) setHasNextPage(false)
             setLoading(false)
             localStorage.setItem("lastKeyword", keywordToUse)
         }
@@ -26,15 +28,16 @@ const useGifs = ({ keyword, limit } = {}) => {
     useEffect(() => {
         async function getNextGifs() {
             setLoadingNextPage(true)
-            const nextGifs = await gifService.fetchGifs({ keyword: keywordToUse, page, limit })
+            const { gifs: nextGifs, hasNextPage } = await gifService.fetchGifs({ keyword: keywordToUse, page, limit })
             setGifs(prevGifs => prevGifs.concat(nextGifs.filter(gif => isNew(gif, prevGifs))))
+            if (!hasNextPage) setHasNextPage(false)
             setLoadingNextPage(false)
         }
         if (page === INITIAL_PAGE) return
         getNextGifs()
     }, [keywordToUse, page, setGifs, limit])
 
-    return { loading, loadingNextPage, gifs, setPage }
+    return { loading, loadingNextPage, gifs, setPage, hasNextPage }
 }
 
 export default useGifs

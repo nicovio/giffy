@@ -8,6 +8,7 @@ import './App.css'
 const HomePage = React.lazy(() => import('./pages/Home'))
 const SearchResultsPage = React.lazy(() => import('./pages/SearchResults'))
 const DetailPage = React.lazy(() => import('./pages/Detail'))
+const NotFoundPage = React.lazy(() => import('./pages/error/NotFound'))
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" component={HomePage} />
             <Route path="/search/:keyword" component={SearchResultsPage} />
             <Route path="/gif/:id" component={DetailPage} />
+            <Route path="/404" component={NotFoundPage} />
           </GifsContextProvider>
         </Suspense>
       </section>

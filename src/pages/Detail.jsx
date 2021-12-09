@@ -1,28 +1,13 @@
 import Gif from 'components/Gif/Gif'
 import Spinner from 'components/Spinner'
-import useGlobalGifs from 'hooks/useGlobalGifs'
-import React, { useEffect, useState } from 'react'
-import { gifService } from 'services/gifService'
+import useSingleGif from 'hooks/useSingleGif'
+import React from 'react'
+import { Redirect } from 'wouter'
 
 export default function Detail({ params }) {
-  const [gif, setGif] = useState({})
-  const [loading, setLoading] = useState(false)
-  const gifs = useGlobalGifs()
+  const { loading, gif, error } = useSingleGif({ id: params.id })
 
-  useEffect(() => {
-    const getGifById = async (id) => {
-      try {
-        setLoading(true)
-        const apiGif = gifs.find((gif) => gif.id === id) || (await gifService.getGifById(params.id))
-        setGif(apiGif)
-      } catch (e) {
-        console.log(e)
-      } finally {
-        setLoading(false)
-      }
-    }
-    getGifById(params.id)
-  }, [gifs, params.id])
+  if (error) return <Redirect to="/404" />
 
-  return <> {loading ? <Spinner /> : <Gif gif={gif} />}</>
+  return <> {loading || !gif ? <Spinner /> : <Gif gif={gif} />}</>
 }

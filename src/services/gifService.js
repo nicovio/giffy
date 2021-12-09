@@ -17,7 +17,7 @@ const fetchGifs = async ({ limit, keyword = 'morty', page = 0 } = {}) => {
     const url = `${API_URL}/gifs/search?api_key=${API_KEY}&limit=${resultsLimit}&offset=${page * resultsLimit}&rating=g&lang=en&q=${keyword}`
     const response = await fetch(url)
     const { data, pagination } = await response.json()
-    const hasNextPage = pagination.count + pagination.offset < pagination.total_count
+    const hasNextPage = !pagination || pagination.count + pagination.offset < pagination.total_count
     const gifs = data.map(fromImageDataToGif)
     return { gifs, hasNextPage }
 }

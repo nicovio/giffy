@@ -3,7 +3,7 @@ import 'styles/GifLink.css'
 import { Link } from 'wouter'
 import Gif from './Gif'
 
-export default function GifLink({ gif }) {
+function GifLink({ gif }) {
   return (
     <Link href={`/gif/${gif.id}`}>
       <a href="replace" className="Gif-link" data-testid={`gif-link-${gif.id}`}>
@@ -12,3 +12,7 @@ export default function GifLink({ gif }) {
     </Link>
   )
 }
+
+export default React.memo(GifLink, (prevProps, nextProps) => {
+  return prevProps.gif.id === nextProps.gif.id
+})

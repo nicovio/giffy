@@ -26,7 +26,7 @@ export default function Home() {
       <SearchForm onSubmit={onSubmit} />
       <div className="App-main">
         <div className="App-results">
-          <h3 className="App-title">Última búsqueda</h3>
+          <h2 className="App-title">Última búsqueda</h2>
           <ListOfGifs gifs={gifs} loading={loading} />
         </div>
         <div className="App-category">

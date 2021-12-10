@@ -8,7 +8,7 @@ export default function NotFound() {
 
   return (
     <>
-      <h1>No se encontró ningún GIF</h1>
+      <h2>No se encontró ningún GIF</h2>
       <button style={{ marginTop: '2rem' }} onClick={goToHome}>
         Volver a home
       </button>

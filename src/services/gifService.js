@@ -8,8 +8,8 @@ const getResultsLimit = () => {
 }
 
 const fromImageDataToGif = imageData => {
-    const { id, title, images } = imageData
-    return { id, title, image: images.original_mp4 }
+    const { id, title, images, slug } = imageData
+    return { id, slug, title, image: images.original_mp4 }
 }
 
 const fetchGifs = async ({ limit, keyword = 'morty', page = 0 } = {}) => {

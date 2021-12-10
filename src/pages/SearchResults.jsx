@@ -41,7 +41,7 @@ function SearchResults({ params }) {
         <meta name="description" content={title} />
       </Helmet>
       <div className="App-results">
-        <h3 className="App-title">{keyword}</h3>
+        <h2 className="App-title">{keyword}</h2>
         <ListOfGifs gifs={gifs} loading={loading} />
         <div id="visor" ref={externalRef}></div>
         {hasNextPage && (

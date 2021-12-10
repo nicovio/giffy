@@ -3,6 +3,7 @@ import SearchForm from 'components/SearchForm'
 import TrendingSearches from 'components/TrendingSearches/LazyTrendingSearches'
 import useGifs from 'hooks/useGifs'
 import React, { useCallback } from 'react'
+import Helmet from 'react-helmet'
 import 'styles/Home.css'
 import { useLocation } from 'wouter'
 
@@ -19,6 +20,9 @@ export default function Home() {
 
   return (
     <>
+      <Helmet>
+        <title>Home | Giffy</title>
+      </Helmet>
       <SearchForm onSubmit={onSubmit} />
       <div className="App-main">
         <div className="App-results">

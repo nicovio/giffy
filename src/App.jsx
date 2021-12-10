@@ -1,6 +1,7 @@
 import Logo from 'components/Logo'
 import { GifsContextProvider } from 'context/GifsContext'
 import React, { Suspense } from 'react'
+import { Helmet } from 'react-helmet'
 import { Route } from 'wouter'
 import './App.css'
 
@@ -12,19 +13,24 @@ const NotFoundPage = React.lazy(() => import('./pages/error/NotFound'))
 
 function App() {
   return (
-    <div className="App">
-      <section className="App-content">
-        <Suspense fallback={<Logo />}>
-          <Logo />
-          <GifsContextProvider>
-            <Route path="/" component={HomePage} />
-            <Route path="/search/:keyword" component={SearchResultsPage} />
-            <Route path="/gif/:id" component={DetailPage} />
-            <Route path="/404" component={NotFoundPage} />
-          </GifsContextProvider>
-        </Suspense>
-      </section>
-    </div>
+    <>
+      <Helmet>
+        <meta name="description" content="Gif searcher" />
+      </Helmet>
+      <div className="App">
+        <section className="App-content">
+          <Suspense fallback={<Logo />}>
+            <Logo />
+            <GifsContextProvider>
+              <Route path="/" component={HomePage} />
+              <Route path="/search/:keyword" component={SearchResultsPage} />
+              <Route path="/gif/:id" component={DetailPage} />
+              <Route path="/404" component={NotFoundPage} />
+            </GifsContextProvider>
+          </Suspense>
+        </section>
+      </div>
+    </>
   )
 }
 

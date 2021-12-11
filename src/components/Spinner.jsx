@@ -1,13 +1,19 @@
 import Helmet from 'react-helmet'
 import 'styles/Spinner.css'
 
-const Spinner = ({ size }) => {
+const Spinner = () => {
   return (
     <>
       <Helmet>
         <title>Cargando...</title>
       </Helmet>
-      <div className={`Spinner ${size}`}></div>
+      <div className={`Spinner`}>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </>
   )
 }

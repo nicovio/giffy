@@ -16,6 +16,6 @@
   .App-category {
     position: sticky;
     top: 0;
-    width: fit-content;
+    width: 15rem;
   }
 }

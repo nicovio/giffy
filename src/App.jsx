@@ -16,6 +16,7 @@ function App() {
     <>
       <Helmet>
         <meta name="description" content="Gif searcher" />
+        <link rel="canonical" href="giffy-nicovio.vercel.app" />
       </Helmet>
       <div className="App">
         <section className="App-content">

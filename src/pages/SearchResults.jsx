@@ -9,7 +9,7 @@ import Spinner from './../components/Spinner'
 
 function SearchResults({ params }) {
   const keyword = decodeURI(params.keyword)
-  const { loading, loadingNextPage, gifs, hasNextPage, setPage } = useGifs({ keyword })
+  const { loading, loadingNextPage, setLoadingNextPage, gifs, hasNextPage, setPage } = useGifs({ keyword })
   const externalRef = useRef()
   const { isNearScreen } = useNearScreen({ externalRef: loading ? null : externalRef, once: false })
 
@@ -20,15 +20,16 @@ function SearchResults({ params }) {
   const debounceHandleNextPage = useCallback(() => {
     const withDebounce = debounce(() => {
       loadNextPage()
-    }, 500)
+    }, 1000)
     withDebounce()
   }, [loadNextPage])
 
   useEffect(() => {
     if (isNearScreen && hasNextPage) {
+      setLoadingNextPage(true)
       debounceHandleNextPage()
     }
-  }, [isNearScreen, debounceHandleNextPage, hasNextPage])
+  }, [isNearScreen, debounceHandleNextPage, hasNextPage, setLoadingNextPage])
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -43,12 +44,8 @@ function SearchResults({ params }) {
       <div className="App-results">
         <h2 className="App-title">{keyword}</h2>
         <ListOfGifs gifs={gifs} loading={loading} />
-        <div id="visor" ref={externalRef}></div>
-        {hasNextPage && (
-          <button disabled={loadingNextPage} className="nextGifs-button" onClick={loadNextPage}>
-            {!loadingNextPage ? 'Más gifs' : <Spinner size="small" />}
-          </button>
-        )}
+        {!loading && loadingNextPage && <Spinner />}
+        <div className="visor" id="visor" ref={externalRef}></div>
       </div>
     </>
   )

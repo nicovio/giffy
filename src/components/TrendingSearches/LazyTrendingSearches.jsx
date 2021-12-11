@@ -1,4 +1,3 @@
-import Spinner from 'components/Spinner'
 import useNearScreen from 'hooks/useNearScreen'
 import React, { Suspense } from 'react'
 
@@ -9,7 +8,7 @@ export default function LazyTrending() {
 
   return (
     <div ref={fromRef}>
-      <Suspense fallback={<Spinner />}>{isNearScreen ? <TrendingSearches /> : null}</Suspense>
+      <Suspense fallback={null}>{isNearScreen ? <TrendingSearches /> : null}</Suspense>
     </div>
   )
 }

@@ -1,5 +1,4 @@
 import Category from 'components/Category'
-import Spinner from 'components/Spinner'
 import { useEffect, useState } from 'react'
 import { gifService } from 'services/gifService'
 
@@ -17,5 +16,9 @@ export default function TrendingSearches() {
     fetchTrends()
   }, [])
 
-  return <>{loading ? <Spinner /> : <Category name="Tendencias" options={trends} />}</>
+  return (
+    <>
+      <Category name="Tendencias" options={trends} loading={loading}></Category>
+    </>
+  )
 }

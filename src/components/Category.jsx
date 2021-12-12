@@ -1,27 +1,25 @@
 import React from 'react'
-import { Link } from 'wouter'
 import 'styles/Category.css'
+import CategoryListItem from './CategoryListItem'
 import Spinner from './Spinner'
 
 export default function Category({ name, options = [], loading }) {
+  const spinnerStyle = { margin: '1rem 0 0 0' }
+
   return (
-    <div>
-      <h2 className="App-title">{name}</h2>
+    <>
+      <h2 className="App-title Category-title">{name}</h2>
       {loading ? (
-        <Spinner />
+        <Spinner style={spinnerStyle} />
       ) : (
         <>
           <ul className="Category-list">
-            {options.map((option) => (
-              <li key={option}>
-                <Link className="Category-link" to={`/search/${option}`}>
-                  {option}
-                </Link>
-              </li>
+            {options.map((option, index) => (
+              <CategoryListItem key={option} option={option} index={index} />
             ))}
           </ul>
         </>
       )}
-    </div>
+    </>
   )
 }

@@ -7,7 +7,7 @@ export default function LazyTrending() {
   const { isNearScreen, fromRef } = useNearScreen({ distance: '100px' })
 
   return (
-    <div ref={fromRef}>
+    <div className="App-category" ref={fromRef}>
       <Suspense fallback={null}>{isNearScreen ? <TrendingSearches /> : null}</Suspense>
     </div>
   )

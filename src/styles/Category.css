@@ -2,20 +2,31 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-top: 0;
 }
 
 .Category-link {
-  color: white;
-  font-size: 0.7em;
-  transition: color ease-in 0.1s;
+  padding: 0.3rem;
+  font-size: 0.8em;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: -webkit-text-fill-color 1s cubic-bezier(0.08, 0.34, 0.17, 0.77);
+  border-radius: 10px;
 }
 
 .Category-link:hover {
-  color: #8c55a2;
+  background-clip: padding-box;
+  -webkit-text-fill-color: initial;
+  -webkit-background-clip: padding-box;
 }
 
-@media screen and (min-width: 640px) {
-  .Category-list {
-    flex-direction: column;
+.Category-title {
+  margin-top: 2rem;
+}
+
+@media screen and (min-width: 1000px) {
+  .Category-title {
+    margin-top: 0;
   }
 }

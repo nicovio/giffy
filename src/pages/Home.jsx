@@ -9,7 +9,7 @@ import { useLocation } from 'wouter'
 
 export default function Home() {
   const [, pushLocation] = useLocation()
-  const { loading, gifs } = useGifs({ limit: 10 })
+  const { loading, gifs } = useGifs({ limit: 15 })
 
   const onSubmit = useCallback(
     ({ keyword }) => {
@@ -23,15 +23,13 @@ export default function Home() {
       <Helmet>
         <title>Home | Giffy</title>
       </Helmet>
-      <SearchForm onSubmit={onSubmit} />
       <div className="App-main">
         <div className="App-results">
+          <SearchForm onSubmit={onSubmit} />
           <h2 className="App-title">Última búsqueda</h2>
           <ListOfGifs gifs={gifs} loading={loading} />
         </div>
-        <div className="App-category">
-          <TrendingSearches />
-        </div>
+        <TrendingSearches />
       </div>
     </>
   )

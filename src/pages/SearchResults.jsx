@@ -17,6 +17,8 @@ function SearchResults({ params }) {
 
   const loadNextPage = useCallback(() => setPage((currentPage) => currentPage + 1), [setPage])
 
+  const spinnerStyle = { marginTop: '0' }
+
   const debounceHandleNextPage = useCallback(() => {
     const withDebounce = debounce(() => {
       loadNextPage()
@@ -44,10 +46,11 @@ function SearchResults({ params }) {
       <div className="App-results">
         <h2 className="App-title">{keyword}</h2>
         <ListOfGifs gifs={gifs} loading={loading} />
-        {!loading && loadingNextPage && <Spinner />}
         <div className="visor" id="visor" ref={externalRef}></div>
+        {!loading && loadingNextPage && <Spinner style={spinnerStyle} />}
       </div>
     </>
   )
 }
+
 export default SearchResults

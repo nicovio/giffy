@@ -1,7 +1,8 @@
 :root {
-  --content-padding: max(1rem, calc(16vw - 8vh + 2rem));
+  --content-padding: max(1rem, calc(12vw - 8vh + 2rem));
   --masonry-gap: 0.8rem;
   --gif-border-radius: 5px;
+  --bg-color: #121212;
   --brand-color_1: #00ff99;
   --brand-color_2: #00ccff;
   --brand-color_3: #9933ff;
@@ -20,11 +21,11 @@ h1 {
 .App-title {
   font-size: 1.6rem;
   color: white;
-  margin: 1rem 0;
+  padding: 1rem 0;
 }
 
 .App-content {
-  background-color: #121212;
+  background-color: var(--bg-color);
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
   display: flex;

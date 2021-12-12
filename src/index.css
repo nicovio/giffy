@@ -47,13 +47,6 @@ ul {
   padding: 0;
 }
 
-form {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-  width: 100%;
-}
-
 input[type='text'] {
   padding: 1rem;
   margin: 0;

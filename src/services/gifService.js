@@ -1,20 +1,12 @@
 import { API_KEY, API_URL } from "./settings"
 
-const getResultsLimit = () => {
-    if (document.documentElement.clientWidth > 800) {
-        return 15
-    }
-    return 8
-}
-
 const fromImageDataToGif = imageData => {
     const { id, title, images, slug } = imageData
     return { id, slug, title, image: images.original_mp4 }
 }
 
-const fetchGifs = async ({ limit, keyword = 'morty', page = 0 } = {}) => {
-    const resultsLimit = limit || getResultsLimit()
-    const url = `${API_URL}/gifs/search?api_key=${API_KEY}&limit=${resultsLimit}&offset=${page * resultsLimit}&rating=g&lang=en&q=${keyword}`
+const fetchGifs = async ({ limit = 15, keyword = 'morty', page = 0 } = {}) => {
+    const url = `${API_URL}/gifs/search?api_key=${API_KEY}&limit=${limit}&offset=${page * limit}&rating=g&lang=en&q=${keyword}`
     const response = await fetch(url)
     const { data, pagination } = await response.json()
     const hasNextPage = !pagination || pagination.count + pagination.offset < pagination.total_count

@@ -1,6 +1,6 @@
 .masonry-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   gap: var(--masonry-gap);
   width: auto;
 }
@@ -8,6 +8,7 @@
 .masonry-grid video {
   width: 100%;
   max-height: 15rem;
+  /* object-fit: cover; */
   border-radius: var(--gif-border-radius);
 }
 

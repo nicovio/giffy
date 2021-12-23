@@ -10,7 +10,7 @@
   line-height: 1;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1025px) {
   .App-main {
     flex-direction: row;
     align-items: flex-start;

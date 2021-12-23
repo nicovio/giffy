@@ -1,8 +1,30 @@
+:root {
+  --outline-color: var(--brand-color_1);
+}
+
 .Gif-link {
   display: flex;
   position: relative;
-  background-color: #222222;
   border-radius: var(--gif-border-radius);
+  transition: outline ease 0.2s;
+  padding: 0.5rem;
+}
+
+.Gif-link:hover {
+  outline: 2px solid var(--outline-color);
+}
+
+.Gif-link:hover:nth-child(5n + 2) {
+  --outline-color: var(--brand-color_2);
+}
+.Gif-link:hover:nth-child(5n + 3) {
+  --outline-color: var(--brand-color_3);
+}
+.Gif-link:hover:nth-child(5n + 4) {
+  --outline-color: var(--brand-color_4);
+}
+.Gif-link:hover:nth-child(5n + 5) {
+  --outline-color: var(--brand-color_5);
 }
 
 .Gif-link h3 {

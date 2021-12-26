@@ -19,7 +19,9 @@ export default function useNearScreen({ distance = '1px', externalRef, once = tr
       }
     }
 
-    Promise.resolve(typeof IntersectionObserver !== 'undefined' ? IntersectionObserver : import('intersection-observer')).then(() => {
+    Promise.resolve(
+      typeof IntersectionObserver !== 'undefined' ? IntersectionObserver : import('intersection-observer')
+    ).then(() => {
       observer = new IntersectionObserver(onChange, { rootMargin: distance })
       element && observer.observe(element)
     })

@@ -21,7 +21,7 @@ const REDUCER = (state, { type, payload }) => {
   return actionReducer ? actionReducer(state, { payload }) : state
 }
 
-const useForm = ({ initialKeyword, initialRating }) => {
+const useForm = ({ initialKeyword = '', initialRating = 'g' } = {}) => {
   const [state, dispatch] = useReducer(REDUCER, {
     keyword: initialKeyword,
     rating: initialRating,

@@ -1,5 +1,5 @@
 import React from 'react'
-import 'styles/GifLink.css'
+import './GifLink.css'
 import { Link } from 'wouter'
 import Gif from './Gif'
 

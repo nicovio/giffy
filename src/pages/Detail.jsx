@@ -1,5 +1,5 @@
 import Gif from 'components/Gif/Gif'
-import Spinner from 'components/Spinner'
+import Spinner from 'components/Spinner/Spinner'
 import useSingleGif from 'hooks/useSingleGif'
 import React from 'react'
 import { Helmet } from 'react-helmet'

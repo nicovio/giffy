@@ -1,7 +1,7 @@
 import React from 'react'
-import 'styles/ListOfGifs.css'
-import GifLink from './Gif/GifLink'
-import Spinner from './Spinner'
+import './ListOfGifs.css'
+import GifLink from '../Gif/GifLink'
+import Spinner from '../Spinner/Spinner'
 
 export default function ListOfGifs({ gifs, loading }) {
   return (

@@ -1,6 +1,6 @@
-import useForm from 'hooks/useForm'
+import useForm from 'components/SearchForm/useForm'
 import React from 'react'
-import 'styles/SearchForm.css'
+import './SearchForm.css'
 import { useLocation } from 'wouter'
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r']

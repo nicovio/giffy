@@ -1,5 +1,5 @@
-import ListOfGifs from 'components/ListOfGifs'
-import SearchForm from 'components/SearchForm'
+import ListOfGifs from 'components/ListOfGifs/ListOfGifs'
+import SearchForm from 'components/SearchForm/SearchForm'
 import TrendingSearches from 'components/TrendingSearches/LazyTrendingSearches'
 import useGifs from 'hooks/useGifs'
 import React from 'react'

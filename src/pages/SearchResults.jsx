@@ -1,12 +1,12 @@
-import ListOfGifs from 'components/ListOfGifs'
-import SearchForm from 'components/SearchForm'
+import ListOfGifs from 'components/ListOfGifs/ListOfGifs'
+import SearchForm from 'components/SearchForm/SearchForm'
 import useGifs from 'hooks/useGifs'
 import useNearScreen from 'hooks/useNearScreen'
 import debounce from 'just-debounce-it'
 import React, { useCallback, useEffect, useRef } from 'react'
 import Helmet from 'react-helmet'
 import 'styles/SearchResults.css'
-import Spinner from './../components/Spinner'
+import Spinner from '../components/Spinner/Spinner'
 
 function SearchResults({ params }) {
   const keyword = decodeURI(params.keyword)

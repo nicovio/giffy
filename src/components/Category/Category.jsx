@@ -1,7 +1,7 @@
 import React from 'react'
-import 'styles/Category.css'
+import './Category.css'
 import CategoryListItem from './CategoryListItem'
-import Spinner from './Spinner'
+import Spinner from '../Spinner/Spinner'
 
 export default function Category({ name, options = [], loading }) {
   const spinnerStyle = { margin: '2rem 0 0 0' }

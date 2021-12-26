@@ -1,5 +1,5 @@
 import Helmet from 'react-helmet'
-import 'styles/Spinner.css'
+import './Spinner.css'
 
 const Spinner = ({ style }) => {
   return (

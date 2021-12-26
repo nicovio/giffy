@@ -1,4 +1,4 @@
-import Category from 'components/Category'
+import Category from 'components/Category/Category'
 import { useEffect, useState } from 'react'
 import { gifService } from 'services/gifService'
 

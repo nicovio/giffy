@@ -27,8 +27,8 @@ button {
   background: #480ca8;
   border: 0;
   color: #fff;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  padding: 0.2rem clamp(0.5rem, 3vw, 1.5rem);
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
@@ -49,12 +49,17 @@ ul {
 
 input[type='text'] {
   padding: 1rem;
-  margin: 0;
   width: 100%;
   font-size: 1.2rem;
   border: none;
 }
 
-input[type='text']:focus {
+input[type='text'],
+select {
+  margin: 0;
+}
+
+input[type='text']:focus,
+select:focus {
   outline: none;
 }

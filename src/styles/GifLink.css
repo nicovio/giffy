@@ -1,5 +1,6 @@
 :root {
   --outline-color: var(--brand-color_1);
+  --link-text-color: black;
 }
 
 .Gif-link {
@@ -11,7 +12,11 @@
 }
 
 .Gif-link:hover {
-  outline: 2px solid var(--outline-color);
+  outline: 5px solid var(--outline-color);
+}
+
+.Gif-link:hover h3 {
+  background-color: var(--outline-color);
 }
 
 .Gif-link:hover:nth-child(5n + 2) {
@@ -19,6 +24,7 @@
 }
 .Gif-link:hover:nth-child(5n + 3) {
   --outline-color: var(--brand-color_3);
+  --link-text-color: white;
 }
 .Gif-link:hover:nth-child(5n + 4) {
   --outline-color: var(--brand-color_4);
@@ -29,7 +35,7 @@
 
 .Gif-link h3 {
   opacity: 0;
-  color: #fff;
+  color: var(--link-text-color);
   background-color: rgba(49, 49, 49);
   font-size: 0.7rem;
   position: absolute;

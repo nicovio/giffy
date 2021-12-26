@@ -1,25 +1,52 @@
-import React, { useState } from 'react'
+import useForm from 'hooks/useForm'
+import React from 'react'
 import 'styles/SearchForm.css'
+import { useLocation } from 'wouter'
 
-function SearchForm({ onSubmit }) {
-  const [keyword, setKeyword] = useState('')
+const RATINGS = ['g', 'pg', 'pg-13', 'r']
+
+function SearchForm({ initialKeyword = '', initialRating = RATINGS[0] }) {
+  const [, pushLocation] = useLocation()
+
+  const { keyword, rating, updateKeyword, updateRating } = useForm({ initialKeyword, initialRating })
 
   const handleChange = (event) => {
-    setKeyword(event.target.value)
+    updateKeyword(event.target.value)
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    onSubmit({ keyword })
+    pushLocation(`/search/${keyword}/${rating}`)
+  }
+
+  const handleChangeRating = (event) => {
+    updateRating(event.target.value)
   }
 
   return (
     <>
       <form onSubmit={handleSubmit}>
+        <div className="inputs-container">
+          <select value={rating} onChange={handleChangeRating} name="rating" aria-label="Rating">
+            <option disabled>Rating</option>
+            {RATINGS.map((ratingOption) => (
+              <option key={ratingOption} value={ratingOption}>
+                {ratingOption}
+              </option>
+            ))}
+          </select>
+          <input
+            id="texto-busqueda"
+            aria-label="Buscar"
+            placeholder="Ej: taxi driver"
+            type="text"
+            onChange={handleChange}
+            value={keyword}
+          />
+        </div>
         <button data-testid="boton-buscar" disabled={!keyword}>
           Buscar
         </button>
-        <input aria-label="Buscar" placeholder="Ej: taxi driver" type="text" onChange={handleChange} value={keyword} />
       </form>
     </>
   )

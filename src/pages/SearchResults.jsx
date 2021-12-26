@@ -1,4 +1,5 @@
 import ListOfGifs from 'components/ListOfGifs'
+import SearchForm from 'components/SearchForm'
 import useGifs from 'hooks/useGifs'
 import useNearScreen from 'hooks/useNearScreen'
 import debounce from 'just-debounce-it'
@@ -9,7 +10,8 @@ import Spinner from './../components/Spinner'
 
 function SearchResults({ params }) {
   const keyword = decodeURI(params.keyword)
-  const { loading, loadingNextPage, setLoadingNextPage, gifs, hasNextPage, setPage } = useGifs({ keyword })
+  const rating = params.rating || 'g'
+  const { loading, loadingNextPage, setLoadingNextPage, gifs, hasNextPage, setPage } = useGifs({ keyword, rating })
   const externalRef = useRef()
   const { isNearScreen } = useNearScreen({ externalRef: loading ? null : externalRef, once: false })
 
@@ -44,6 +46,7 @@ function SearchResults({ params }) {
         <meta name="description" content={title} />
       </Helmet>
       <div className="App-results">
+        <SearchForm initialKeyword={keyword} initialRating={rating} />
         <h2 className="App-title">{keyword}</h2>
         <ListOfGifs gifs={gifs} loading={loading} />
         <div className="visor" id="visor" ref={externalRef}></div>

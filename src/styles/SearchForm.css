@@ -8,6 +8,45 @@ form {
   background-color: var(--bg-color);
   z-index: 1000;
   padding: 1rem 0;
-  outline: 2px solid var(--bg-color);
+  outline: 6px solid var(--bg-color);
   align-self: flex-start;
+  gap: 1rem;
+}
+
+select {
+  border: none;
+  border-right: 1px solid black;
+  padding: 0.25rem;
+  font-size: 1rem;
+}
+
+.inputs-container {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+button {
+  transition: opacity 0.5s ease-in-out;
+}
+
+button:disabled {
+  /* filter: brightness(70%); */
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 508px) {
+  form {
+    flex-direction: column;
+  }
+
+  .inputs-container {
+    gap: 0;
+  }
+
+  input[type='text'],
+  button {
+    padding: 1rem;
+  }
 }

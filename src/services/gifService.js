@@ -5,8 +5,8 @@ const fromImageDataToGif = imageData => {
     return { id, slug, title, image: images.original_mp4 }
 }
 
-const fetchGifs = async ({ limit = 15, keyword = 'morty', page = 0 } = {}) => {
-    const url = `${API_URL}/gifs/search?api_key=${API_KEY}&limit=${limit}&offset=${page * limit}&rating=g&lang=en&q=${keyword}`
+const fetchGifs = async ({ limit = 15, keyword = 'morty', page = 0, rating = 'g' } = {}) => {
+    const url = `${API_URL}/gifs/search?api_key=${API_KEY}&limit=${limit}&offset=${page * limit}&rating=${rating}&lang=en&q=${keyword}`
     const response = await fetch(url)
     const { data, pagination } = await response.json()
     const hasNextPage = !pagination || pagination.count + pagination.offset < pagination.total_count

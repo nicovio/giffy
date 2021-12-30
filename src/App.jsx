@@ -1,6 +1,6 @@
 import Logo from 'components/Logo'
 import { GifsContextProvider } from 'context/GifsContext'
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import { Route } from 'wouter'
 import './App.css'
@@ -12,6 +12,10 @@ const DetailPage = React.lazy(() => import('./pages/Detail'))
 const NotFoundPage = React.lazy(() => import('./pages/error/NotFound'))
 
 function App() {
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual'
+  }, [])
+
   return (
     <>
       <Helmet>
@@ -19,8 +23,8 @@ function App() {
         <link rel="canonical" href="https://giffy-nicovio.vercel.app" />
       </Helmet>
       <div className="App">
-        <section className="App-content">
-          <Suspense fallback={<Logo />}>
+        <Suspense fallback={<Logo />}>
+          <section className="App-content">
             <Logo />
             <GifsContextProvider>
               <Route path="/" component={HomePage} />
@@ -28,8 +32,8 @@ function App() {
               <Route path="/gif/:id" component={DetailPage} />
               <Route path="/404" component={NotFoundPage} />
             </GifsContextProvider>
-          </Suspense>
-        </section>
+          </section>
+        </Suspense>
       </div>
     </>
   )

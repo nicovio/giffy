@@ -1,20 +1,13 @@
 import React from 'react'
-import './ListOfGifs.css'
 import GifLink from '../Gif/GifLink'
-import Spinner from '../Spinner/Spinner'
+import './ListOfGifs.css'
 
-export default function ListOfGifs({ gifs, loading }) {
+export default function ListOfGifs({ gifs }) {
   return (
-    <>
-      {loading ? (
-        <Spinner />
-      ) : (
-        <div className="masonry-grid">
-          {gifs.map((gif) => (
-            <GifLink key={gif.id} gif={gif} />
-          ))}
-        </div>
-      )}
-    </>
+    <div className="masonry-grid">
+      {gifs.map((gif) => (
+        <GifLink key={gif.id} gif={gif} />
+      ))}
+    </div>
   )
 }

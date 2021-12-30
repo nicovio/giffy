@@ -35,23 +35,25 @@ function SearchResults({ params }) {
     }
   }, [isNearScreen, debounceHandleNextPage, hasNextPage, setLoadingNextPage])
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-
   return (
     <>
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={title} />
-      </Helmet>
-      <div className="App-results">
-        <SearchForm initialKeyword={keyword} initialRating={rating} />
-        <h2 className="App-title">{keyword}</h2>
-        <ListOfGifs gifs={gifs} loading={loading} />
-        <div className="visor" id="visor" ref={externalRef}></div>
-        {!loading && loadingNextPage && <Spinner style={spinnerStyle} />}
-      </div>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <>
+          <Helmet>
+            <title>{title}</title>
+            <meta name="description" content={title} />
+          </Helmet>
+          <div className="App-results">
+            <SearchForm initialKeyword={keyword} initialRating={rating} />
+            <h2 className="App-title">{keyword}</h2>
+            <ListOfGifs gifs={gifs} />
+            <div className="visor" id="visor" ref={externalRef}></div>
+            {!loading && loadingNextPage && <Spinner style={spinnerStyle} />}
+          </div>
+        </>
+      )}
     </>
   )
 }

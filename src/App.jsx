@@ -23,8 +23,8 @@ function App() {
         <link rel="canonical" href="https://giffy-nicovio.vercel.app" />
       </Helmet>
       <div className="App">
-        <Suspense fallback={<Logo />}>
-          <section className="App-content">
+        <section className="App-content">
+          <Suspense fallback={<Logo />}>
             <Logo />
             <GifsContextProvider>
               <Route path="/" component={HomePage} />
@@ -32,8 +32,8 @@ function App() {
               <Route path="/gif/:id" component={DetailPage} />
               <Route path="/404" component={NotFoundPage} />
             </GifsContextProvider>
-          </section>
-        </Suspense>
+          </Suspense>
+        </section>
       </div>
     </>
   )

@@ -1,5 +1,6 @@
 import GifsContext from 'context/GifsContext'
-import { useContext, useEffect, useState } from 'react'
+import debounce from 'just-debounce-it'
+import { useCallback, useContext, useEffect, useState } from 'react'
 import { gifService } from 'services/gifService'
 import { isNew } from './utils'
 
@@ -8,30 +9,45 @@ const INITIAL_PAGE = 0
 const useGifs = ({ keyword, limit, rating } = {}) => {
   const [loading, setLoading] = useState(false)
   const [loadingNextPage, setLoadingNextPage] = useState(false)
-  const { gifs, setGifs } = useContext(GifsContext)
   const [page, setPage] = useState(INITIAL_PAGE)
   const [hasNextPage, setHasNextPage] = useState(true)
+  const { gifs, setGifs } = useContext(GifsContext)
+
   const keywordToUse = keyword || localStorage.getItem('lastKeyword') || 'random'
 
-  useEffect(() => {
-    setGifs([])
-  }, [setGifs])
+  const debounceHandleNextPage = useCallback(() => {
+    const withDebounce = debounce(() => {
+      setPage((currentPage) => currentPage + 1)
+    }, 1000)
+    withDebounce()
+  }, [])
+
+  const loadNextPage = useCallback(() => {
+    if (hasNextPage) {
+      setLoadingNextPage(true)
+      debounceHandleNextPage()
+    }
+  }, [debounceHandleNextPage, hasNextPage])
 
   useEffect(() => {
-    async function getGifs() {
+    async function getInitialGifs() {
       setLoading(true)
-      const { gifs, hasNextPage } = await gifService.fetchGifs({ keyword: keywordToUse, limit, rating })
+      const { gifs } = await gifService.fetchGifs({ keyword: keywordToUse, limit, rating })
       setGifs(gifs)
-      if (!hasNextPage) setHasNextPage(false)
       setLoading(false)
       localStorage.setItem('lastKeyword', keywordToUse)
     }
-    getGifs()
+    getInitialGifs()
   }, [keywordToUse, setGifs, limit, rating])
 
   useEffect(() => {
     async function getNextGifs() {
-      const { gifs: nextGifs, hasNextPage } = await gifService.fetchGifs({ keyword: keywordToUse, page, limit, rating })
+      const { gifs: nextGifs, hasNextPage } = await gifService.fetchGifs({
+        keyword: keywordToUse,
+        page,
+        limit,
+        rating,
+      })
       setGifs((prevGifs) => prevGifs.concat(nextGifs.filter((gif) => isNew(gif, prevGifs))))
       if (!hasNextPage) setHasNextPage(false)
       setLoadingNextPage(false)
@@ -40,7 +56,7 @@ const useGifs = ({ keyword, limit, rating } = {}) => {
     getNextGifs()
   }, [keywordToUse, page, setGifs, limit, rating])
 
-  return { loading, loadingNextPage, setLoadingNextPage, gifs, setPage, hasNextPage }
+  return { gifs, loading, loadingNextPage, loadNextPage }
 }
 
 export default useGifs

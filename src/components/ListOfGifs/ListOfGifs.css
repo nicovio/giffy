@@ -12,7 +12,7 @@
   border-radius: var(--gif-border-radius);
 }
 
-@media screen and (max-width: 508px) {
+@media screen and (max-width: 588px) {
   .masonry-grid video {
     max-height: 100%;
   }

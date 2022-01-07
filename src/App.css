@@ -1,5 +1,5 @@
 :root {
-  --content-padding: max(1rem, calc(8vw + 0.5rem));
+  --content-padding: 10vw;
   --masonry-gap: 0.8rem;
   --gif-border-radius: 5px;
   --bg-color: #121212;
@@ -9,6 +9,7 @@
   --brand-color_4: tomato;
   --brand-color_5: #fff35c;
   --brand-color_6: #8429de;
+  --one-column-breakpoint: 605px;
 }
 
 h1 {
@@ -52,4 +53,10 @@ h1 {
 .App-logo img {
   object-fit: cover;
   max-width: 100%;
+}
+
+@media screen and (max-width: 750px) {
+  :root {
+    --content-padding: 1rem;
+  }
 }

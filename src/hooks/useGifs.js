@@ -35,7 +35,7 @@ const useGifs = ({ keyword, limit, rating } = {}) => {
       const { gifs } = await gifService.fetchGifs({ keyword: keywordToUse, limit, rating })
       setGifs(gifs)
       setLoading(false)
-      localStorage.setItem('lastKeyword', keywordToUse)
+      gifs.length && localStorage.setItem('lastKeyword', keywordToUse)
     }
     getInitialGifs()
   }, [keywordToUse, setGifs, limit, rating])

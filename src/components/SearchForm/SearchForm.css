@@ -36,7 +36,7 @@ button:disabled {
   cursor: not-allowed;
 }
 
-@media screen and (max-width: 588px) {
+@media screen and (max-width: 750px) {
   form {
     flex-direction: column;
   }

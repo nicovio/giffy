@@ -5,8 +5,7 @@ import { config } from 'https://deno.land/x/dotenv@v3.1.0/mod.ts'
 import * as flags from 'https://deno.land/std@0.120.0/flags/mod.ts'
 
 import { userMiddleware } from './userMiddleware.ts'
-// import { authMiddleware } from './authMiddleware.ts'
-import { getFavs, postLogin } from './routes.ts'
+import { deleteFav, getFavs, postFav, postLogin, postRegister } from './routes.ts'
 import { importPrivateKey } from './helpers/importPrivateKey.ts'
 import { authMiddleware } from './authMiddleware.ts'
 
@@ -28,10 +27,10 @@ app.use(userMiddleware, oakCors())
 
 router
   .get('/favs', authMiddleware, getFavs)
-  // .post('/favs/:id', authMiddleware, postFav)
-  // .post('/register', postRegister)
+  .post('/favs/:id', authMiddleware, postFav)
+  .post('/register', postRegister)
   .post('/login', postLogin)
-  // .delete('/favs/:id', authMiddleware, deleteFav)
+  .delete('/favs/:id', authMiddleware, deleteFav)
 
 app.addEventListener('error', (event) => {
   console.log(event.error)

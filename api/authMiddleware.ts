@@ -1,6 +1,4 @@
-import { Context } from 'https://deno.land/x/oak@v10.1.0/mod.ts'
-
-const authMiddleware = async (ctx: Context, next: () => Promise<unknown>) => {
+const authMiddleware = async (ctx: any, next: () => Promise<unknown>) => {
   if (ctx.state.currentUser) {
     await next()
   } else {

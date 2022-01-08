@@ -1,7 +1,7 @@
 import { getNumericDate, Header } from 'https://deno.land/x/djwt@v2.4/mod.ts'
 import { User } from '../users.ts'
 
-const EXPIRATION_TIME = 60
+const EXPIRATION_TIME = 60 * 60
 
 export const HEADER: Header = {
   // alg: 'HS256',

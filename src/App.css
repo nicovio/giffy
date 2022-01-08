@@ -1,5 +1,5 @@
 :root {
-  --content-padding: 10vw;
+  --content-padding: 8vw;
   --masonry-gap: 0.8rem;
   --gif-border-radius: 5px;
   --bg-color: #121212;
@@ -38,7 +38,6 @@ h1 {
 }
 
 .App-results {
-  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;

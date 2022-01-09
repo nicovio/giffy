@@ -4,8 +4,8 @@ import useGifs from 'hooks/useGifs'
 import useNearScreen from 'hooks/useNearScreen'
 import React, { useEffect, useRef } from 'react'
 import Helmet from 'react-helmet'
-import 'styles/SearchResults.css'
-import Spinner from '../components/Spinner/Spinner'
+import './SearchResults.css'
+import Spinner from 'components/Spinner/Spinner'
 
 function SearchResults({ params }) {
   const keyword = decodeURI(params.keyword)

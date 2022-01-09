@@ -1,5 +1,5 @@
 import React from 'react'
-import GifLink from '../Gif/GifLink'
+import GifLink from 'components/Gif/GifLink'
 import './ListOfGifs.css'
 
 export default function ListOfGifs({ gifs }) {

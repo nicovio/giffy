@@ -9,7 +9,7 @@ import { deleteFav, getFavs, postFav, postLogin, postRegister } from './routes.t
 import { importPrivateKey } from './helpers/importPrivateKey.ts'
 import { authMiddleware } from './authMiddleware.ts'
 
-const PEM_KEY = Deno.env.get('BASE_64_KEY') || ''
+const PEM_KEY = Deno.env.get('BASE_64_KEY')?.replace(/\\n/g, '\n') || ''
 export const SECRET_KEY = await importPrivateKey(PEM_KEY)
 
 config()

@@ -13,7 +13,7 @@ export const postLogin = async (ctx: Context) => {
   const { value } = await ctx.request.body()
   const { username, password } = await value
 
-  const jwt = userService.login(username, password)
+  const jwt = await userService.login(username, password)
 
   if (!jwt) {
     ctx.response.status = 401

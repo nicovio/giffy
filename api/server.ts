@@ -1,7 +1,6 @@
 import { Application, Router } from 'https://deno.land/x/oak@v10.1.0/mod.ts'
 import { oakCors } from 'https://deno.land/x/cors@v1.2.2/mod.ts'
 import 'https://deno.land/x/dotenv@v3.1.0/load.ts'
-import { config } from 'https://deno.land/x/dotenv@v3.1.0/mod.ts'
 import * as flags from 'https://deno.land/std@0.120.0/flags/mod.ts'
 
 import { userMiddleware } from './userMiddleware.ts'
@@ -11,8 +10,6 @@ import { authMiddleware } from './authMiddleware.ts'
 
 const PEM_KEY = Deno.env.get('BASE_64_KEY')?.replace(/\\n/g, '\n') || ''
 export const SECRET_KEY = await importPrivateKey(PEM_KEY)
-
-config()
 
 const { args } = Deno
 

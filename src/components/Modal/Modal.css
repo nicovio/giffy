@@ -1,0 +1,38 @@
+.modal {
+  background-color: rgba(0, 0, 0, 0.65);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  backdrop-filter: blur(4px);
+  padding: 0 1rem;
+}
+
+.modal-content {
+  background-color: #272a4e;
+  max-width: 20rem;
+  min-width: 200px;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 4rem auto;
+  position: relative;
+}
+
+.modal-content input {
+  width: 100%;
+}
+
+.modal-content .close-btn {
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: transparent;
+  border: none;
+}
+
+.modal-content .form-body {
+  padding: 0;
+}

@@ -7,14 +7,14 @@
 
 .masonry-grid video {
   width: 100%;
-  max-height: 15rem;
+  /* max-height: 15rem; */
   /* object-fit: cover; */
   border-radius: var(--gif-border-radius);
 }
 
 @media screen and (max-width: 511.5px) {
   .masonry-grid video {
-    max-height: 100%;
+    /* max-height: 100%; */
   }
 }
 

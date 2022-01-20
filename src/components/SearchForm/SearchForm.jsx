@@ -25,7 +25,7 @@ function SearchForm({ initialKeyword = '', initialRating = RATINGS[0] }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className="search-form" onSubmit={handleSubmit}>
         <div className="inputs-container">
           <select value={rating} onChange={handleChangeRating} name="rating" aria-label="Rating">
             <option disabled>Rating</option>
@@ -44,7 +44,7 @@ function SearchForm({ initialKeyword = '', initialRating = RATINGS[0] }) {
             value={keyword}
           />
         </div>
-        <button data-testid="boton-buscar" disabled={!keyword}>
+        <button className="btn" data-testid="boton-buscar" disabled={!keyword}>
           Buscar
         </button>
       </form>

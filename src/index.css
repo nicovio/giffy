@@ -1,3 +1,8 @@
+:root {
+  --font-family-default: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
 html {
   font-size: max(16px, 1vw);
 }
@@ -5,8 +10,7 @@ html {
 body {
   background-color: var(--bg-color);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-family-default);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -24,13 +28,31 @@ h6 {
   margin: 0;
 }
 
+input,
+select,
 button {
+  border-radius: 5px;
+}
+
+.btn {
   background: #480ca8;
   border: 0;
   color: #fff;
-  padding: 0.2rem clamp(0.5rem, 3vw, 1.5rem);
-  font-size: 1.2rem;
+  padding: 0.8rem;
+  font-size: 1.1rem;
   cursor: pointer;
+  font-family: var(--font-family-default);
+}
+
+button {
+  transition: opacity 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+button:disabled {
+  /* filter: brightness(80%); */
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 a {
@@ -48,19 +70,52 @@ ul {
   padding: 0;
 }
 
-input[type='text'] {
-  padding: 1rem;
+input {
+  /* padding: 0.6rem; */
+  /* border: none;
+  background-color: rgb(255, 255, 255); */
+  display: block;
+  padding: 0.8rem;
   width: 100%;
-  font-size: 1.2rem;
-  border: none;
+  font-size: 1rem;
+  box-sizing: border-box;
+  line-height: 1.5;
 }
 
-input[type='text'],
+input,
 select {
+  background-color: #2f3247;
+  /* background-color: #2D3748; */
+  /* background-color: #1f2447; */
+  /* background-color: #1c1f3a; */
+  color: white;
   margin: 0;
+  border: none;
+  /* border: 1px solid rgba(114, 113, 113, 0.867); */
 }
 
-input[type='text']:focus,
+input:focus,
 select:focus {
   outline: none;
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background-color: #2f3247;
+  /* border: 2px solid rgba(114, 113, 113, 0.867); */
+  color: white;
+
+  /* border: 1px solid green; */
+  -webkit-text-fill-color: white;
+  /* box-shadow: 0 0 0px 1000px #000 inset; */
+  /* -webkit-box-shadow: 0 0 0px 1000px #000 inset; */
+  transition: background-color 5000s ease-in-out 0s;
 }

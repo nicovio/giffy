@@ -1,0 +1,26 @@
+.gf-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.gf-header :is(a, .logout-button) {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.gf-header :is(a, .logout-button):hover {
+  text-decoration: underline;
+}
+
+.logout-button {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  font-family: var(--font-family-default);
+}
+
+.gf-header a + a {
+  margin-left: 1rem;
+}

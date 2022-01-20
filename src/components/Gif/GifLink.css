@@ -8,7 +8,6 @@
   position: relative;
   border-radius: var(--gif-border-radius);
   transition: outline ease 0.2s;
-  padding: 0.5rem;
 }
 
 .Gif-link:hover {
@@ -19,17 +18,17 @@
   background-color: var(--outline-color);
 }
 
-.Gif-link:hover:nth-child(5n + 2) {
+.Gif-link-container:hover:nth-child(5n + 2) {
   --outline-color: var(--brand-color_2);
 }
-.Gif-link:hover:nth-child(5n + 3) {
+.Gif-link-container:hover:nth-child(5n + 3) {
   --outline-color: var(--brand-color_3);
   --link-text-color: white;
 }
-.Gif-link:hover:nth-child(5n + 4) {
+.Gif-link-container:hover:nth-child(5n + 4) {
   --outline-color: var(--brand-color_4);
 }
-.Gif-link:hover:nth-child(5n + 5) {
+.Gif-link-container:hover:nth-child(5n + 5) {
   --outline-color: var(--brand-color_5);
 }
 
@@ -49,4 +48,15 @@
 
 .Gif-link:hover h3 {
   opacity: 1;
+}
+
+.Gif-link-container {
+  position: relative;
+}
+
+.Gif-buttons {
+  position: absolute;
+  z-index: 1;
+  right: 5px;
+  top: 0.2rem;
 }

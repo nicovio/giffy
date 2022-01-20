@@ -1,0 +1,15 @@
+.error-container {
+  padding: 1rem;
+  margin-top: 1rem;
+  color: white;
+  background-color: #b00020;
+  /* background-color: #290007;
+  border: 1px solid #b00020; */
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.error-container strong {
+  font-size: 1rem;
+}

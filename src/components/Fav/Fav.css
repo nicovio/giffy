@@ -1,0 +1,16 @@
+.gf-fav {
+  background-color: rgba(255, 172, 172, 0.3);
+  border: 0;
+  padding: 0.5rem;
+  width: 2rem;
+  transition: all ease 0.4s;
+  border-radius: 50%;
+}
+
+.gf-fav:hover {
+  background-color: rgba(255, 172, 172, 0.8);
+}
+
+.gf-fav span {
+  color: transparent;
+}

@@ -1,15 +1,21 @@
+import Fav from 'components/Fav/Fav'
 import React from 'react'
-import './GifLink.css'
 import { Link } from 'wouter'
 import Gif from './Gif'
+import './GifLink.css'
 
 function GifLink({ gif }) {
   return (
-    <Link href={`/gif/${gif.id}`}>
-      <a href="replace" className="Gif-link" data-testid={`gif-link-${gif.id}`}>
-        <Gif gif={gif}></Gif>
-      </a>
-    </Link>
+    <div className="Gif-link-container">
+      <div className="Gif-buttons">
+        <Fav id={gif.id} />
+      </div>
+      <Link href={`/gif/${gif.id}`}>
+        <a href="replace" className="Gif-link" data-testid={`gif-link-${gif.id}`}>
+          <Gif gif={gif}></Gif>
+        </a>
+      </Link>
+    </div>
   )
 }
 

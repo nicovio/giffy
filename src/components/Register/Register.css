@@ -1,0 +1,11 @@
+.form-body .has-error {
+  margin-bottom: 0;
+}
+
+.form-body .error {
+  color: #ffb5b5;
+}
+
+.success {
+  color: #47f147;
+}

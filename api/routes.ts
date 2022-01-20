@@ -1,4 +1,4 @@
-import { Context } from 'https://deno.land/x/oak@v10.1.0/mod.ts'
+import { Context, Status } from 'https://deno.land/x/oak@v10.1.0/mod.ts'
 import { userService } from './services/userService.ts'
 import { favsService } from './services/favsService.ts'
 import { User } from './users.ts'
@@ -46,6 +46,11 @@ export const deleteFav = async (ctx: any) => {
 export const postRegister = async (ctx: any) => {
   const { value } = await ctx.request.body()
   const user: User = await value
-  await userService.register(user)
-  ctx.response.status = 200
+  const alreadyExist = await userService.register(user)
+  if (alreadyExist) {
+    ctx.response.status = 409
+    ctx.response.body = { message: 'Usuario no disponible', status: 409 }
+  } else {
+    ctx.response.status = 200
+  }
 }

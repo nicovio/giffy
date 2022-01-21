@@ -1,36 +1,28 @@
-import FormError from 'components/FormError/FormError'
-import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import AccountNavbar from 'components/AccountNavbar/AccountNavbar'
+import Form from 'components/Form/Form'
+import Input from 'components/Input/Input'
+import { React, useState } from 'react'
+import { FormProvider, useForm } from 'react-hook-form'
 import { loginService } from 'services/login'
 import 'styles/form.css'
 import './Register.css'
-import { ErrorMessage } from '@hookform/error-message'
 
 const defaultValues = { username: '', password: '' }
 
 export default function Register() {
-  const {
-    handleSubmit,
-    register,
-    formState: { errors, isValid, isDirty },
-    setError,
-  } = useForm({ defaultValues, mode: 'all' })
   const [registered, setRegistered] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
+  const methods = useForm({ defaultValues, mode: 'all' })
+
+  const {
+    register,
+    formState: { errors, isValid, isDirty },
+  } = methods
+
   const onSubmit = async (values) => {
-    try {
-      setIsSubmitting(true)
-      await loginService.register(values)
-      setRegistered(true)
-    } catch (err) {
-      setError('username', {
-        type: 'manual',
-        message: err.message,
-      })
-    } finally {
-      setIsSubmitting(false)
-    }
+    await loginService.register(values)
+    setRegistered(true)
   }
 
   if (registered) {
@@ -42,12 +34,13 @@ export default function Register() {
   }
 
   return (
-    <>
-      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+    <FormProvider {...methods}>
+      <Form onSubmit={onSubmit} setIsSubmitting={setIsSubmitting}>
         <section className="form-body">
+          <AccountNavbar />
           <h4 className="form-header">Registrarse</h4>
-          <label htmlFor="username">Usuario</label>
-          <input
+          <Input
+            label="Usuario"
             className={errors?.username ? 'has-error' : ''}
             autoComplete="off"
             id="username"
@@ -55,11 +48,8 @@ export default function Register() {
             type="text"
             {...register('username', { required: 'El campo es requerido' })}
           />
-
-          <ErrorMessage errors={errors} name="username" render={FormError} />
-
-          <label htmlFor="password">Contraseña</label>
-          <input
+          <Input
+            label="Contraseña"
             maxLength="72"
             className={errors?.password ? 'has-error' : ''}
             autoComplete="off"
@@ -74,13 +64,11 @@ export default function Register() {
               },
             })}
           />
-          <ErrorMessage errors={errors} name="password" render={FormError} />
-
           <button type="submit" className="btn" disabled={isSubmitting || !isDirty || !isValid}>
-            Registrarse
+            {isSubmitting ? 'Registrando usuario...' : 'Registrarse'}
           </button>
         </section>
-      </form>
-    </>
+      </Form>
+    </FormProvider>
   )
 }

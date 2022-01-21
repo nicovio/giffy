@@ -1,3 +1,4 @@
+import AccountNavbar from 'components/AccountNavbar/AccountNavbar'
 import Error from 'components/Error/Error'
 import useUser from 'hooks/useUser'
 import React, { useEffect, useState } from 'react'
@@ -23,9 +24,9 @@ export default function Login({ onLogin }) {
 
   return (
     <>
-
       <form className="form" onSubmit={handleSubmit}>
         <section className="form-body">
+          <AccountNavbar />
           <h4 className="form-header">Iniciar Sesión</h4>
           <label htmlFor="username">Usuario</label>
           <input

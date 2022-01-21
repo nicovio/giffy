@@ -16,9 +16,14 @@ export default function useUser() {
         setJWT(jwt)
         setState({ loading: false, error: false })
       } catch (err) {
+        console.log(err)
         localStorage.removeItem('jwt')
         setState({ loading: false, error: true })
-        console.log(err)
+        if (!err.status) {
+          throw new Error('No hubo conexión con el servidor')
+        } else {
+          throw err
+        }
       }
     },
     [setJWT]

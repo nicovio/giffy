@@ -62,7 +62,7 @@ a {
 }
 
 a:hover {
-  color: rgb(2, 98, 161);
+  filter: brightness(120%);
 }
 
 ul {

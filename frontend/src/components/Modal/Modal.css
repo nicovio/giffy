@@ -35,4 +35,5 @@
 
 .modal-content .form-body {
   padding: 0;
+  outline: none;
 }

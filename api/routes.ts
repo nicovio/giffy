@@ -17,6 +17,7 @@ export const postLogin = async (ctx: Context) => {
 
   if (!jwt) {
     ctx.response.status = 401
+    ctx.response.body = { message: 'Credenciales incorrectas', status: 401 }
   } else {
     ctx.response.status = 201
     ctx.response.body = { jwt }
@@ -49,7 +50,7 @@ export const postRegister = async (ctx: any) => {
   const alreadyExist = await userService.register(user)
   if (alreadyExist) {
     ctx.response.status = 409
-    ctx.response.body = { message: 'Usuario no disponible', status: 409 }
+    ctx.response.body = { message: 'Usuario no disponible', status: 409, field: 'username' }
   } else {
     ctx.response.status = 200
   }

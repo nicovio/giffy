@@ -4,7 +4,8 @@
 }
 
 .form-body {
-  background-color: #272a4e;
+  /* background-color: #272a4e; */
+  outline: 1px solid rgba(255, 255, 255, 0.418);
   padding: 2rem;
   border-radius: 10px;
 }
@@ -55,9 +56,10 @@
   .form {
     max-width: 100%;
   }
-
+  
   .form-body {
     background-color: transparent;
-    padding: 1rem 0;
+    padding: 1rem;
+    outline: none;
   }
 }

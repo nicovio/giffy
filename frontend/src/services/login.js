@@ -3,7 +3,7 @@ import { USER_API_URL } from './settings'
 const validateResponse = async (response) => {
   if (!response.ok) {
     const error = await response.json()
-    throw Object.assign(new ApiError(), { ...error })
+    throw error
   }
 }
 
@@ -36,15 +36,3 @@ const register = async (user) => {
 }
 
 export const loginService = { login, register }
-
-class ApiError {
-  message
-  status
-  field
-
-  constructor(message, status, field) {
-    this.message = message
-    this.status = status
-    this.field = field
-  }
-}

@@ -2,28 +2,25 @@ import Context from 'context/UserContext'
 import { useCallback, useContext, useState } from 'react'
 import { favService } from 'services/favService'
 import { loginService } from 'services/login'
+import { getErrorMessage } from 'utils/getErrorMessage'
 
 export default function useUser() {
   const { jwt, setJWT, favs, setFavs } = useContext(Context)
-  const [state, setState] = useState({ loading: false, error: false })
+  const [state, setState] = useState({ loading: false, error: '' })
 
   const login = useCallback(
     async (username, password) => {
       try {
-        setState({ loading: true, error: false })
+        setState((currentState) => ({ loading: true, error: currentState.error }))
         const jwt = await loginService.login({ username, password })
         localStorage.setItem('jwt', jwt)
         setJWT(jwt)
-        setState({ loading: false, error: false })
+        setState({ loading: false, error: '' })
       } catch (err) {
         console.log(err)
         localStorage.removeItem('jwt')
-        setState({ loading: false, error: true })
-        if (!err.status) {
-          throw new Error('No hubo conexión con el servidor')
-        } else {
-          throw err
-        }
+        const message = getErrorMessage(err)
+        setState({ loading: false, error: message })
       }
     },
     [setJWT]
@@ -67,7 +64,7 @@ export default function useUser() {
     login,
     logout,
     isLoginloading: state.loading,
-    hasLoginError: state.error,
+    error: state.error,
     addFav,
     deleteFav,
     isFaved,

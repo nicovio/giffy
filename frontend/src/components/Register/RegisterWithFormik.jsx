@@ -1,4 +1,4 @@
-import FormError from 'components/FormError/FormError'
+import FormError from 'components/Form/FormError/FormError'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 import React, { useState } from 'react'
 import { loginService } from 'services/login'

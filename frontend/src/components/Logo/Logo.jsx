@@ -5,7 +5,7 @@ export default function Logo() {
   return (
     <Link to="/">
       <figure className="App-logo">
-        <img alt="Giffy logo" src="/logo.png" />
+        <img alt="Giffy logo" width="64" height="40" src="/logo.png" />
       </figure>
     </Link>
   )

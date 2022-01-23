@@ -1,4 +1,3 @@
-import AccountNavbar from 'components/AccountNavbar/AccountNavbar'
 import Error from 'components/Error/Error'
 import useUser from 'hooks/useUser'
 import React, { useEffect, useState } from 'react'
@@ -10,7 +9,7 @@ export default function Login({ onLogin, showAccountNavbar = false }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [, navigate] = useLocation()
-  const { login, isLogged, isLoginloading, hasLoginError } = useUser()
+  const { login, isLogged, isLoginloading, error } = useUser()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -49,7 +48,7 @@ export default function Login({ onLogin, showAccountNavbar = false }) {
             {isLoginloading ? 'Ingresando...' : 'Ingresar'}
           </button>
         </section>
-        {hasLoginError && <Error message="Usuario o contraseña incorrectos" />}
+        {error && <Error message={error} />}
       </form>
     </>
   )

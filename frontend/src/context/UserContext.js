@@ -11,8 +11,14 @@ export function UserContextProvider({ children }) {
     const getFavs = async () => {
       if (!jwt) return setFavs([])
       if (jwt) {
-        const favs = await favService.getFavs({ jwt })
-        setFavs(favs)
+        try {
+          const favs = await favService.getFavs({ jwt })
+          setFavs(favs)
+        } catch (err) {
+          if (err.status === 401) {
+            localStorage.removeItem('jwt')
+          }
+        }
       }
     }
     getFavs()

@@ -2,6 +2,7 @@ import Error from 'components/Error/Error'
 import React, { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import 'styles/form.css'
+import { getErrorMessage } from 'utils/getErrorMessage'
 import './Form.css'
 
 export default function Form({ onSubmit, setIsSubmitting, children }) {
@@ -19,7 +20,8 @@ export default function Form({ onSubmit, setIsSubmitting, children }) {
           message: err.message,
         })
       } else {
-        setError(err)
+        const message = getErrorMessage(err)
+        setError({ message })
       }
     } finally {
       setIsSubmitting(false)

@@ -1,5 +1,5 @@
 import { ErrorMessage } from '@hookform/error-message'
-import FormError from 'components/FormError/FormError'
+import FormError from 'components/Form/FormError/FormError'
 import React, { forwardRef } from 'react'
 import { useFormContext } from 'react-hook-form'
 

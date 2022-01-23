@@ -4,8 +4,9 @@ import useUser from 'hooks/useUser'
 import React, { useEffect, useState } from 'react'
 import 'styles/form.css'
 import useLocation from 'wouter/use-location'
+import AccountNavbar from 'components/AccountNavbar/AccountNavbar'
 
-export default function Login({ onLogin }) {
+export default function Login({ onLogin, showAccountNavbar = false }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [, navigate] = useLocation()
@@ -26,7 +27,7 @@ export default function Login({ onLogin }) {
     <>
       <form className="form" onSubmit={handleSubmit}>
         <section className="form-body">
-          <AccountNavbar />
+          {showAccountNavbar && <AccountNavbar />}
           <h4 className="form-header">Iniciar Sesión</h4>
           <label htmlFor="username">Usuario</label>
           <input

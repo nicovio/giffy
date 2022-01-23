@@ -2,6 +2,7 @@ import useForm from 'components/SearchForm/useForm'
 import React from 'react'
 import './SearchForm.css'
 import { useLocation } from 'wouter'
+import { FaSearch } from 'react-icons/fa'
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r']
 
@@ -43,10 +44,10 @@ function SearchForm({ initialKeyword = '', initialRating = RATINGS[0] }) {
             onChange={handleChange}
             value={keyword}
           />
+          <button className="btn" data-testid="boton-buscar" disabled={!keyword}>
+            <FaSearch className="search-icon" />
+          </button>
         </div>
-        <button className="btn" data-testid="boton-buscar" disabled={!keyword}>
-          Buscar
-        </button>
       </form>
     </>
   )

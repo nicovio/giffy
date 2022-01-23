@@ -14,7 +14,7 @@ export default function LoginPage() {
       <Helmet>
         <title>Ingresar | Giffy</title>
       </Helmet>
-      <Login onLogin={onLogin} />
+      <Login onLogin={onLogin} showAccountNavbar={true} />
     </>
   )
 }

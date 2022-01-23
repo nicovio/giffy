@@ -1,6 +1,6 @@
 .error-container {
   padding: 1rem;
-  margin-top: 1rem;
+  margin-top: 2.5rem;
   color: white;
   background-color: #b00020;
   /* background-color: #290007;
@@ -8,8 +8,9 @@
   display: flex;
   justify-content: center;
   border-radius: 10px;
+  animation: opacity 1s normal;
 }
 
 .error-container strong {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }

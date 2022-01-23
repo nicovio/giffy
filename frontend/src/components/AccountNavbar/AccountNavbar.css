@@ -20,6 +20,10 @@
   transition: filter ease 0.3s;
 }
 
+.link:focus {
+  z-index: 10;
+}
+
 .link:first-child {
   border-radius: 10px 0 0 10px;
 }
@@ -34,6 +38,5 @@
 }
 
 .navbar .link:not(.active) {
-  /* filter: brightness(80%); */
-  background-color: #393d6c;
+  background-color: #343434;
 }

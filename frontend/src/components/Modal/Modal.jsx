@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import './Modal.css'
+import 'styles/form.css'
+import Helmet from 'react-helmet'
 
 function Modal({ children, onClose }) {
   const stopPropagation = (e) => {
@@ -25,14 +27,19 @@ function Modal({ children, onClose }) {
   }, [handleEsc])
 
   return (
-    <div onClick={onClose} className="modal">
-      <div onClick={stopPropagation} className="modal-content">
-        <button className="close-btn" onClick={onClose}>
-          ❌
-        </button>
-        {children}
+    <>
+      <Helmet>
+        <title>Ingresar | Giffy</title>
+      </Helmet>
+      <div onClick={onClose} className="modal">
+        <div onClick={stopPropagation} className="modal-content">
+          <button className="close-btn" onClick={onClose}>
+            ❌
+          </button>
+          {children}
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

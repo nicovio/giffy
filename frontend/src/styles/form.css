@@ -4,8 +4,8 @@
 }
 
 .form-body {
-  /* background-color: #272a4e; */
-  outline: 1px solid rgba(255, 255, 255, 0.418);
+  background-color: #001529;
+  /* background-color: #202652; */
   padding: 2rem;
   border-radius: 10px;
 }
@@ -34,7 +34,7 @@
 
 .form button {
   width: 100%;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   padding: 0.6rem;
   background-color: #015064;
 }
@@ -56,10 +56,10 @@
   .form {
     max-width: 100%;
   }
-  
+
   .form-body {
     background-color: transparent;
-    padding: 1rem;
+    padding: 0;
     outline: none;
   }
 }

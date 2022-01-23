@@ -8,6 +8,10 @@
   position: relative;
   border-radius: var(--gif-border-radius);
   transition: outline ease 0.2s;
+  outline: 1px solid rgba(126, 126, 126, 0.349);
+  /* height: 100%; */
+  background-color: var(--bg-color);
+  padding: .5rem;
 }
 
 .Gif-link:hover {
@@ -57,6 +61,7 @@
 .Gif-buttons {
   position: absolute;
   z-index: 1;
-  right: 5px;
-  top: 0.2rem;
+  right: 6px;
+  top: 6px;
+  line-height: 0;
 }

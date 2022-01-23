@@ -12,7 +12,7 @@ function GifLink({ gif }) {
       </div>
       <Link href={`/gif/${gif.id}`}>
         <a href="replace" className="Gif-link" data-testid={`gif-link-${gif.id}`}>
-          <Gif gif={gif}></Gif>
+          <Gif height="200" gif={gif}></Gif>
         </a>
       </Link>
     </div>

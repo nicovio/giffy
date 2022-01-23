@@ -85,13 +85,9 @@ input {
 input,
 select {
   background-color: #2f3247;
-  /* background-color: #2D3748; */
-  /* background-color: #1f2447; */
-  /* background-color: #1c1f3a; */
   color: white;
   margin: 0;
   border: none;
-  /* border: 1px solid rgba(114, 113, 113, 0.867); */
 }
 
 input:focus,
@@ -118,4 +114,35 @@ select:-webkit-autofill:focus {
   /* box-shadow: 0 0 0px 1000px #000 inset; */
   /* -webkit-box-shadow: 0 0 0px 1000px #000 inset; */
   transition: background-color 5000s ease-in-out 0s;
+}
+
+::placeholder {
+  color: rgba(189, 188, 188, 0.933);
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes appearFromTop {
+  0% {
+    transform: translateY(-15%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes appearFromRight {
+  0% {
+    transform: translateX(15%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }

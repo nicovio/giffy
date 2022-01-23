@@ -2,6 +2,8 @@
   background-color: inherit;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
   width: 100%;
   position: sticky;
   top: 0;
@@ -10,20 +12,36 @@
   padding: 1rem 0.1rem;
   outline: 6px solid var(--bg-color);
   align-self: flex-start;
-  gap: 1rem;
 }
 
 .inputs-container {
   display: flex;
   width: 100%;
-  gap: 1rem;
+}
+
+.inputs-container input {
+  border-radius: 0;
+}
+
+.inputs-container button {
+  background-color: #2f3247;
+  border-radius: 0 10px 10px 0;
+}
+
+.inputs-container button:disabled {
+  opacity: 1;
 }
 
 .inputs-container select {
   border: none;
-  border-right: 1px solid black;
+  border-right: 1px solid var(--bg-color);
+  border-radius: 10px 0 0 10px;
   padding: 0.25rem;
   font-size: 1rem;
+}
+
+.search-icon {
+  font-size: 1.2rem;
 }
 
 @media screen and (max-width: 769px) {
@@ -33,13 +51,5 @@
 
   .inputs-container {
     gap: 0;
-  }
-
-  .inputs-container select {
-    border-radius: 5px 0 0 5px;
-  }
-
-  .inputs-container input {
-    border-radius: 0 5px 5px 0;
   }
 }

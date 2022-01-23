@@ -1,11 +1,10 @@
 import AccountNavbar from 'components/AccountNavbar/AccountNavbar'
 import Form from 'components/Form/Form'
-import Input from 'components/Input/Input'
+import Input from 'components/Form/Input/Input'
 import { React, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { loginService } from 'services/login'
 import 'styles/form.css'
-import './Register.css'
 
 const defaultValues = { username: '', password: '' }
 

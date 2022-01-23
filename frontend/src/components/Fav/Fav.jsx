@@ -20,14 +20,12 @@ export default function Fav({ id }) {
     setShowModal(false)
   }, [])
 
-  const [label, color] = faved ? ['Remover GIF de favoritos', 'red'] : ['Agregar GIF a favoritos', 'white']
-
-  const heartStyles = { textShadow: `0 0 0 ${color}` }
+  const [label, classname] = faved ? ['Remover GIF de favoritos', 'faved'] : ['Agregar GIF a favoritos', '']
 
   return (
     <>
-      <button className="gf-fav" onClick={handleClick}>
-        <span style={heartStyles} aria-label={label} role="img">
+      <button className={`gf-fav ${classname}`} onClick={handleClick}>
+        <span className={classname} aria-label={label} role="img">
           ❤
         </span>
       </button>

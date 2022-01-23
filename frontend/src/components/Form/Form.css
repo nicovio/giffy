@@ -38,8 +38,3 @@
   font-weight: 600;
   background-color: #015064;
 }
-
-.link:not(.active) {
-  filter: brightness(80%);
-  background-color: #393d6c;
-}

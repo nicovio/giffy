@@ -1,6 +1,5 @@
 import AppRoutes from 'AppRoutes'
 import Header from 'components/Header/Header'
-import Logo from 'components/Logo'
 import { GifsContextProvider } from 'context/GifsContext'
 import { UserContextProvider } from 'context/UserContext'
 import React, { Suspense, useEffect } from 'react'
@@ -22,8 +21,7 @@ function App() {
         <div className="App">
           <section className="App-content">
             <Header />
-            <Suspense fallback={<Logo />}>
-              <Logo />
+            <Suspense fallback={null}>
               <GifsContextProvider>
                 <AppRoutes />
               </GifsContextProvider>

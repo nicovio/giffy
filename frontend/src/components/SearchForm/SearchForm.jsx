@@ -1,8 +1,8 @@
 import useForm from 'components/SearchForm/useForm'
 import React from 'react'
-import './SearchForm.css'
-import { useLocation } from 'wouter'
 import { FaSearch } from 'react-icons/fa'
+import { useLocation } from 'wouter'
+import './SearchForm.css'
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r']
 
@@ -39,13 +39,14 @@ function SearchForm({ initialKeyword = '', initialRating = RATINGS[0] }) {
           <input
             id="texto-busqueda"
             aria-label="Buscar"
-            placeholder="Ej: taxi driver"
+            placeholder="Buscar gifs..."
             type="text"
             onChange={handleChange}
             value={keyword}
+            autoComplete="off"
           />
-          <button className="btn" data-testid="boton-buscar" disabled={!keyword}>
-            <FaSearch className="search-icon" />
+          <button aria-label="Buscar" className="btn" data-testid="boton-buscar" disabled={!keyword}>
+            <FaSearch focusable="false" className="search-icon" />
           </button>
         </div>
       </form>

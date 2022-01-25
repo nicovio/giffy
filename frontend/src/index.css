@@ -90,9 +90,11 @@ select {
   border: none;
 }
 
-input:focus,
-select:focus {
+form input:focus,
+form select:focus {
   outline: none;
+  background-color: var(--bg-color);
+  transition: outline ease 0.2s;
 }
 
 /* Change Autocomplete styles in Chrome*/
@@ -117,7 +119,7 @@ select:-webkit-autofill:focus {
 }
 
 ::placeholder {
-  color: rgba(189, 188, 188, 0.933);
+  color: rgba(168, 166, 166, 0.933);
 }
 
 @keyframes opacity {
@@ -145,4 +147,8 @@ select:-webkit-autofill:focus {
   100% {
     transform: translateX(0%);
   }
+}
+
+:is(a:focus-visible) {
+  outline: 2px solid white;
 }

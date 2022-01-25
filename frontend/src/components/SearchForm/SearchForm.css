@@ -23,9 +23,18 @@
   border-radius: 0;
 }
 
+.inputs-container :is(select:focus, input:focus, button:focus) {
+  outline: 2px solid var(--brand-color_2);
+  z-index: 10;
+}
+
 .inputs-container button {
   background-color: #2f3247;
   border-radius: 0 10px 10px 0;
+}
+
+.inputs-container button:focus {
+  background-color: var(--bg-color);
 }
 
 .inputs-container button:disabled {
@@ -34,7 +43,7 @@
 
 .inputs-container select {
   border: none;
-  border-right: 1px solid var(--bg-color);
+  border-right: 2px solid var(--bg-color);
   border-radius: 10px 0 0 10px;
   padding: 0.25rem;
   font-size: 1rem;

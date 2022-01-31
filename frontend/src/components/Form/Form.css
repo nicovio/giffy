@@ -5,36 +5,3 @@
 .form-body .error {
   color: #ffb5b5;
 }
-
-.success {
-  color: #47f147;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 0 auto 2rem auto;
-}
-
-.link {
-  padding: 0.5rem;
-  display: inline;
-  font-weight: 400;
-  text-align: center;
-  font-size: 1rem;
-  color: white;
-  width: 100%;
-}
-
-.link:first-child {
-  border-radius: 10px 0 0 10px;
-}
-
-.link:last-child {
-  border-radius: 0 10px 10px 0;
-}
-
-.active {
-  font-weight: 600;
-  background-color: #015064;
-}

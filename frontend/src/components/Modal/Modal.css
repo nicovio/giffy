@@ -1,38 +1,42 @@
 .modal {
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(0, 0, 0, 0.76);
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 100;
-  padding: 0 1rem;
+  z-index: 200;
+  width: 100%;
 }
 
 .modal-content {
-  background-color: #001529;
+  background-color: var(--bg-color);
+  outline: 1px solid rgb(48, 48, 48);
   max-width: 20rem;
   min-width: 200px;
   padding: 2rem;
   border-radius: 10px;
   margin: 4rem auto;
   position: relative;
+  animation: appearFromTop 0.5s;
+}
+
+.modal-content form {
+  margin: auto;
 }
 
 .modal-content input {
   width: 100%;
 }
 
-.modal-content .close-btn {
-  display: block;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  background-color: transparent;
-  border: none;
-}
-
 .modal-content .form-body {
   padding: 0;
   outline: none;
+  box-shadow: none;
+}
+
+@media screen and (max-width: 543.5px) {
+  .modal-content {
+    padding: 0.5rem;
+  }
 }

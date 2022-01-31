@@ -1,28 +1,20 @@
-.App-main {
-  display: flex;
-  /* justify-content: space-between; */
-  align-items: flex-start;
-  flex-direction: column;
-  width: 100%;
-}
-
-.App-category h2 {
-  line-height: 1;
-}
-
-@media screen and (min-width: 1025px) {
-  .App-main {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 3rem;
-  }
-
-  .App-category {
-    position: sticky;
-    top: 0;
-    font-size: 1.5rem;
-    width: 15rem;
-    display: flex;
-    flex-direction: column;
-  }
+.Home-title {
+  font-weight: 300;
+  padding: 1rem 0;
+  width: fit-content;
+  background-image: linear-gradient(
+    45deg,
+    hsl(156deg 100% 50%) 0%,
+    hsl(174deg 100% 47%) 9%,
+    hsl(187deg 100% 49%) 18%,
+    hsl(189deg 100% 49%) 27%,
+    hsl(170deg 100% 47%) 36%,
+    hsl(88deg 89% 72%) 45%,
+    hsl(48deg 100% 64%) 55%,
+    hsl(33deg 100% 61%) 64%,
+    hsl(15deg 100% 63%) 73%,
+    hsl(8deg 100% 61%) 82%,
+    hsl(7deg 100% 56%) 91%,
+    hsl(0deg 100% 50%) 100%
+  );
 }

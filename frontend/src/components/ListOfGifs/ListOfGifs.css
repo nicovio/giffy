@@ -3,6 +3,7 @@
   grid-template-columns: repeat(auto-fit, minmax(14.6rem, 1fr));
   gap: var(--masonry-gap);
   width: auto;
+  gap: 1rem;
 }
 
 .masonry-grid .Gif-link {
@@ -11,16 +12,22 @@
 
 .masonry-grid video {
   width: 100%;
+  height: 200px;
+
   /* max-height: 15rem; */
   /* object-fit: cover; */
-  height: 200px;
   border-radius: var(--gif-border-radius);
 }
 
 @media screen and (max-width: 543.5px) {
-  .masonry-grid video {
+  .masonry-grid :is(video, .Gif-link) {
     height: 100%;
+    padding: 0;
     /* max-height: 100%; */
+  }
+
+  .Gif-link {
+    outline: none;
   }
 }
 

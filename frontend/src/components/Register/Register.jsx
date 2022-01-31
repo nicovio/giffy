@@ -27,7 +27,7 @@ function Register() {
 
   if (registered) {
     return (
-      <h4>
+      <h4 className="App-title text-center">
         Felicitaciones! Usuario registrado <span className="success">✔</span>{' '}
       </h4>
     )

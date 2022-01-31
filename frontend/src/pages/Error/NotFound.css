@@ -1,0 +1,9 @@
+.not-found {
+  text-align: center;
+  margin: 1rem;
+  font-size: 4rem;
+}
+
+.hide-title .Gif-title {
+  display: none;
+}

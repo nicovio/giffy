@@ -14,7 +14,7 @@
   overflow: auto;
 }
 
-.Gif-title {
+.Detail-container .Gif-title {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;

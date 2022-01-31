@@ -1,6 +1,6 @@
 .masonry-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14.6rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: var(--masonry-gap);
   width: auto;
   gap: 1rem;

@@ -1,5 +1,4 @@
 import AppRoutes from 'AppRoutes'
-import Header from 'components/Header/Header'
 import { GifsContextProvider } from 'context/GifsContext'
 import { UserContextProvider } from 'context/UserContext'
 import React, { Suspense, useEffect } from 'react'
@@ -7,6 +6,7 @@ import { Helmet } from 'react-helmet'
 import './App.css'
 
 function App() {
+  
   useEffect(() => {
     window.history.scrollRestoration = 'manual'
   }, [])
@@ -18,16 +18,13 @@ function App() {
         {/* <link rel="canonical" href="https://giffy-nicovio.vercel.app" /> */}
       </Helmet>
       <UserContextProvider>
-        <div className="App">
-          <section className="App-content">
-            <Header />
-            <Suspense fallback={null}>
-              <GifsContextProvider>
-                <AppRoutes />
-              </GifsContextProvider>
-            </Suspense>
-          </section>
-        </div>
+        <section className="App-content">
+          <Suspense fallback={null}>
+            <GifsContextProvider>
+              <AppRoutes />
+            </GifsContextProvider>
+          </Suspense>
+        </section>
       </UserContextProvider>
     </>
   )

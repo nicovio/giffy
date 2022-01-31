@@ -6,6 +6,7 @@
   display: flex;
   justify-content: space-evenly;
   margin: 0 auto 2rem auto;
+  gap: 1rem;
   width: 100%;
 }
 
@@ -18,25 +19,10 @@
   color: white;
   width: 100%;
   transition: filter ease 0.3s;
-}
-
-.link:focus {
-  z-index: 10;
-}
-
-.link:first-child {
-  border-radius: 10px 0 0 10px;
-}
-
-.link:last-child {
-  border-radius: 0 10px 10px 0;
+  outline: 1px solid rgb(29, 29, 29);
 }
 
 .active {
   font-weight: 600;
-  background-color: #015064;
-}
-
-.navbar .link:not(.active) {
-  background-color: #343434;
+  outline: 1px solid var(--brand-color_2)
 }

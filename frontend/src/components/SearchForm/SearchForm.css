@@ -4,18 +4,19 @@
   justify-content: center;
   flex-direction: column;
   gap: 0.5rem;
-  width: 100%;
   position: sticky;
-  top: 0;
+  top: 70px;
+  width: 50%;
   background-color: var(--bg-color);
   z-index: 10;
-  padding: 1rem 0.1rem;
+  padding: 0rem 0.1rem;
   outline: 6px solid var(--bg-color);
   align-self: flex-start;
 }
 
 .inputs-container {
   display: flex;
+  margin: auto;
   width: 100%;
 }
 
@@ -30,7 +31,7 @@
 
 .inputs-container button {
   background-color: #2f3247;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0;
 }
 
 .inputs-container button:focus {
@@ -44,21 +45,16 @@
 .inputs-container select {
   border: none;
   border-right: 2px solid var(--bg-color);
-  border-radius: 10px 0 0 10px;
+  border-radius: 0;
   padding: 0.25rem;
   font-size: 1rem;
 }
 
-.search-icon {
-  font-size: 1.2rem;
-}
-
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 800px) {
   .search-form {
-    flex-direction: column;
+    order: 3;
   }
-
-  .inputs-container {
-    gap: 0;
+  .search-form {
+    width: 100%;
   }
 }

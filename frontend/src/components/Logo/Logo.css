@@ -1,0 +1,30 @@
+.App-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.App-logo h2 {
+  font-weight: 800;
+  /* background-color: var(--brand-color_1); */
+
+  background-image: linear-gradient(
+    45deg,
+    hsl(156deg 100% 50%) 0%,
+    hsl(174deg 100% 47%) 9%,
+    hsl(187deg 100% 49%) 18%,
+    hsl(189deg 100% 49%) 27%,
+    hsl(170deg 100% 47%) 36%,
+    hsl(88deg 89% 72%) 45%,
+    hsl(48deg 100% 64%) 55%,
+    hsl(33deg 100% 61%) 64%,
+    hsl(15deg 100% 63%) 73%,
+    hsl(8deg 100% 61%) 82%,
+    hsl(7deg 100% 56%) 91%,
+    hsl(0deg 100% 50%) 100%
+  );
+}
+
+.App-logo svg {
+  fill: var(--brand-color_1);
+}

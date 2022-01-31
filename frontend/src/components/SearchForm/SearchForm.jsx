@@ -1,5 +1,5 @@
 import useForm from 'components/SearchForm/useForm'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { useLocation } from 'wouter'
 import './SearchForm.css'
@@ -10,6 +10,10 @@ function SearchForm({ initialKeyword = '', initialRating = RATINGS[0] }) {
   const [, pushLocation] = useLocation()
 
   const { keyword, rating, updateKeyword, updateRating } = useForm({ initialKeyword, initialRating })
+
+  useEffect(() => {
+    if (initialKeyword) updateKeyword(initialKeyword)
+  }, [updateKeyword, initialKeyword])
 
   const handleChange = (event) => {
     updateKeyword(event.target.value)

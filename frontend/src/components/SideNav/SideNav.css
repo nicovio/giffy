@@ -1,0 +1,14 @@
+.sidenav {
+  position: fixed;
+  width: 14rem;
+  font-size: 1.5rem;
+  left: 0;
+  bottom: 1px;
+  top: 73px;
+  padding: 1rem;
+  box-sizing: border-box;
+  z-index: 100;
+  overflow-y: scroll;
+  border-right: 1px solid rgb(78, 78, 78);
+  background-color: var(--bg-color);
+}

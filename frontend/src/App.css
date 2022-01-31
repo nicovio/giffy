@@ -1,14 +1,15 @@
 :root {
-  --content-padding: 14vw;
+  --content-padding: 7vw;
   --masonry-gap: 0.8rem;
   --gif-border-radius: 5px;
+  --outline-color: grey;
+  --outline-default: 1px solid var(--outline-color);
   --bg-color: #121212;
   --brand-color_1: #00ff99;
   --brand-color_2: #00ccff;
   --brand-color_3: #9933ff;
-  --brand-color_4: tomato;
+  --brand-color_4: #ff6347;
   --brand-color_5: #fff35c;
-  --brand-color_6: #8429de;
   --one-column-breakpoint: 605px;
 }
 
@@ -17,6 +18,19 @@ h1 {
   overflow: hidden;
   position: absolute;
   z-index: -1000;
+}
+
+.App-content {
+  min-height: 100vh;
+}
+
+.App-main {
+  /* min-height: calc(100vh - 80px); */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  /* width: 100%; */
+  margin-left: 14rem;
 }
 
 .App-title {
@@ -28,35 +42,25 @@ h1 {
 .App-content {
   background-color: var(--bg-color);
   font-size: calc(10px + 2vmin);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
   color: white;
   box-sizing: border-box;
-  padding: 1rem var(--content-padding);
 }
 
 .App-results {
-  width: 100%;
-  min-height: 100vh;
   display: flex;
+  width: 100%;
+  padding: 0 4vw 3rem 4vw;
+  box-sizing: border-box;
   flex-direction: column;
 }
 
-.App-logo {
-  width: 8rem;
-  margin: 0;
-  cursor: pointer;
-}
-
-.App-logo img {
-  object-fit: cover;
-  max-width: 100%;
-}
-
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 800px) {
   :root {
     --content-padding: 2rem;
+  }
+
+  .App-main {
+    margin-left: 0;
+    /* min-height: calc(100vh - 123.77px); */
   }
 }

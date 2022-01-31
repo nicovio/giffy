@@ -5,6 +5,11 @@
 
 html {
   font-size: max(16px, 1vw);
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
 }
 
 body {
@@ -34,7 +39,8 @@ button {
   border-radius: 5px;
 }
 
-.btn {
+.btn,
+.copied {
   background: #480ca8;
   border: 0;
   color: #fff;
@@ -61,8 +67,10 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+:is(a, button:enabled):hover {
   filter: brightness(120%);
+  background-color: rgb(29, 29, 29);
+  transition: background-color ease 0.2s;
 }
 
 ul {
@@ -90,11 +98,49 @@ select {
   border: none;
 }
 
+:is(.error-container, .modal-content) .close-btn {
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  line-height: 0;
+  padding: 0;
+  background-color: transparent;
+  width: min-content;
+  border: none;
+  outline: none;
+}
+
 form input:focus,
 form select:focus {
   outline: none;
   background-color: var(--bg-color);
-  transition: outline ease 0.2s;
+  transition: outline ease 0.1s;
+}
+
+:is(a:focus-visible) {
+  outline: 2px solid white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.gradient-text {
+  background-color: white;
+  /* background-size: 100%;
+  background-repeat: repeat; */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+
+  transition: -webkit-text-fill-color 1s cubic-bezier(0.08, 0.34, 0.17, 0.77);
 }
 
 /* Change Autocomplete styles in Chrome*/
@@ -123,32 +169,59 @@ select:-webkit-autofill:focus {
 }
 
 @keyframes opacity {
-  0% {
+  from {
     opacity: 0;
   }
-  100% {
+
+  to {
     opacity: 1;
   }
 }
 
+@keyframes blur {
+  from {
+    backdrop-filter: blur(0);
+  }
+  to {
+    backdrop-filter: blur(3px);
+  }
+}
+
 @keyframes appearFromTop {
-  0% {
+  from {
     transform: translateY(-15%);
   }
-  100% {
+
+  to {
     transform: translateY(0%);
   }
 }
 
-@keyframes appearFromRight {
-  0% {
-    transform: translateX(15%);
+@keyframes appearFromLeft {
+  from {
+    transform: translateX(-15%);
   }
-  100% {
+
+  to {
     transform: translateX(0%);
   }
 }
 
-:is(a:focus-visible) {
-  outline: 2px solid white;
+@keyframes modalBackground {
+  from {
+    background-color: transparent;
+  }
+
+  to {
+    background-color: rgba(0, 0, 0, 0.76);
+  }
+}
+
+@keyframes fav {
+  from {
+    color: white;
+  }
+  to {
+    color: red;
+  }
 }

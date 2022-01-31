@@ -1,11 +1,10 @@
 import ListOfGifs from 'components/ListOfGifs/ListOfGifs'
-import SearchForm from 'components/SearchForm/SearchForm'
+import Spinner from 'components/Spinner/Spinner'
 import useGifs from 'hooks/useGifs'
 import useNearScreen from 'hooks/useNearScreen'
 import React, { useEffect, useRef } from 'react'
 import Helmet from 'react-helmet'
 import './SearchResults.css'
-import Spinner from 'components/Spinner/Spinner'
 
 function SearchResults({ params }) {
   const keyword = decodeURI(params.keyword)
@@ -27,7 +26,7 @@ function SearchResults({ params }) {
   return (
     <>
       {loading ? (
-        <Spinner />
+        <Spinner style={{ marginTop: '10rem' }} />
       ) : (
         <>
           <Helmet>
@@ -35,7 +34,6 @@ function SearchResults({ params }) {
             <meta name="description" content={title} />
           </Helmet>
           <div className="App-results">
-            <SearchForm initialKeyword={keyword} initialRating={rating} />
             <h2 className="App-title">{keyword}</h2>
             <ListOfGifs gifs={gifs} />
             <div className="visor" id="visor" ref={externalRef}></div>

@@ -4,7 +4,7 @@ import CategoryListItem from './CategoryListItem'
 import Spinner from 'components/Spinner/Spinner'
 
 export default function Category({ name, options = [], loading }) {
-  const spinnerStyle = { margin: '2rem 0 0 0' }
+  const spinnerStyle = { marginTop: '2rem' }
 
   return (
     <>

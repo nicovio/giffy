@@ -1,17 +1,45 @@
 .gf-header {
   width: 100%;
+  position: sticky;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 120;
+  gap: 1rem;
+  top: 0;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  background-color: var(--bg-color);
+  outline: 6px solid var(--bg-color);
+  border-bottom: 1px solid rgb(78, 78, 78);
+}
+
+.gf-header .links {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .gf-header :is(a, .logout-button) {
   color: #fff;
-  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
   font-weight: 600;
+  padding: 0.6rem;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.gf-header .links > .midulink {
+  padding: 0.4rem;
 }
 
 .gf-header :is(a, .logout-button):hover {
-  text-decoration: underline;
+  transition: background-color ease 0.2s;
+  background-color: rgb(29, 29, 29);
 }
 
 .logout-button {
@@ -21,6 +49,26 @@
   font-family: var(--font-family-default);
 }
 
-.gf-header a + a {
-  margin-left: 1rem;
+.gf-header .icon {
+  width: 30px;
+  height: 30px;
+  stroke-width: 1px;
+  stroke: var(--brand-color_1);
+}
+
+.gf-header {
+  margin: auto;
+}
+
+.gf-header .brand_2 {
+  stroke: var(--brand-color_2);
+}
+
+@media screen and (max-width: 800px) {
+  .gf-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
 }

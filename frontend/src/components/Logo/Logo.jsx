@@ -1,12 +1,17 @@
 import React from 'react'
 import { Link } from 'wouter'
+import { AiOutlineFileGif } from 'react-icons/ai'
+import './Logo.css'
 
-export default function Logo() {
+function Logo() {
   return (
     <Link to="/">
-      <figure className="App-logo">
-        <img alt="Giffy logo" width="64" height="40" src="/logo.png" />
-      </figure>
+      <a href="replace" className="App-logo">
+        <AiOutlineFileGif className="icon" />
+        <h2 className="gradient-text ">GIFFY</h2>
+      </a>
     </Link>
   )
 }
+
+export default React.memo(Logo)

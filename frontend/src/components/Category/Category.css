@@ -1,33 +1,41 @@
+.App-category h2 {
+  line-height: 1;
+}
+
+.Category-title {
+  padding-top: 0;
+}
+
 .Category-list {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.5rem; */
   margin-top: 0;
-  animation: appearFromRight 0.5s normal, opacity 1s normal;
+  animation: appearFromLeft 0.5s normal, opacity 1s normal;
+}
+
+.Category-list li {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0.2rem;
 }
 
 .Category-link {
-  padding: 0.3rem;
-  font-size: 0.8em;
+  padding: 0.2rem;
+  text-overflow: ellipsis;
+  font-size: 0.7em;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: -webkit-text-fill-color 1s cubic-bezier(0.08, 0.34, 0.17, 0.77);
   border-radius: 10px;
+  line-height: 3;
 }
 
 .Category-link:hover {
   background-clip: padding-box;
   -webkit-text-fill-color: initial;
   -webkit-background-clip: padding-box;
-}
-
-.Category-title {
-  margin-top: 2rem;
-}
-
-@media screen and (min-width: 1025px) {
-  .Category-title {
-    margin-top: 0;
-  }
 }

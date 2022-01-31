@@ -1,0 +1,30 @@
+.gf-fav-overlay,
+.gf-copy-overlay {
+  border: 0;
+  transition: all ease 0.4s;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: rgb(70, 70, 70);
+  line-height: 0;
+  z-index: 100;
+}
+
+.gf-fav-overlay span:not(.faved) {
+  color: white;
+}
+
+
+@media screen and (min-width: 800px) {
+  .gf-fav-overlay:not(.faved):hover {
+    animation: beat 0.25s infinite alternate;
+  }
+}
+
+@keyframes beat {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}

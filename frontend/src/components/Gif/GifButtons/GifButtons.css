@@ -1,0 +1,31 @@
+.botonera {
+  bottom: 0;
+  display: flex;
+  gap: calc(1vw + 1rem);
+  width: 20rem;
+  margin: 0 auto;
+}
+
+.botonera .btn {
+  padding: 0.5rem;
+  width: 100%;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.gf-fav,
+.go-back,
+.gf-copy {
+  outline: 1px solid grey;
+  background-color: transparent;
+}
+
+
+@media screen and (max-width: 543.5px) {
+  .botonera {
+    width: 100%;
+  }
+}

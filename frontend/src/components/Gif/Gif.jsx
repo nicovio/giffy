@@ -5,14 +5,14 @@ const Gif = ({ gif }) => {
   const { title, image, slug } = gif
 
   return (
-    <>
-      <h3 className="App-title">{title || slug}</h3>
+    <div className="Gif-container">
+      <h3 className="App-title Gif-title">{title || slug}</h3>
       {gif.image && (
         <video autoPlay loop muted playsInline>
           <source src={image.mp4} type="video/mp4" />
         </video>
       )}
-    </>
+    </div>
   )
 }
 

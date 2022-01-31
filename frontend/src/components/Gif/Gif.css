@@ -1,3 +1,42 @@
 video {
   max-width: 100%;
 }
+
+.Gif-container {
+  width: 100%;
+}
+
+.Gif-buttons {
+  position: absolute;
+  display: flex;
+  gap: 0.2rem;
+  z-index: 1;
+  right: 6px;
+  top: 6px;
+  line-height: 0;
+}
+
+.Gif-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+  max-height: 70vh;
+}
+
+@media screen and (max-width: 800px) {
+  .Gif-container {
+    max-height: 60vh;
+  }
+}
+
+.btn .faved {
+  color: red;
+  animation: fav 1s forwards;
+}
+
+.btn.copied {
+  color: var(--brand-color_1);
+  outline: 1px solid var(--brand-color_1);
+  opacity: 1;
+}

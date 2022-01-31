@@ -11,7 +11,7 @@ export default function useUser() {
   const login = useCallback(
     async (username, password) => {
       try {
-        setState((currentState) => ({ loading: true, error: currentState.error }))
+        setState({ loading: true, error: false })
         const jwt = await loginService.login({ username, password })
         localStorage.setItem('jwt', jwt)
         setJWT(jwt)
@@ -38,6 +38,8 @@ export default function useUser() {
         setFavs(favs)
       } catch (err) {
         console.error(err)
+        const message = getErrorMessage(err)
+        setState({ loading: false, error: message })
       }
     },
     [setFavs, jwt]
@@ -50,6 +52,8 @@ export default function useUser() {
         setFavs(favs)
       } catch (err) {
         console.error(err)
+        const message = getErrorMessage(err)
+        setState({ loading: false, error: message })
       }
     },
     [jwt, setFavs]
@@ -57,6 +61,10 @@ export default function useUser() {
 
   const isFaved = ({ id }) => {
     return favs.some((favId) => favId === id)
+  }
+
+  const clearError = () => {
+    setState((currentState) => ({ loading: currentState.loading, error: false }))
   }
 
   return {
@@ -68,5 +76,6 @@ export default function useUser() {
     addFav,
     deleteFav,
     isFaved,
+    clearError,
   }
 }

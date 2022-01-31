@@ -15,6 +15,7 @@ export function UserContextProvider({ children }) {
           const favs = await favService.getFavs({ jwt })
           setFavs(favs)
         } catch (err) {
+          console.log(err)
           if (err.status === 401) {
             localStorage.removeItem('jwt')
           }

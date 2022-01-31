@@ -1,6 +1,6 @@
 import { USER_API_URL } from './settings'
 
-const validateResponse = async (response) => {
+export const validateResponse = async (response) => {
   if (!response.ok) {
     const error = await response.json()
     throw error

@@ -9,8 +9,13 @@ export default function Form({ onSubmit, setIsSubmitting, children }) {
   const { handleSubmit, setError: setFieldError } = useFormContext()
   const [error, setError] = useState()
 
+  const clearError = () => {
+    setError(null)
+  }
+
   const submit = async (values) => {
     try {
+      clearError()
       setIsSubmitting(true)
       await onSubmit(values)
     } catch (err) {
@@ -31,7 +36,7 @@ export default function Form({ onSubmit, setIsSubmitting, children }) {
   return (
     <form className="form" onSubmit={handleSubmit(submit)}>
       {children}
-      {error && <Error message={error.message} />}
+      {error && <Error message={error.message} onClose={clearError} />}
     </form>
   )
 }

@@ -9,7 +9,7 @@ export default function Login({ onLogin, showAccountNavbar = false }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [, navigate] = useLocation()
-  const { login, isLogged, isLoginloading, error } = useUser()
+  const { login, isLogged, isLoginloading, error, clearError } = useUser()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -44,11 +44,11 @@ export default function Login({ onLogin, showAccountNavbar = false }) {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
-          <button className="btn" disabled={!username || !password}>
+          <button className="btn" disabled={!username || !password || isLoginloading}>
             {isLoginloading ? 'Ingresando...' : 'Ingresar'}
           </button>
         </section>
-        {error && <Error message={error} />}
+        {error && <Error message={error} onClose={clearError} />}
       </form>
     </>
   )

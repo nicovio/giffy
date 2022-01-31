@@ -1,3 +1,4 @@
+import { validateResponse } from './login'
 import { USER_API_URL } from './settings'
 
 const addFav = async ({ id, jwt }) => {
@@ -7,12 +8,10 @@ const addFav = async ({ id, jwt }) => {
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwt}` },
   })
 
-  if (!response.ok) {
-    throw new Error('Response is NOT ok')
-  } else {
-    const { favs } = await response.json()
-    return favs
-  }
+  await validateResponse(response)
+
+  const { favs } = await response.json()
+  return favs
 }
 
 const deleteFav = async ({ id, jwt }) => {
@@ -21,13 +20,9 @@ const deleteFav = async ({ id, jwt }) => {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwt}` },
   })
-
-  if (!response.ok) {
-    throw new Error('Response is NOT ok')
-  } else {
-    const { favs } = await response.json()
-    return favs
-  }
+  await validateResponse(response)
+  const { favs } = await response.json()
+  return favs
 }
 
 const getFavs = async ({ jwt }) => {
@@ -36,13 +31,9 @@ const getFavs = async ({ jwt }) => {
     method: 'GET',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwt}` },
   })
-
-  if (!response.ok) {
-    throw new Error('Response is NOT ok')
-  } else {
-    const { favs } = await response.json()
-    return favs
-  }
+  await validateResponse(response)
+  const { favs } = await response.json()
+  return favs
 }
 
 export const favService = { getFavs, addFav, deleteFav }

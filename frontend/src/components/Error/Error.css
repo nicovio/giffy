@@ -1,5 +1,6 @@
 .error-container {
-  padding: 1rem;
+  position: relative;
+  padding: 1.2rem;
   margin-top: 2.5rem;
   color: white;
   background-color: #b00020;
@@ -13,4 +14,12 @@
 
 .error-container strong {
   font-size: 0.9rem;
+  text-align: center;
+}
+
+.error-container .close-btn {
+  text-shadow: 0 0 0 white;
+  color: transparent;
+  top: 7px;
+  right: 7px;
 }

@@ -1,14 +1,15 @@
 import AccountNavbar from 'components/AccountNavbar/AccountNavbar'
 import Form from 'components/Form/Form'
 import Input from 'components/Form/Input/Input'
-import { React, useState } from 'react'
+import React, { useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { loginService } from 'services/login'
 import 'styles/form.css'
+import './Register.css'
 
 const defaultValues = { username: '', password: '' }
 
-export default function Register() {
+function Register() {
   const [registered, setRegistered] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -45,7 +46,11 @@ export default function Register() {
             id="username"
             name="username"
             type="text"
-            {...register('username', { required: 'El campo es requerido' })}
+            {...register('username', {
+              validate: (value) => {
+                return !!value.trim() || 'Campo obligatorio'
+              },
+            })}
           />
           <Input
             label="Contraseña"
@@ -56,7 +61,7 @@ export default function Register() {
             name="password"
             type="password"
             {...register('password', {
-              required: 'El campo es requerido',
+              required: 'Campo obligatorio',
               minLength: {
                 value: 5,
                 message: 'Debe tener entre 5 y 72 caracteres',
@@ -71,3 +76,5 @@ export default function Register() {
     </FormProvider>
   )
 }
+
+export default Register

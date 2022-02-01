@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'wouter'
 import { AiOutlineFileGif } from 'react-icons/ai'
+import { Link } from 'wouter'
 import './Logo.css'
 
 function Logo() {

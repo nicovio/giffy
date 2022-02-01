@@ -1,9 +1,9 @@
 import Gif from 'components/Gif/Gif'
+import 'pages/Detail/Detail.css'
 import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { gifService } from 'services/gifService'
 import './NotFound.css'
-import 'pages/Detail/Detail.css'
 
 export default function NotFound() {
   const [random404Gif, setRandom404Gif] = useState({})

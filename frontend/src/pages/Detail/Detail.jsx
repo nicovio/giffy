@@ -25,8 +25,8 @@ export default function Detail({ params }) {
           <div className="Detail-container">
             <Gif gif={gif} />
             <GifButtons gif={gif} />
-          </div>
-        </>
+            </div>
+          </>
       )}
     </>
   )

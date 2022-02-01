@@ -5,7 +5,6 @@ import React, { useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { loginService } from 'services/login'
 import 'styles/form.css'
-import './Register.css'
 
 const defaultValues = { username: '', password: '' }
 

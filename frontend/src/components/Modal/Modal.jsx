@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import './Modal.css'
-import 'styles/form.css'
 import Helmet from 'react-helmet'
+import 'styles/form.css'
+import './Modal.css'
 
 function Modal({ children, onClose }) {
   const stopPropagation = (e) => {

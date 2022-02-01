@@ -24,7 +24,7 @@ app.use(userMiddleware, oakCors())
 
 router
   .get('/favs', authMiddleware, getFavs)
-  .post('/favs/:id', authMiddleware, postFav)
+  .post('/favs', authMiddleware, postFav)
   .post('/register', postRegister)
   .post('/login', postLogin)
   .delete('/favs/:id', authMiddleware, deleteFav)

@@ -1,10 +1,10 @@
-import { favs } from '../favs.ts'
+import { Fav, favs } from '../favs.ts'
 import { User } from '../users.ts'
 
-function addFav(user: User, favId: string) {
+function addFav(user: User, fav: Fav) {
   const favs = getFavs(user)
-  if (!alreadyExist(user, favId)) {
-    favs.push(favId)
+  if (!alreadyExist(user, fav.id)) {
+    favs.push(fav)
   }
   return favs
 }
@@ -14,12 +14,12 @@ function initializeFavs(user: User) {
 }
 
 function deleteFav({ username }: User, id: string) {
-  favs[username] = favs[username].filter((favId) => favId !== id)
+  favs[username] = favs[username].filter((fav) => fav.id !== id)
   return favs[username]
 }
 
 function alreadyExist(user: User, id: string) {
-  return getFavs(user).some((favId) => favId === id)
+  return getFavs(user).some((fav) => fav.id === id)
 }
 
 function getFavs(user: User) {

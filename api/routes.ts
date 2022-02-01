@@ -2,6 +2,7 @@ import { Context, Status } from 'https://deno.land/x/oak@v10.1.0/mod.ts'
 import { userService } from './services/userService.ts'
 import { favsService } from './services/favsService.ts'
 import { User } from './users.ts'
+import { Fav } from './favs.ts'
 
 export const getFavs = (ctx: Context) => {
   const user = ctx.state.currentUser
@@ -12,7 +13,6 @@ export const getFavs = (ctx: Context) => {
 export const postLogin = async (ctx: Context) => {
   const { value } = await ctx.request.body()
   const { username, password } = await value
-
   const jwt = await userService.login(username, password)
 
   if (!jwt) {
@@ -25,10 +25,10 @@ export const postLogin = async (ctx: Context) => {
 }
 
 export const postFav = async (ctx: any) => {
-  const { id } = ctx.params
+  const { value } = await ctx.request.body()
+  const fav: Fav = await value
   const { currentUser } = ctx.state
-
-  const favs = favsService.addFav(currentUser, id)
+  const favs = favsService.addFav(currentUser, fav)
 
   ctx.response.body = { favs }
   ctx.response.status = 201
@@ -37,7 +37,6 @@ export const postFav = async (ctx: any) => {
 export const deleteFav = async (ctx: any) => {
   const { id } = ctx.params
   const user = ctx.state.currentUser
-
   const updatedFavs = favsService.deleteFav(user, id)
 
   ctx.response.body = { favs: updatedFavs }
@@ -48,6 +47,7 @@ export const postRegister = async (ctx: any) => {
   const { value } = await ctx.request.body()
   const user: User = await value
   const alreadyExist = await userService.register(user)
+
   if (alreadyExist) {
     ctx.response.status = 409
     ctx.response.body = { message: 'Usuario no disponible', status: 409, field: 'username' }

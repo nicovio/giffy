@@ -29,9 +29,9 @@ export default function NavLinks() {
       </div>
       {isLogged ? (
         <>
-          <Link aria-label="Favoritos" className="link" to="/favs"></Link>
+          <Link aria-label="Favoritos" className="link" to="/favs">Favoritos</Link>
           <button className="link logout-button" onClick={logout}>
-            Cerrar sesión
+            Salir
           </button>
         </>
       ) : (

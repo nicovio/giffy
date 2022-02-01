@@ -3,23 +3,34 @@
   --link-text-color: black;
 }
 
-.Gif-link {
+.Gif-link-container .Gif-link {
   display: flex;
   justify-content: center;
   position: relative;
   border-radius: var(--gif-border-radius);
-
   outline: 1px solid rgba(126, 126, 126, 0.349);
   height: 200px;
   background-color: var(--bg-color);
   padding: 0.5rem;
+  transition: all 0.3s ease;
 }
 
-.Gif-link:hover {
+.Gif-buttons {
+  z-index: 120;
+}
+
+.Gif-link-container .Gif-link:hover {
   outline: 5px solid var(--outline-color);
+  z-index: 100;
+  transition: transform 0.3s ease, outline 0.3s ease;
 }
 
-.Gif-link:hover h3 {
+.Gif-link-container .Gif-link:focus {
+  outline: 2px solid white;
+}
+
+.Gif-link-container .Gif-link:hover h3 {
+  opacity: 1;
   background-color: var(--outline-color);
 }
 
@@ -49,10 +60,6 @@
   margin: 0;
   border-radius: 0 0 0 var(--gif-border-radius);
   transition: opacity 0.5s ease;
-}
-
-.Gif-link:hover h3 {
-  opacity: 1;
 }
 
 .Gif-link-container {

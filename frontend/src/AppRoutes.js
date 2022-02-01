@@ -1,6 +1,5 @@
 import Header from 'components/Header/Header'
-import useMedia from 'hooks/useMedia'
-import React, { useState } from 'react'
+import React from 'react'
 import { Route, Switch } from 'wouter'
 
 // Code splitting con fines didácticos
@@ -10,15 +9,11 @@ const DetailPage = React.lazy(() => import('pages/Detail/Detail'))
 const NotFoundPage = React.lazy(() => import('pages/Error/NotFound'))
 const LoginPage = React.lazy(() => import('pages/Login/LoginPage'))
 const RegisterPage = React.lazy(() => import('pages/Register/RegisterPage'))
-const SideNav = React.lazy(() => import('components/SideNav/SideNav'))
 const FavouritesPage = React.lazy(() => import('pages/Favourites/Favourites'))
 
-const NestedRoutesPage = React.memo(({ showSideNav }) => {
-  const isTablet = useMedia('(max-width: 800px)')
-
+const NestedRoutesPage = React.memo(() => {
   return (
     <>
-      {(!isTablet || showSideNav) && <SideNav />}
       <div className="App-main">
         <Switch>
           <Route path="/" component={HomePage} />
@@ -33,15 +28,13 @@ const NestedRoutesPage = React.memo(({ showSideNav }) => {
 })
 
 export default function AppRoutes() {
-  const [showSideNav, setShowSidenav] = useState(false)
-
   return (
     <>
-      <Header setShowSidenav={setShowSidenav} />
+      <Header />
       <Switch>
         <Route path="/login" component={LoginPage} />
         <Route path="/register" component={RegisterPage} />
-        <Route path="/:rest*" component={() => <NestedRoutesPage showSideNav={showSideNav} />} />
+        <Route path="/:rest*" component={() => <NestedRoutesPage />} />
       </Switch>
     </>
   )

@@ -1,12 +1,12 @@
 import Login from 'components/Login/Login'
 import Modal from 'components/Modal/Modal'
-import useModal from 'hooks/useModal'
+import useFixed from 'hooks/useFixed'
 import useUser from 'hooks/useUser'
 import React, { useCallback } from 'react'
 import { FaHeart } from 'react-icons/fa'
 
 export default function Fav({ className, gif }) {
-  const [showModal, setShowModal] = useModal(false)
+  const [showModal, setShowModal] = useFixed(false)
   const { isLogged, addFav, deleteFav, isFaved } = useUser()
   const faved = isFaved({ id: gif.id })
 

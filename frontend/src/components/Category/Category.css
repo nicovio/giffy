@@ -2,8 +2,9 @@
   line-height: 1;
 }
 
-.Category-title {
+.sidenav .Category-title {
   padding-top: 0;
+  text-align: center;
 }
 
 .Category-list {
@@ -16,26 +17,39 @@
 
 .Category-list li {
   width: 100%;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0.2rem;
 }
 
-.Category-link {
+.Category-list li a.Category-link {
   padding: 0.2rem;
   text-overflow: ellipsis;
-  font-size: 0.7em;
+  font-size: 1.2rem;
+  text-align: center;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: -webkit-text-fill-color 1s cubic-bezier(0.08, 0.34, 0.17, 0.77);
   border-radius: 10px;
-  line-height: 3;
+  line-height: 2;
 }
 
-.Category-link:hover {
+.Category-list li a.Category-link:hover {
   background-clip: padding-box;
   -webkit-text-fill-color: initial;
   -webkit-background-clip: padding-box;
+}
+
+@media screen and (max-width: 800px) {
+  .Category-title {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .Category-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }

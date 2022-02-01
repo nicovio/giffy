@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 120;
+  z-index: 200;
   gap: 1rem;
   top: 0;
   padding: 0.5rem;
@@ -26,6 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0.9rem;
   font-size: 0.9rem;
   font-weight: 600;
   padding: 0.6rem;
@@ -52,8 +53,6 @@
 .gf-header .icon {
   width: 30px;
   height: 30px;
-  stroke-width: 1px;
-  stroke: var(--brand-color_1);
 }
 
 .gf-header {
@@ -62,6 +61,11 @@
 
 .gf-header .brand_2 {
   stroke: var(--brand-color_2);
+}
+
+.external-links {
+  display: flex;
+  gap: 0.5rem;
 }
 
 @media screen and (max-width: 800px) {

@@ -7,12 +7,12 @@ import './GifLink.css'
 function GifLink({ gif }) {
   return (
     <div className="Gif-link-container">
+      <GifLinkButtons gif={gif} />
       <Link href={`/gif/${gif.id}`}>
         <a href="replace" className="Gif-link" data-testid={`gif-link-${gif.id}`}>
           <Gif gif={gif}></Gif>
         </a>
       </Link>
-      <GifLinkButtons gif={gif} />
     </div>
   )
 }

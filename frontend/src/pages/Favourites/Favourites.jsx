@@ -1,9 +1,13 @@
 import ListOfGifs from 'components/ListOfGifs/ListOfGifs'
 import useUser from 'hooks/useUser'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function Favourites() {
   const { favs } = useUser()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <div className="App-results">

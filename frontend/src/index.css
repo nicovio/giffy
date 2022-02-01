@@ -10,9 +10,6 @@ html {
 
 body {
   min-height: 100%;
-}
-
-body {
   background-color: var(--bg-color);
   margin: 0;
   font-family: var(--font-family-default);
@@ -55,7 +52,6 @@ button {
 }
 
 button:disabled {
-  /* filter: brightness(80%); */
   opacity: 0.5;
   cursor: not-allowed;
 }
@@ -78,9 +74,6 @@ ul {
 }
 
 input {
-  /* padding: 0.6rem; */
-  /* border: none;
-  background-color: rgb(255, 255, 255); */
   display: block;
   padding: 0.8rem;
   width: 100%;
@@ -117,7 +110,7 @@ form select:focus {
   transition: outline ease 0.1s;
 }
 
-:is(a:focus-visible) {
+:is(a:focus-visible, button:focus-visible) {
   outline: 2px solid white;
 }
 
@@ -227,6 +220,15 @@ select:-webkit-autofill:focus {
   }
 }
 
+@keyframes sidenav {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
 @keyframes modalBackground {
   from {
     background-color: transparent;

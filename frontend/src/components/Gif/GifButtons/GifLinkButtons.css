@@ -3,7 +3,7 @@
   border: 0;
   padding: 0.5rem;
   border-radius: 50%;
-  background-color: var(--bg-color);
+  background-color: black;
   outline: 1px solid grey;
   line-height: 0;
   z-index: 100;

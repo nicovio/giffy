@@ -6,8 +6,7 @@ import './Logo.css'
 function Logo() {
   return (
     <Link to="/">
-      <a href="replace" className="App-logo">
-        <AiOutlineFileGif className="icon" />
+        <AiOutlineFileGif size="3rem" className="icon" />
         <h2 className="Gradient-text">GIFFY</h2>
       </a>
     </Link>

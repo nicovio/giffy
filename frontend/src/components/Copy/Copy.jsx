@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BiCheck, BiCopy } from 'react-icons/bi'
 
 export default function Copy({ gif, className }) {
@@ -10,16 +10,25 @@ export default function Copy({ gif, className }) {
     const link = `${protocol}//${baseUrl}/gif/${gif.id}`
     setCopied(true)
     navigator.clipboard.writeText(link)
-    setTimeout(() => {
-      setCopied(false)
-    }, 1000)
   }
+
+  useEffect(() => {
+    let timer
+    if (copied) {
+      timer = setTimeout(() => {
+        setCopied(false)
+      }, 1000)
+    }
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [copied])
 
   return (
     <button disabled={copied} onClick={copyLink} className={`btn ${className} ${copiedClassName}`}>
       {copied ? (
         <>
-          <BiCheck size='1.1rem' />
+          <BiCheck size="1.1rem" />
         </>
       ) : (
         <>

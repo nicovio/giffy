@@ -1,14 +1,12 @@
+import AccountNavbar from 'components/AccountNavbar/AccountNavbar'
 import Error from 'components/Error/Error'
 import useUser from 'hooks/useUser'
 import React, { useEffect, useState } from 'react'
 import 'styles/form.css'
-import useLocation from 'wouter/use-location'
-import AccountNavbar from 'components/AccountNavbar/AccountNavbar'
 
 export default function Login({ onLogin, showAccountNavbar = false }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [, navigate] = useLocation()
   const { login, isLogged, isLoginloading, error, clearError } = useUser()
 
   const handleSubmit = (e) => {
@@ -20,7 +18,7 @@ export default function Login({ onLogin, showAccountNavbar = false }) {
     if (isLogged) {
       onLogin()
     }
-  }, [isLogged, navigate, onLogin])
+  }, [isLogged, onLogin])
 
   return (
     <>

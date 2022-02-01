@@ -1,6 +1,8 @@
 :root {
   --font-family-default: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
     'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --scrollbar-thumb-color: hsl(192, 100%, 60%);
+  --scrollbar-track-color: hsl(192, 100%, 10%);
 }
 
 html {
@@ -186,7 +188,7 @@ select:-webkit-autofill:focus {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: hsl(192, 100%, 10%);
+  background-color: var(--scrollbar-track-color);
   /* background-color: hsl(204, 50%, 50%); */
   border-radius: 100vw;
   margin-block: 0.5rem;
@@ -194,7 +196,7 @@ select:-webkit-autofill:focus {
 
 ::-webkit-scrollbar-thumb {
   background-color: grey;
-  background-color: hsl(192, 100%, 60%);
+  background-color: var(--scrollbar-thumb-color);
   border: 0.15rem solid hsl(192, 100%, 10%);
   border-radius: 100vw;
 }
@@ -203,9 +205,9 @@ select:-webkit-autofill:focus {
   background-color: hsl(192, 100%, 80%);
 }
 
-@supports (scrollbar-color: hsl(192, 100%, 50%) hsl(192, 100%, 20%)) {
+@supports (scrollbar-color: hsl(192, 100%, 60%) hsl(192, 100%, 10%)) {
   * {
-    scrollbar-color: hsl(192, 100%, 50%) hsl(192, 100%, 20%);
+    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
     scrollbar-width: thin;
   }
 }

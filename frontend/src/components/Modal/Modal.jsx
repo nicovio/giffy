@@ -33,7 +33,7 @@ function Modal({ children, onClose }) {
       </Helmet>
       <div onClick={onClose} className="modal">
         <div onClick={stopPropagation} className="modal-content">
-          <button className="close-btn" onClick={onClose}>
+          <button aria-label="Cerrar modal" className="close-btn" onClick={onClose}>
             ❌
           </button>
           {children}

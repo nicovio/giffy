@@ -25,7 +25,7 @@ export default function Copy({ gif, className }) {
   }, [copied])
 
   return (
-    <button disabled={copied} onClick={copyLink} className={`btn ${className} ${copiedClassName}`}>
+    <button aria-label="Copiar link" disabled={copied} onClick={copyLink} className={`btn ${className} ${copiedClassName}`}>
       {copied ? (
         <>
           <BiCheck size="1.1rem" />

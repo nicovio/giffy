@@ -6,7 +6,7 @@ export default function Error({ message, onClose }) {
   return (
     <div className="error-container">
       <strong>{message}</strong>
-      <button className="close-btn" onClick={onClose}>
+      <button aria-label="Limpiar error" className="close-btn" onClick={onClose}>
         <FaTimes color="white" size="1rem" />
       </button>
     </div>

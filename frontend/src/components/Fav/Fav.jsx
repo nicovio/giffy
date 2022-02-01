@@ -30,7 +30,7 @@ export default function Fav({ className, gif }) {
 
   return (
     <>
-      <button className={`btn ${className} ${favedClassname}`} onClick={handleClick}>
+      <button aria-label="Cambiar favorito" className={`btn ${className} ${favedClassname}`} onClick={handleClick}>
         <span className={favedClassname} aria-label={label} role="img">
           <FaHeart className={favedClassname} />
         </span>

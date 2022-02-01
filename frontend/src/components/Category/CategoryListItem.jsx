@@ -16,7 +16,7 @@ export default function CategoryListItem({ option, index }) {
 
   return (
     <li>
-      <Link style={getMultiColorCategory()} className="Category-link" to={`/search/${option}`}>
+      <Link aria-label="Search category" style={getMultiColorCategory()} className="Category-link" to={`/search/${option}`}>
         {option}
       </Link>
     </li>

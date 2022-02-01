@@ -9,7 +9,7 @@ function GifLink({ gif }) {
     <div className="Gif-link-container">
       <GifLinkButtons gif={gif} />
       <Link href={`/gif/${gif.id}`}>
-        <a href="replace" className="Gif-link" data-testid={`gif-link-${gif.id}`}>
+        <a aria-label="Ver gif" href="replace" className="Gif-link" data-testid={`gif-link-${gif.id}`}>
           <Gif gif={gif}></Gif>
         </a>
       </Link>

@@ -8,7 +8,7 @@
   justify-content: center;
   position: relative;
   border-radius: var(--gif-border-radius);
-  transition: outline ease 0.2s;
+
   outline: 1px solid rgba(126, 126, 126, 0.349);
   height: 200px;
   background-color: var(--bg-color);

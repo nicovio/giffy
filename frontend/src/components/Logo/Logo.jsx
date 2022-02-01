@@ -8,7 +8,7 @@ function Logo() {
     <Link to="/">
       <a href="replace" className="App-logo">
         <AiOutlineFileGif className="icon" />
-        <h2 className="gradient-text ">GIFFY</h2>
+        <h2 className="Gradient-text">GIFFY</h2>
       </a>
     </Link>
   )

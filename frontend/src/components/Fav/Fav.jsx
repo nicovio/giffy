@@ -5,17 +5,17 @@ import useUser from 'hooks/useUser'
 import React, { useCallback } from 'react'
 import { FaHeart } from 'react-icons/fa'
 
-export default function Fav({ id, className }) {
+export default function Fav({ className, gif }) {
   const [showModal, setShowModal] = useModal(false)
   const { isLogged, addFav, deleteFav, isFaved } = useUser()
-  const faved = isFaved({ id })
+  const faved = isFaved({ id: gif.id })
 
   const handleClick = useCallback(() => {
     if (!isLogged) {
       return setShowModal(true)
     }
-    faved ? deleteFav({ id }) : addFav({ id })
-  }, [addFav, deleteFav, faved, id, isLogged, setShowModal])
+    faved ? deleteFav({ id: gif.id }) : addFav({ gif })
+  }, [addFav, deleteFav, faved, gif, isLogged, setShowModal])
 
   const handleClose = useCallback(() => {
     setShowModal(false)

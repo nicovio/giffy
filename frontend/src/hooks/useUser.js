@@ -32,9 +32,9 @@ export default function useUser() {
   }, [setJWT])
 
   const addFav = useCallback(
-    async ({ id }) => {
+    async ({ gif }) => {
       try {
-        const favs = await favService.addFav({ id, jwt })
+        const favs = await favService.addFav({ gif, jwt })
         setFavs(favs)
       } catch (err) {
         console.error(err)
@@ -60,7 +60,7 @@ export default function useUser() {
   )
 
   const isFaved = ({ id }) => {
-    return favs.some((favId) => favId === id)
+    return favs.some((fav) => fav.id === id)
   }
 
   const clearError = () => {
@@ -73,6 +73,7 @@ export default function useUser() {
     logout,
     isLoginloading: state.loading,
     error: state.error,
+    favs,
     addFav,
     deleteFav,
     isFaved,

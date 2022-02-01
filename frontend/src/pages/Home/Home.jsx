@@ -13,7 +13,7 @@ export default function Home() {
         <title>Home | Giffy</title>
       </Helmet>
       <div className="App-results">
-        <h2 className="Home-title gradient-text">
+        <h2 className="Gradient-title Gradient-text">
           Hola, bienvenidx a <span className="bold"> Giffy!</span>
         </h2>
         <h3 className="App-title">Última búsqueda</h3>

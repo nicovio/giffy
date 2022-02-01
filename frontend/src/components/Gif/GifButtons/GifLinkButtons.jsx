@@ -6,7 +6,7 @@ import './GifLinkButtons.css'
 export default function GifButtons({ gif }) {
   return (
     <div className="Gif-buttons">
-      <Fav className="gf-fav-overlay" id={gif.id} />
+      <Fav className="gf-fav-overlay" gif={gif} />
       <Copy className="gf-copy-overlay" gif={gif} />
     </div>
   )

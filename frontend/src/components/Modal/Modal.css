@@ -1,5 +1,5 @@
 .modal {
-  background-color: rgba(0, 0, 0, 0.76);
+  background-color: rgb(46, 46, 46, 0.9);
   position: fixed;
   top: 0;
   right: 0;
@@ -10,7 +10,7 @@
 }
 
 .modal-content {
-  background-color: var(--bg-color);
+  background-color: black;
   outline: 1px solid rgb(48, 48, 48);
   max-width: 20rem;
   min-width: 200px;
@@ -18,7 +18,6 @@
   border-radius: 10px;
   margin: 4rem auto;
   position: relative;
-  animation: appearFromTop 0.5s;
 }
 
 .modal-content form {

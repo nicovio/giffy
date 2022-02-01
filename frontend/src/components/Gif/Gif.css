@@ -32,11 +32,12 @@ video {
 
 .btn .faved {
   color: red;
-  animation: fav 1s forwards;
+  animation: fav 0.5s forwards;
 }
 
 .btn.copied {
   color: var(--brand-color_1);
-  outline: 1px solid var(--brand-color_1);
+  outline: 2px solid var(--brand-color_1);
+  background-color: var(--bg-color);
   opacity: 1;
 }

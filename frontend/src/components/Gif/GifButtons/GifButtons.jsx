@@ -11,9 +11,9 @@ export default function GifButtons({ gif }) {
   return (
     <div className="botonera">
       <button onClick={goBack} className="btn go-back ">
-        <FaArrowLeft size="1rem" />
+        <FaArrowLeft size="1.2rem" />
       </button>
-      <Fav className="gf-fav" id={gif.id} />
+      <Fav className="gf-fav" gif={gif} />
       <Copy className="gf-copy" gif={gif} />
     </div>
   )

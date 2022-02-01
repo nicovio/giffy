@@ -1,11 +1,12 @@
 import { validateResponse } from './login'
 import { USER_API_URL } from './settings'
 
-const addFav = async ({ id, jwt }) => {
-  const url = `${USER_API_URL}/favs/${id}`
+const addFav = async ({ gif, jwt }) => {
+  const url = `${USER_API_URL}/favs`
   const response = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwt}` },
+    body: JSON.stringify(gif),
   })
 
   await validateResponse(response)

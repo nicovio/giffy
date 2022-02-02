@@ -41,13 +41,18 @@ function SearchForm({ initialKeyword = '', initialRating = RATINGS[0] }) {
             ))}
           </select>
           <input
+            autoFocus
+            autoCorrect="off"
+            autoCapitalize="off"
+            autoComplete="off"
+            maxLength={120}
+            spellCheck='false'
             id="texto-busqueda"
             aria-label="Buscar"
             placeholder="Buscar gifs..."
             type="text"
             onChange={handleChange}
             value={keyword}
-            autoComplete="off"
           />
           <button aria-label="Buscar" className="btn" data-testid="boton-buscar" disabled={!keyword}>
             <FaSearch focusable="false" className="search-icon" />

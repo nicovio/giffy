@@ -28,18 +28,27 @@ export default function Login({ onLogin, showAccountNavbar = false }) {
           <h4 className="form-header">Iniciar Sesión</h4>
           <label htmlFor="username">Usuario</label>
           <input
+            autoCapitalize="off"
             autoComplete="username"
+            autoCorrect="off"
+            autoFocus
             id="username"
-            type="text"
+            maxLength="35"
             onChange={(e) => setUsername(e.target.value)}
+            spellCheck='false'
+            type="text"
             value={username}
           />
           <label htmlFor="password">Contraseña</label>
           <input
+            autoCapitalize="off"
             autoComplete="current-password"
+            autoCorrect="off"
             id="password"
-            type="password"
+            maxLength="72"
             onChange={(e) => setPassword(e.target.value)}
+            spellCheck='false'
+            type="password"
             value={password}
           />
           <button className="btn" disabled={!username || !password || isLoginloading}>

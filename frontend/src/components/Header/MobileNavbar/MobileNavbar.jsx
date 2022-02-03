@@ -28,6 +28,7 @@ export default function MobileNavbar({ matchLoginOrRegister, keyword }) {
 }
 
 const BottomNavbar = ({ isLogged, showSideNav, setShowSidenav }) => {
+
   return (
     <>
       <button aria-label="Abrir/cerrar menu" className="mobile-link" onClick={() => setShowSidenav((curr) => !curr)}>

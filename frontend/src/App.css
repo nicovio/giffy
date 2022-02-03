@@ -59,6 +59,10 @@ h1 {
     --content-padding: 2rem;
   }
 
+  .App-results {
+    margin-bottom: 2rem;
+  }
+
   .App-main {
     margin-left: 0;
     /* min-height: calc(100vh - 123.77px); */

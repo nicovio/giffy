@@ -41,7 +41,6 @@ function SearchForm({ initialKeyword = '', initialRating = RATINGS[0] }) {
             ))}
           </select>
           <input
-            autoFocus
             autoCorrect="off"
             autoCapitalize="off"
             autoComplete="off"

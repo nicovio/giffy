@@ -1,0 +1,9 @@
+.active-link span {
+  border-bottom: 2px solid white;
+  padding-bottom: 2px;
+  margin-bottom: -4px;
+}
+
+.active-link:hover span {
+  border-bottom: 2px solid currentColor;
+}

@@ -3,10 +3,12 @@ import { useCallback, useContext, useState } from 'react'
 import { favService } from 'services/favService'
 import { loginService } from 'services/login'
 import { getErrorMessage } from 'utils/getErrorMessage'
+import { useLocation } from 'wouter'
 
 export default function useUser() {
   const { jwt, setJWT, favs, setFavs } = useContext(Context)
   const [state, setState] = useState({ loading: false, error: '' })
+  const [, navigate] = useLocation()
 
   const login = useCallback(
     async (username, password) => {
@@ -29,7 +31,8 @@ export default function useUser() {
   const logout = useCallback(() => {
     localStorage.removeItem('jwt')
     setJWT(null)
-  }, [setJWT])
+    navigate('/')
+  }, [setJWT, navigate])
 
   const addFav = useCallback(
     async ({ gif }) => {

@@ -1,5 +1,6 @@
 import AccountNavbar from 'components/AccountNavbar/AccountNavbar'
 import Error from 'components/Error/Error'
+import useMedia from 'hooks/useMedia'
 import useUser from 'hooks/useUser'
 import React, { useEffect, useState } from 'react'
 import 'styles/form.css'
@@ -8,6 +9,8 @@ export default function Login({ onLogin, showAccountNavbar = false }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const { login, isLogged, isLoginloading, error, clearError } = useUser()
+  const isTablet = useMedia('(max-width: 800px)')
+  const autoFocus = isTablet ? {} : { autoFocus: 'on' }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -20,6 +23,7 @@ export default function Login({ onLogin, showAccountNavbar = false }) {
     }
   }, [isLogged, onLogin])
 
+
   return (
     <>
       <form className="form" onSubmit={handleSubmit}>
@@ -31,7 +35,7 @@ export default function Login({ onLogin, showAccountNavbar = false }) {
             autoCapitalize="off"
             autoComplete="username"
             autoCorrect="off"
-            autoFocus
+            {...autoFocus}
             id="username"
             maxLength="35"
             onChange={(e) => setUsername(e.target.value)}

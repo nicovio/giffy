@@ -1,10 +1,11 @@
+import CustomLink from 'components/CustomLink/CustomLink'
 import SearchForm from 'components/SearchForm/SearchForm'
 import SideNav from 'components/SideNav/SideNav'
 import useFixed from 'hooks/useFixed'
 import useUser from 'hooks/useUser'
 import React, { useEffect } from 'react'
 import { HiHeart, HiHome, HiMenuAlt1, HiOutlineX } from 'react-icons/hi'
-import { Link, useLocation } from 'wouter'
+import { useLocation } from 'wouter'
 import './MobileNavbar.css'
 
 export default function MobileNavbar({ matchLoginOrRegister, keyword }) {
@@ -38,17 +39,13 @@ const BottomNavbar = ({ isLogged, showSideNav, setShowSidenav }) => {
           <HiMenuAlt1 className="icon mobile-icon hamburguer" />
         )}
       </button>
-      <Link to="/">
-        <a aria-label="Home" className="mobile-link" href="replace">
-          <HiHome className="icon mobile-icon home" />
-        </a>
-      </Link>
+      <CustomLink aria-label="Home" className="mobile-link" to="/">
+        <HiHome className="icon mobile-icon home" />
+      </CustomLink>
       {isLogged && (
-        <Link to="/favs">
-          <a aria-label="Favoritos" className="mobile-link" href="replace">
-            <HiHeart className="icon mobile-icon heart" />
-          </a>
-        </Link>
+        <CustomLink aria-label="Favoritos" className="mobile-link" to="/favs">
+          <HiHeart className="icon mobile-icon heart" />
+        </CustomLink>
       )}
     </>
   )

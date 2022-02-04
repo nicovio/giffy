@@ -19,7 +19,7 @@
   color: white;
   width: 100%;
   transition: filter ease 0.3s;
-  outline: 1px solid rgb(29, 29, 29);
+  /* outline: 1px solid rgb(29, 29, 29); */
 }
 
 .active {

@@ -31,12 +31,9 @@ const getTrendingTerms = async () => {
 }
 
 const getRandomGif = async ({ tag = '' }) => {
-  console.log(tag)
   const url = `${GIPHY_API_URL}/gifs/random?api_key=${GIPHY_API_KEY}&tag=${tag}`
-  console.log(url)
   const response = await fetch(url)
   const { data } = await response.json()
-  console.log('data', data)
   const gif = fromImageDataToGif(data)
   return gif
 }

@@ -1,8 +1,8 @@
+import CustomLink from 'components/CustomLink/CustomLink'
 import useUser from 'hooks/useUser'
 import miduIcon from 'images/midu.ico'
 import React from 'react'
 import { FaGithub } from 'react-icons/fa'
-import { Link } from 'wouter'
 export default function NavLinks() {
   const { isLogged, logout } = useUser()
 
@@ -29,23 +29,19 @@ export default function NavLinks() {
       </div>
       {isLogged ? (
         <>
-          <Link aria-label="Favoritos" className="link" to="/favs">Favoritos</Link>
+          <CustomLink aria-label="Favoritos" className="link" to="/favs">Favoritos</CustomLink>
           <button className="link logout-button" onClick={logout}>
             Salir
           </button>
         </>
       ) : (
         <>
-          <Link to="/login">
-            <a className="link" href="replace">
-              Ingresar
-            </a>
-          </Link>
-          <Link to="/register">
-            <a className="link" href="replace">
-              Registrarse
-            </a>
-          </Link>
+          <CustomLink className="link" to="/login">
+            Ingresar
+          </CustomLink>
+          <CustomLink className="link" to="/register">
+            Registrarse
+          </CustomLink>
         </>
       )}
     </>

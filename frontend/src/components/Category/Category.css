@@ -24,7 +24,7 @@
 }
 
 .Category-list li a.Category-link {
-  padding: 0.2rem;
+  padding: 0.5rem;
   text-overflow: ellipsis;
   font-size: 1.2rem;
   text-align: center;
@@ -33,7 +33,7 @@
   -webkit-text-fill-color: transparent;
   transition: -webkit-text-fill-color 1s cubic-bezier(0.08, 0.34, 0.17, 0.77);
   border-radius: 10px;
-  line-height: 2;
+  line-height: 1.5;
 }
 
 .Category-list li a.Category-link:hover {

@@ -1,6 +1,7 @@
 import AccountNavbar from 'components/AccountNavbar/AccountNavbar'
 import Form from 'components/Form/Form'
 import Input from 'components/Form/Input/Input'
+import useMedia from 'hooks/useMedia'
 import React, { useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { loginService } from 'services/login'
@@ -11,8 +12,9 @@ const defaultValues = { username: '', password: '' }
 function Register() {
   const [registered, setRegistered] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
-
   const methods = useForm({ defaultValues, mode: 'all' })
+  const isTablet = useMedia('(max-width: 800px)')
+  const autoFocus = isTablet ? {} : { autoFocus: 'on' }
 
   const {
     register,
@@ -42,7 +44,7 @@ function Register() {
             autoCapitalize="off"
             autoComplete="off"
             autoCorrect="off"
-            autoFocus
+            {...autoFocus}
             className={errors?.username ? 'has-error' : ''}
             id="username"
             label="Usuario"

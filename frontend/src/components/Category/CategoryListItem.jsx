@@ -1,5 +1,5 @@
+import CustomLink from 'components/CustomLink/CustomLink'
 import React from 'react'
-import { Link } from 'wouter'
 
 export default function CategoryListItem({ option, index }) {
   const getMultiColorCategory = () => {
@@ -16,9 +16,9 @@ export default function CategoryListItem({ option, index }) {
 
   return (
     <li>
-      <Link aria-label="Search category" style={getMultiColorCategory()} className="Category-link" to={`/search/${option}`}>
+      <CustomLink aria-label="Search category" style={getMultiColorCategory()} className="Category-link" to={`/search/${option}`}>
         {option}
-      </Link>
+      </CustomLink>
     </li>
   )
 }

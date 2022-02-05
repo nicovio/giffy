@@ -1,22 +1,22 @@
 .modal {
   background-color: rgb(46, 46, 46, 0.9);
   position: fixed;
+  display: flex;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 200;
+  z-index: 350;
   width: 100%;
 }
 
 .modal-content {
   background-color: black;
   outline: 1px solid rgb(48, 48, 48);
-  max-width: 20rem;
-  min-width: 200px;
+  width: 20rem;
   padding: 2rem;
   border-radius: 10px;
-  margin: 4rem auto;
+  margin: auto;
   position: relative;
 }
 

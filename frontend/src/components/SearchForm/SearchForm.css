@@ -4,14 +4,11 @@
   justify-content: center;
   flex-direction: column;
   gap: 0.5rem;
-  position: sticky;
-  top: 70px;
   width: 50%;
   background-color: var(--bg-color);
   z-index: 10;
   padding: 0rem 0.1rem;
   outline: 6px solid var(--bg-color);
-  align-self: flex-start;
 }
 
 .inputs-container {

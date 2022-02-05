@@ -6,7 +6,6 @@
   background-color: black;
   outline: 2px solid grey;
   line-height: 0;
-  z-index: 100;
 }
 
 .gf-fav-overlay span:not(.faved) {

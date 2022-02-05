@@ -8,9 +8,13 @@ const Gif = ({ gif }) => {
     <div className="Gif-container">
       <h3 className="App-title Gif-title">{title || slug}</h3>
       {gif.image && (
-        <video autoPlay loop muted playsInline>
-          <source src={image.mp4} type="video/mp4" />
-        </video>
+        <>
+          <picture  >
+            <source height={image.height} width={image.width} srcSet={image.webp} type="image/webp" />
+            <source height={image.height} width={image.width} srcSet={image.url} type="image/jpeg" />
+            <img height={image.height} width={image.width} src={image.url} alt={title} loading="lazy" />
+          </picture>
+        </>
       )}
     </div>
   )

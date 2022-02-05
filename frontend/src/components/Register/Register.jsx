@@ -13,7 +13,7 @@ function Register() {
   const [registered, setRegistered] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const methods = useForm({ defaultValues, mode: 'all' })
-  const isTablet = useMedia('(max-width: 800px)')
+  const isTablet = useMedia('(max-width: 950px)')
   const autoFocus = isTablet ? {} : { autoFocus: 'on' }
 
   const {

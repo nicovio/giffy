@@ -10,7 +10,7 @@ function Header() {
   const [matchRegister] = useRoute('/register')
   const [, params] = useRoute('/search/:keyword/:rating?')
 
-  const isTablet = useMedia('(max-width: 800px)')
+  const isTablet = useMedia('(max-width: 950px)')
 
   const matchLoginOrRegister = matchLogin || matchRegister
 

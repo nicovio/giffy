@@ -1,6 +1,6 @@
 .masonry-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(17rem, 50vw), 1fr));
   gap: var(--masonry-gap);
   width: auto;
   gap: 1rem;
@@ -10,17 +10,15 @@
   animation: appearFromTop 0.5s normal, opacity 1s normal;
 }
 
-.masonry-grid video {
+.masonry-grid img {
   width: 100%;
-  height: 200px;
-
   /* max-height: 15rem; */
   /* object-fit: cover; */
   border-radius: var(--gif-border-radius);
 }
 
-@media screen and (max-width: 543.5px) {
-  .masonry-grid :is(video, .Gif-link) {
+@media screen and (max-width: 666.5px) {
+  .masonry-grid :is(img, .Gif-link) {
     height: 100%;
     padding: 0;
     /* max-height: 100%; */
@@ -41,7 +39,7 @@
     --masonry-gap: 0;
   }
 
-  .masonry-grid video {
+  .masonry-grid img {
     height: 100%;
   }
 }

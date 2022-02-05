@@ -34,7 +34,7 @@
   box-shadow: none;
 }
 
-@media screen and (max-width: 543.5px) {
+@media screen and (max-width: 666.5px) {
   .modal-content {
     padding: 0.5rem;
   }

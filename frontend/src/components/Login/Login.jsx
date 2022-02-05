@@ -9,7 +9,7 @@ export default function Login({ onLogin, showAccountNavbar = false }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const { login, isLogged, isLoginloading, error, clearError } = useUser()
-  const isTablet = useMedia('(max-width: 800px)')
+  const isTablet = useMedia('(max-width: 950px)')
   const autoFocus = isTablet ? {} : { autoFocus: 'on' }
 
   const handleSubmit = (e) => {

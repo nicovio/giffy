@@ -18,7 +18,7 @@ const useGifs = ({ keyword, limit, rating } = {}) => {
   const debounceHandleNextPage = useCallback(() => {
     const withDebounce = debounce(() => {
       setPage((currentPage) => currentPage + 1)
-    }, 1000)
+    }, 200)
     withDebounce()
   }, [])
 
@@ -49,7 +49,7 @@ const useGifs = ({ keyword, limit, rating } = {}) => {
         rating,
       })
       setGifs((prevGifs) => prevGifs.concat(nextGifs.filter((gif) => isNew(gif, prevGifs))))
-      if (!hasNextPage) setHasNextPage(false)
+      setHasNextPage(hasNextPage)
       setLoadingNextPage(false)
     }
     if (page === INITIAL_PAGE) return

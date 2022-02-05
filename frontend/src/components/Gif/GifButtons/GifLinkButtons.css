@@ -13,13 +13,13 @@
   color: white;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 950px) {
   .gf-fav-overlay:not(.faved):hover {
     animation: beat 0.25s infinite alternate;
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 950px) {
   .gf-fav-overlay,
   .gf-copy-overlay {
     padding: 0.8rem;

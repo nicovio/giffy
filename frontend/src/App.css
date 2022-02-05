@@ -49,18 +49,18 @@ h1 {
 .App-results {
   display: flex;
   width: 100%;
-  padding: 0 4vw 3rem 4vw;
+  padding: 0 8vw 3rem 8vw;
   box-sizing: border-box;
   flex-direction: column;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 950px) {
   :root {
     --content-padding: 2rem;
   }
 
   .App-results {
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
   }
 
   .App-main {

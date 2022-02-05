@@ -33,7 +33,7 @@
   background-color: transparent;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 950px) {
   .sidenav {
     /* text-align: center; */
     padding: 0;

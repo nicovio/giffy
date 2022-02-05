@@ -1,5 +1,6 @@
-video {
+.Gif-container img {
   max-width: 100%;
+  object-fit: contain;
 }
 
 .Gif-container {
@@ -21,13 +22,6 @@ video {
   display: flex;
   flex-direction: column;
   padding-top: 0;
-  max-height: 70vh;
-}
-
-@media screen and (max-width: 800px) {
-  .Gif-container {
-    max-height: 60vh;
-  }
 }
 
 .btn .faved {

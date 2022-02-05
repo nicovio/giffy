@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 200;
+  z-index: 300;
   gap: 1rem;
   top: 0;
   padding: 0.5rem;
@@ -68,7 +68,7 @@
   gap: 0.5rem;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 950px) {
   .gf-header {
     display: flex;
     flex-wrap: wrap;

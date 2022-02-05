@@ -42,7 +42,7 @@
   -webkit-background-clip: padding-box;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 950px) {
   .Category-title {
     text-align: center;
     margin-top: 1rem;

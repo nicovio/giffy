@@ -13,7 +13,7 @@
 .modal-content {
   background-color: black;
   outline: 1px solid rgb(48, 48, 48);
-  width: 20rem;
+  flex-basis: 20rem;
   padding: 2rem;
   border-radius: 10px;
   margin: auto;

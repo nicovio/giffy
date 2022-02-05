@@ -1,11 +1,8 @@
-import GifsContext from 'context/GifsContext'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { gifService } from 'services/gifService'
 
 const useSingleGif = ({ id }) => {
-  const gifs = useContext(GifsContext).gifs
-  const gifFromCache = gifs.find((gif) => gif.id === id)
-  const [gif, setGif] = useState(gifFromCache)
+  const [gif, setGif] = useState()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
 
@@ -22,10 +19,8 @@ const useSingleGif = ({ id }) => {
         setLoading(false)
       }
     }
-    if (!gifFromCache) {
-      getGifById(id)
-    }
-  }, [id, gifFromCache])
+    getGifById(id)
+  }, [id])
 
   return { gif, loading, error }
 }

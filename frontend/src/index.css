@@ -116,6 +116,10 @@ form select:focus {
   outline: 2px solid white;
 }
 
+img {
+  color: transparent;
+}
+
 .text-center {
   text-align: center;
 }

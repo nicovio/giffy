@@ -109,7 +109,6 @@ form input:focus,
 form select:focus {
   outline: none;
   background-color: var(--bg-color);
-  transition: outline ease 0.1s;
 }
 
 :is(a:focus-visible, button:focus-visible) {

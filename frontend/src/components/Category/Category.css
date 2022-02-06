@@ -31,7 +31,6 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: -webkit-text-fill-color 1s cubic-bezier(0.08, 0.34, 0.17, 0.77);
   border-radius: 10px;
   line-height: 1.5;
 }

@@ -24,8 +24,6 @@
   white-space: nowrap;
   text-align: center;
   font-size: max(1rem, 1.5vw);
-  line-height: 0;
-  margin-bottom: 1rem;
 }
 
 @media screen and (max-width: 950px) {

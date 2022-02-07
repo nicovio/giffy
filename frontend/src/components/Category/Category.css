@@ -32,7 +32,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   border-radius: 10px;
-  line-height: 1.5;
 }
 
 .Category-list li a.Category-link:hover {

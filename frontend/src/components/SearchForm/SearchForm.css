@@ -19,7 +19,7 @@
 
 .inputs-container input {
   border-radius: 0;
-  padding: 1rem;
+  padding: 0.8rem;
 }
 
 .inputs-container :is(select:focus, input:focus, button:focus-visible) {

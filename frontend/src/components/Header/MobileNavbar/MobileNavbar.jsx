@@ -19,7 +19,11 @@ export default function MobileNavbar({ matchLoginOrRegister, keyword }) {
 
   return (
     <>
-      {!matchLoginOrRegister && <SearchForm initialKeyword={keyword} />}
+      {!matchLoginOrRegister &&
+        <header className="gf-header">
+          <SearchForm initialKeyword={keyword} />
+        </header>
+      }
       {showSideNav && <SideNav mobile={true} />}
       <div className="gf-header bottom-header-mobile">
         <BottomNavbar showSideNav={showSideNav} setShowSidenav={setShowSidenav} isLogged={isLogged} />

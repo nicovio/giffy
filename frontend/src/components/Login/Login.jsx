@@ -1,11 +1,10 @@
-import AccountNavbar from 'components/AccountNavbar/AccountNavbar'
 import Error from 'components/Error/Error'
 import useMedia from 'hooks/useMedia'
 import useUser from 'hooks/useUser'
 import React, { useEffect, useState } from 'react'
 import 'styles/form.css'
 
-export default function Login({ onLogin, showAccountNavbar = false }) {
+export default function Login({ onLogin }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const { login, isLogged, isLoginloading, error, clearError } = useUser()
@@ -28,7 +27,6 @@ export default function Login({ onLogin, showAccountNavbar = false }) {
     <>
       <form className="form" onSubmit={handleSubmit}>
         <section className="form-body">
-          {showAccountNavbar && <AccountNavbar />}
           <h4 className="form-header">Iniciar Sesión</h4>
           <label htmlFor="username">Usuario</label>
           <input

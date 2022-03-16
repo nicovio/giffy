@@ -11,6 +11,7 @@
   --brand-color_4: #ff6347;
   --brand-color_5: #fff35c;
   --one-column-breakpoint: 605px;
+  --error-color: #df3b59;
 }
 
 .App-content {

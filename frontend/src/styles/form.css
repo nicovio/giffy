@@ -14,7 +14,7 @@
 
 .form input {
   margin-bottom: 2.5rem;
-  padding: 0.6rem;
+  padding: 0.9rem;
   font-size: 0.9rem;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .form input.has-error:focus {
-  outline: 2px solid #df3b59;
+  outline: 2px solid var(--error-color);
 }
 
 .form label {
@@ -36,7 +36,7 @@
 
 .form button {
   width: 100%;
-  padding: 0.6rem;
+  padding: 0.9rem;
   background-color: transparent;
   outline: 2px solid var(--brand-color_2);
   font-weight: 600;
@@ -61,6 +61,8 @@
     background-color: transparent;
     outline: none;
     box-shadow: none;
-    padding: 0;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
   }
 }

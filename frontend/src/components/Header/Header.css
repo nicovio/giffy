@@ -11,6 +11,7 @@
   background-color: var(--bg-color);
   outline: 6px solid var(--bg-color);
   border-bottom: 1px solid rgb(78, 78, 78);
+  margin: auto;
 }
 
 .gf-header .links {
@@ -21,15 +22,18 @@
 }
 
 .gf-header :is(a, .logout-button) {
-  color: #fff;
   display: flex;
   justify-content: center;
-  align-items: center;
   font-size: 0.9rem;
   font-size: 0.9rem;
   font-weight: 600;
-  padding: 0.6rem;
   box-sizing: border-box;
+}
+
+:is(.gf-header, .external-links) a {
+  padding: 0.6rem;
+  color: #fff;
+  align-items: center;
   border-radius: 10px;
 }
 
@@ -54,10 +58,6 @@
   height: 30px;
 }
 
-.gf-header {
-  margin: auto;
-}
-
 .gf-header .brand_2 {
   stroke: var(--brand-color_2);
 }
@@ -67,11 +67,28 @@
   gap: 0.5rem;
 }
 
+.success {
+  color: #47f147;
+}
+
+.link {
+  padding: 0.5rem;
+  display: inline;
+  font-weight: 400;
+  text-align: center;
+  font-size: 1rem;
+  color: white;
+  width: 100%;
+  transition: filter ease 0.3s;
+  /* outline: 1px solid rgb(29, 29, 29); */
+}
+
 @media screen and (max-width: 950px) {
   .gf-header {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     padding: 0.5rem;
+    border-bottom: 0;
   }
 }

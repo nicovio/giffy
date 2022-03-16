@@ -8,7 +8,7 @@
   background-color: var(--bg-color);
   z-index: 10;
   padding: 0rem 0.1rem;
-  outline: 6px solid var(--bg-color);
+  /* outline: 6px solid var(--bg-color); */
 }
 
 .inputs-container {
@@ -19,6 +19,7 @@
 
 .inputs-container input {
   border-radius: 0;
+  padding: 1rem;
 }
 
 .inputs-container :is(select:focus, input:focus, button:focus-visible) {
@@ -50,6 +51,7 @@
 @media screen and (max-width: 950px) {
   .search-form {
     order: 3;
+    padding: 0.5rem 0.1rem;
   }
   .search-form {
     width: 100%;

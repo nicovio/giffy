@@ -1,4 +1,3 @@
-import AccountNavbar from 'components/AccountNavbar/AccountNavbar'
 import Form from 'components/Form/Form'
 import Input from 'components/Form/Input/Input'
 import useMedia from 'hooks/useMedia'
@@ -38,7 +37,6 @@ function Register() {
     <FormProvider {...methods}>
       <Form onSubmit={onSubmit} setIsSubmitting={setIsSubmitting}>
         <section className="form-body">
-          <AccountNavbar />
           <h4 className="form-header">Registrarse</h4>
           <Input
             autoCapitalize="off"

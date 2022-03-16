@@ -18,13 +18,11 @@ function Header() {
 
   return (
     <>
-      <header className="gf-header">
-        {isTablet ? (
-          <MobileNavbar matchLoginOrRegister={matchLoginOrRegister} keyword={keyword} />
-        ) : (
-          <DesktopNavbar matchLoginOrRegister={matchLoginOrRegister} keyword={keyword} />
-        )}
-      </header>
+      {isTablet ? (
+        <MobileNavbar matchLoginOrRegister={matchLoginOrRegister} keyword={keyword} />
+      ) : (
+        <DesktopNavbar matchLoginOrRegister={matchLoginOrRegister} keyword={keyword} />
+      )}
     </>
   )
 }

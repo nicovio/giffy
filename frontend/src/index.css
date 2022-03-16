@@ -3,6 +3,7 @@
     'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   --scrollbar-thumb-color: hsl(192, 100%, 60%);
   --scrollbar-track-color: hsl(192, 100%, 10%);
+  --input-bg-color: #2f3247;
 }
 
 html {
@@ -86,7 +87,7 @@ input {
 
 input,
 select {
-  background-color: #2f3247;
+  background-color: var(--input-bg-color);
   color: white;
   margin: 0;
   border: none;
@@ -161,6 +162,17 @@ img {
   transition: -webkit-text-fill-color 1s cubic-bezier(0.08, 0.34, 0.17, 0.77);
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--input-bg-color) inset;
+}
+
+input:-webkit-autofill:focus {
+  caret-color: white;
+  -webkit-box-shadow: 0 0 0 0;
+}
+
 /* Change Autocomplete styles in Chrome*/
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -171,7 +183,7 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  background-color: #2f3247;
+  background-color: var(--input-bg-color);
   /* border: 2px solid rgba(114, 113, 113, 0.867); */
   color: white;
 

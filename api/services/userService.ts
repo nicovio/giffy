@@ -1,4 +1,4 @@
-import { compareSync, hashSync } from 'https://deno.land/x/bcrypt@v0.2.4/mod.ts'
+import { compareSync, hashSync } from 'https://deno.land/x/bcrypt@v0.3.0/mod.ts'
 import { create } from 'https://deno.land/x/djwt@v2.4/mod.ts'
 import { getPayload, HEADER } from '../helpers/getPayload.ts'
 import { SECRET_KEY } from '../server.ts'

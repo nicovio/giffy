@@ -151,7 +151,6 @@ img {
 
 .Gradient-text {
   background-color: white;
-  background-repeat: repeat; */
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

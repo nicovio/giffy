@@ -10,7 +10,7 @@ import './SearchResults.css'
 function SearchResults({ params }) {
   const keyword = decodeURI(params.keyword)
   const rating = params.rating || 'g'
-  const { loading, loadingNextPage, gifs, loadNextPage, error, clearError } = useGifs({ keyword, rating })
+  const { loading, loadingNextPage, gifs, loadNextPage, error } = useGifs({ keyword, rating })
   const externalRef = useRef()
   const { isNearScreen } = useNearScreen({ externalRef: loading ? null : externalRef, once: false })
 
@@ -35,7 +35,7 @@ function SearchResults({ params }) {
         {loading ? (
           <Spinner style={{ marginTop: '10rem' }} />
         ) : (
-          <ListOfGifs clearError={clearError} error={error} gifs={gifs} />
+          <ListOfGifs gifs={gifs} />
         )}
         {!loading && loadingNextPage && <Spinner style={{ marginTop: '2rem' }} />}
         <div className="visor" id="visor" ref={externalRef}></div>

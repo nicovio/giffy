@@ -3,13 +3,10 @@ import { useCallback, useContext, useState } from 'react'
 import { favService } from 'services/favService'
 import { loginService } from 'services/login'
 import { getErrorMessage } from 'utils/getErrorMessage'
-import { useLocation } from 'wouter'
 
 export default function useUser({ onLogin = () => {} } = {}) {
   const { jwt, setJWT, favs, setFavs } = useContext(Context)
   const [state, setState] = useState({ loading: false, error: '' })
-  const [, navigate] = useLocation()
-
   const login = useCallback(
     async (username, password) => {
       try {
@@ -32,41 +29,48 @@ export default function useUser({ onLogin = () => {} } = {}) {
   const logout = useCallback(() => {
     localStorage.removeItem('jwt')
     setJWT(null)
-    navigate('/')
-  }, [setJWT, navigate])
+  }, [setJWT])
 
   const addFav = useCallback(
     async (gif) => {
       try {
+        clearError()
         const favs = await favService.addFav({ gif, jwt })
         setFavs(favs)
       } catch (err) {
-        console.error(err)
+        if (err.status === 401) {
+          logout()
+        }
+        console.log(err)
         const message = getErrorMessage(err)
         setState({ loading: false, error: message })
       }
     },
-    [setFavs, jwt]
+    [setFavs, jwt, logout]
   )
 
   const deleteFav = useCallback(
     async ({ id }) => {
       try {
+        clearError()
         const favs = await favService.deleteFav({ id, jwt })
         setFavs(favs)
       } catch (err) {
         console.error(err)
+        if (err.status === 401) {
+          logout()
+        }
         const message = getErrorMessage(err)
         setState({ loading: false, error: message })
       }
     },
-    [jwt, setFavs]
+    [jwt, setFavs, logout]
   )
 
   const isLogged = useCallback(() => Boolean(jwt), [jwt])
 
   const isFaved = ({ id }) => {
-    return favs.some((fav) => fav.id === id)
+    return favs?.some((fav) => fav.id === id)
   }
 
   const clearError = () => {

@@ -3,7 +3,7 @@ import Fav from 'components/Fav/Fav'
 import React from 'react'
 import './GifLinkButtons.css'
 
-export default function GifButtons({ gif }) {
+export default function GifLinkButtons({ gif }) {
   return (
     <div className="Gif-buttons">
       <Fav className="gf-fav-overlay" gif={gif} />

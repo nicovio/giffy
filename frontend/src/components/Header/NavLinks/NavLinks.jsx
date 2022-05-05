@@ -3,16 +3,23 @@ import useUser from 'hooks/useUser'
 import miduIcon from 'images/midu.ico'
 import React from 'react'
 import { FaGithub } from 'react-icons/fa'
+import { useLocation } from 'wouter'
 import ExternalLink from './ExternalLink/ExternalLink'
 function NavLinks() {
   const { isLogged, logout } = useUser()
+  const [, navigate] = useLocation()
+
+  const handleLogout = () => {
+    logout()
+    navigate('/')
+  }
 
   const loggedLinks = (
     <>
       <CustomLink aria-label="Favoritos" className="link" to="/favs">
         Favoritos
       </CustomLink>
-      <button className="link logout-button" onClick={logout}>
+      <button className="link logout-button" onClick={handleLogout}>
         Salir
       </button>
     </>

@@ -6,7 +6,7 @@ const addFav = async ({ gif, jwt }) => {
   const response = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${jwt}` },
-    body: JSON.stringify(gif),
+    body: JSON.stringify({ ...gif, image: gif.fav }),
   })
 
   await validateResponse(response)

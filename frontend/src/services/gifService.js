@@ -3,7 +3,7 @@ import { GIPHY_API_KEY, GIPHY_API_URL } from './settings'
 const fromImageDataToGif = ({ data, rendition }) => {
   const defaultSize = 'fixed_height'
   const { id, title, images, slug } = data
-  return { id, slug, title, image: images[rendition || defaultSize] }
+  return { id, slug, title, image: images[rendition || defaultSize], fav: images[defaultSize] }
 }
 
 const fetchGifs = async ({ limit = 15, keyword = 'morty', page = 0, rating = 'g' } = {}) => {

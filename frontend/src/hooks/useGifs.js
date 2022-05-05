@@ -12,8 +12,11 @@ const useGifs = ({ keyword, limit, rating } = {}) => {
   const [page, setPage] = useState(INITIAL_PAGE)
   const [hasNextPage, setHasNextPage] = useState(true)
   const { gifs, setGifs } = useContext(GifsContext)
+  const [error, setError] = useState()
 
   const keywordToUse = keyword || localStorage.getItem('lastKeyword') || 'random'
+
+  const clearError = () => setError(null)
 
   const debounceHandleNextPage = useCallback(() => {
     const withDebounce = debounce(() => {
@@ -32,31 +35,42 @@ const useGifs = ({ keyword, limit, rating } = {}) => {
   useEffect(() => {
     async function getInitialGifs() {
       setLoading(true)
-      const { gifs } = await gifService.fetchGifs({ keyword: keywordToUse, limit, rating })
-      setGifs(gifs)
-      setLoading(false)
-      gifs.length && localStorage.setItem('lastKeyword', keywordToUse)
+      try {
+        const { gifs } = await gifService.fetchGifs({ keyword: keywordToUse, limit, rating })
+        setGifs(gifs)
+        gifs.length && localStorage.setItem('lastKeyword', keywordToUse)
+      } catch (err) {
+        setError(err)
+      } finally {
+        setLoading(false)
+      }
     }
     getInitialGifs()
   }, [keywordToUse, setGifs, limit, rating])
 
   useEffect(() => {
     async function getNextGifs() {
-      const { gifs: nextGifs, hasNextPage } = await gifService.fetchGifs({
-        keyword: keywordToUse,
-        page,
-        limit,
-        rating,
-      })
-      setGifs((prevGifs) => prevGifs.concat(nextGifs.filter((gif) => isNew(gif, prevGifs))))
-      setHasNextPage(hasNextPage)
-      setLoadingNextPage(false)
+      try {
+        const { gifs: nextGifs, hasNextPage } = await gifService.fetchGifs({
+          keyword: keywordToUse,
+          page,
+          limit,
+          rating,
+        })
+        setGifs((prevGifs) => prevGifs.concat(nextGifs.filter((gif) => isNew(gif, prevGifs))))
+        setHasNextPage(hasNextPage)
+      } catch (err) {
+        setError(err)
+      } finally {
+        setLoadingNextPage(false)
+      }
     }
+
     if (page === INITIAL_PAGE) return
     getNextGifs()
   }, [keywordToUse, page, setGifs, limit, rating])
 
-  return { gifs, loading, loadingNextPage, loadNextPage }
+  return { gifs, loading, loadingNextPage, loadNextPage, error, clearError }
 }
 
 export default useGifs

@@ -36,6 +36,7 @@ export default function Fav({ className, gif }) {
           <FaHeart />
         </span>
       </button>
+
       {showModal && (
         <Modal onClose={handleClose}>
           <Login onLogin={onLogin} />

@@ -1,3 +1,4 @@
+import Error from 'components/Error/Error'
 import Gif from 'components/Gif/Gif'
 import 'pages/Detail/Detail.css'
 import React, { useEffect, useState } from 'react'
@@ -7,11 +8,20 @@ import './NotFound.css'
 
 export default function NotFound() {
   const [random404Gif, setRandom404Gif] = useState({})
+  const [error, setError] = useState(null)
+
+  const clearError = () => {
+    setError(null)
+  }
 
   useEffect(() => {
     const getRandomGif = async () => {
-      const gif = await gifService.getRandomGif({ tag: 'Error 404' })
-      setRandom404Gif(gif)
+      try {
+        const gif = await gifService.getRandomGif({ tag: 'Error 404' })
+        setRandom404Gif(gif)
+      } catch (err) {
+        setError(err)
+      }
     }
     getRandomGif()
   }, [])
@@ -27,6 +37,7 @@ export default function NotFound() {
           <Gif gif={random404Gif} />
         </div>
       )}
+      {error && <Error message={error.message} onClose={clearError} />}
     </>
   )
 }

@@ -3,7 +3,7 @@ import FormError from 'components/Form/FormError/FormError'
 import React, { forwardRef } from 'react'
 import { useFormContext } from 'react-hook-form'
 
-function Input(props) {
+function Input(props, ref) {
   const {
     register,
     formState: { errors },

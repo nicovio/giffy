@@ -1,13 +1,13 @@
 .error-container {
   position: relative;
   padding: 1.2rem;
-  margin-top: 2.5rem;
   color: white;
   background-color: #b00020;
   display: flex;
   justify-content: center;
   border-radius: 10px;
   animation: opacity 1s normal;
+  margin: 2.5rem auto auto auto;
 }
 
 .error-container span {

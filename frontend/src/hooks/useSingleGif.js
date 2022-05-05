@@ -6,6 +6,8 @@ const useSingleGif = ({ id }) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
 
+  const clearError = () => setError(null)
+
   useEffect(() => {
     const getGifById = async (id) => {
       try {
@@ -22,7 +24,7 @@ const useSingleGif = ({ id }) => {
     getGifById(id)
   }, [id])
 
-  return { gif, loading, error }
+  return { gif, loading, error, clearError }
 }
 
 export default useSingleGif

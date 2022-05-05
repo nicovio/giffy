@@ -21,8 +21,12 @@ function Register() {
   } = methods
 
   const onSubmit = async (values) => {
-    await loginService.register(values)
-    setRegistered(true)
+    try {
+      await loginService.register(values)
+      setRegistered(true)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   const usernameValidation = {

@@ -1,10 +1,11 @@
+import Error from 'components/Error/Error'
 import ListOfGifs from 'components/ListOfGifs/ListOfGifs'
 import useGifs from 'hooks/useGifs'
 import React from 'react'
 import Helmet from 'react-helmet'
 
 export default function Home() {
-  const { loading, gifs } = useGifs({ limit: 15 })
+  const { loading, gifs, error, clearError } = useGifs({ limit: 15 })
 
   return (
     <>
@@ -16,6 +17,7 @@ export default function Home() {
           Hola, bienvenidx a <span className="bold"> Giffy!</span>
         </h2>
         <h3 className="App-title">Última búsqueda</h3>
+        {error && <Error message={error.message} onClose={clearError} />}
         <ListOfGifs gifs={gifs} loading={loading} />
       </div>
     </>

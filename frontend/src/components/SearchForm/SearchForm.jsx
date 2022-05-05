@@ -2,11 +2,10 @@ import useForm from 'components/SearchForm/useForm'
 import React, { useEffect } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { useLocation } from 'wouter'
+import Rating from './Rating/Rating'
 import './SearchForm.css'
 
-const RATINGS = ['g', 'pg', 'pg-13', 'r']
-
-function SearchForm({ initialKeyword = '', initialRating = RATINGS[0] }) {
+function SearchForm({ initialKeyword = '', initialRating = 'g' }) {
   const [, pushLocation] = useLocation()
 
   const { keyword, rating, updateKeyword, updateRating } = useForm({ initialKeyword, initialRating })
@@ -24,7 +23,7 @@ function SearchForm({ initialKeyword = '', initialRating = RATINGS[0] }) {
     pushLocation(`/search/${keyword}/${rating}`)
   }
 
-  const handleChangeRating = (event) => {
+  const handleRatingChange = (event) => {
     updateRating(event.target.value)
   }
 
@@ -32,20 +31,13 @@ function SearchForm({ initialKeyword = '', initialRating = RATINGS[0] }) {
     <>
       <form className="search-form" onSubmit={handleSubmit}>
         <div className="inputs-container">
-          <select value={rating} onChange={handleChangeRating} name="rating" aria-label="Rating">
-            <option disabled>Rating</option>
-            {RATINGS.map((ratingOption) => (
-              <option key={ratingOption} value={ratingOption}>
-                {ratingOption}
-              </option>
-            ))}
-          </select>
+          <Rating rating={rating} handleRatingChange={handleRatingChange} />
           <input
             autoCorrect="off"
             autoCapitalize="off"
             autoComplete="off"
+            spellCheck="false"
             maxLength={120}
-            spellCheck='false'
             id="texto-busqueda"
             aria-label="Buscar"
             placeholder="Buscar gifs..."

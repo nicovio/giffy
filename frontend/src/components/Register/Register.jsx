@@ -25,6 +25,20 @@ function Register() {
     setRegistered(true)
   }
 
+  const usernameValidation = {
+    validate: (value) => {
+      return !!value.trim() || 'Campo obligatorio'
+    },
+  }
+
+  const passwordValidation = {
+    required: 'Campo obligatorio',
+    minLength: {
+      value: 5,
+      message: 'Debe tener entre 5 y 72 caracteres',
+    },
+  }
+
   if (registered) {
     return (
       <h4 className="App-title text-center">
@@ -39,41 +53,23 @@ function Register() {
         <section className="form-body">
           <h4 className="form-header">Registrarse</h4>
           <Input
-            autoCapitalize="off"
-            autoComplete="off"
-            autoCorrect="off"
             {...autoFocus}
             className={errors?.username ? 'has-error' : ''}
             id="username"
             label="Usuario"
-            maxLength='35'
+            maxLength="35"
             name="username"
-            spellCheck='false'
             type="text"
-            {...register('username', {
-              validate: (value) => {
-                return !!value.trim() || 'Campo obligatorio'
-              },
-            })}
+            {...register('username', usernameValidation)}
           />
           <Input
-            autoCapitalize="off"
-            autoComplete="off"
-            autoCorrect="off"
             className={errors?.password ? 'has-error' : ''}
             id="password"
             label="Contraseña"
-            maxLength='72'
+            maxLength="72"
             name="password"
-            spellCheck='false'
             type="password"
-            {...register('password', {
-              required: 'Campo obligatorio',
-              minLength: {
-                value: 5,
-                message: 'Debe tener entre 5 y 72 caracteres',
-              },
-            })}
+            {...register('password', passwordValidation)}
           />
           <button type="submit" className="btn" disabled={isSubmitting || !isDirty || !isValid}>
             {isSubmitting ? 'Registrando usuario...' : 'Registrarse'}

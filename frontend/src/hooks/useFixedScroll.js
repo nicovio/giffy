@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export default function useFixed({ show }) {
+export default function useFixedScroll({ show }) {
   const [showFixed, setShowFixed] = useState(show)
 
   useEffect(() => {

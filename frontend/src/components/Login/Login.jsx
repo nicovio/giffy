@@ -1,27 +1,20 @@
 import Error from 'components/Error/Error'
 import useMedia from 'hooks/useMedia'
 import useUser from 'hooks/useUser'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import 'styles/form.css'
 
 export default function Login({ onLogin }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const { login, isLogged, isLoginloading, error, clearError } = useUser()
+  const { login, isLoginloading, error, clearError } = useUser({ onLogin })
   const isTablet = useMedia('(max-width: 950px)')
   const autoFocus = isTablet ? {} : { autoFocus: 'on' }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    login(username, password)
+    await login(username, password)
   }
-
-  useEffect(() => {
-    if (isLogged) {
-      onLogin()
-    }
-  }, [isLogged, onLogin])
-
 
   return (
     <>
@@ -30,26 +23,24 @@ export default function Login({ onLogin }) {
           <h4 className="form-header">Iniciar Sesión</h4>
           <label htmlFor="username">Usuario</label>
           <input
-            autoCapitalize="off"
-            autoComplete="username"
             autoCorrect="off"
+            spellCheck="false"
+            autoComplete="username"
             {...autoFocus}
             id="username"
             maxLength="35"
             onChange={(e) => setUsername(e.target.value)}
-            spellCheck='false'
             type="text"
             value={username}
           />
           <label htmlFor="password">Contraseña</label>
           <input
-            autoCapitalize="off"
             autoComplete="current-password"
+            spellCheck="false"
             autoCorrect="off"
             id="password"
             maxLength="72"
             onChange={(e) => setPassword(e.target.value)}
-            spellCheck='false'
             type="password"
             value={password}
           />

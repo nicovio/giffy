@@ -1,4 +1,4 @@
-import CustomLink from 'components/CustomLink/CustomLink'
+import CustomLink from 'components/Header/NavLinks/CustomLink/CustomLink'
 import React from 'react'
 
 export default function CategoryListItem({ option, index }) {
@@ -16,7 +16,12 @@ export default function CategoryListItem({ option, index }) {
 
   return (
     <li>
-      <CustomLink aria-label="Search category" style={getMultiColorCategory()} className="Category-link" to={`/search/${option}`}>
+      <CustomLink
+        aria-label="Search category"
+        style={getMultiColorCategory()}
+        className="Category-link"
+        to={`/search/${option}`}
+      >
         {option}
       </CustomLink>
     </li>

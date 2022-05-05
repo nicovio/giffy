@@ -13,9 +13,5 @@ export default function TrendingSearches() {
     fetchTrends()
   }, [])
 
-  return (
-    <>
-      <Category name="Tendencias" options={trends} ></Category>
-    </>
-  )
+  return <Category name="Tendencias" options={trends}></Category>
 }

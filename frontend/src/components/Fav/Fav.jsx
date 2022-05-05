@@ -1,20 +1,21 @@
 import Login from 'components/Login/Login'
 import Modal from 'components/Modal/Modal'
-import useFixed from 'hooks/useFixed'
+import useFixedScroll from 'hooks/useFixedScroll'
 import useUser from 'hooks/useUser'
 import React, { useCallback } from 'react'
 import { FaHeart } from 'react-icons/fa'
 
 export default function Fav({ className, gif }) {
-  const [showModal, setShowModal] = useFixed(false)
+  const [showModal, setShowModal] = useFixedScroll(false)
   const { isLogged, addFav, deleteFav, isFaved } = useUser()
-  const faved = isFaved({ id: gif.id })
+  const faved = isFaved(gif)
 
   const handleClick = useCallback(() => {
-    if (!isLogged) {
-      return setShowModal(true)
+    if (isLogged()) {
+      faved ? deleteFav(gif) : addFav(gif)
+    } else {
+      setShowModal(true)
     }
-    faved ? deleteFav({ id: gif.id }) : addFav({ gif })
   }, [addFav, deleteFav, faved, gif, isLogged, setShowModal])
 
   const handleClose = useCallback(() => {
@@ -30,9 +31,9 @@ export default function Fav({ className, gif }) {
 
   return (
     <>
-      <button aria-label="Cambiar favorito" className={`btn ${className} ${favedClassname}`} onClick={handleClick}>
+      <button aria-label="Cambiar favorito" className={`btn ${className}`} onClick={handleClick}>
         <span className={favedClassname} aria-label={label} role="img">
-          <FaHeart className={favedClassname} />
+          <FaHeart />
         </span>
       </button>
       {showModal && (

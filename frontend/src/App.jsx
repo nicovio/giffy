@@ -6,7 +6,6 @@ import { Helmet } from 'react-helmet'
 import './App.css'
 
 function App() {
-  
   useEffect(() => {
     window.history.scrollRestoration = 'manual'
   }, [])

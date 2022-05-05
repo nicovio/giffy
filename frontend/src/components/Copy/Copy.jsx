@@ -19,22 +19,17 @@ export default function Copy({ gif, className }) {
         setCopied(false)
       }, 1000)
     }
-    return () => {
-      clearTimeout(timer)
-    }
+    return () => clearTimeout(timer)
   }, [copied])
 
   return (
-    <button aria-label="Copiar link" disabled={copied} onClick={copyLink} className={`btn ${className} ${copiedClassName}`}>
-      {copied ? (
-        <>
-          <BiCheck size="1.1rem" />
-        </>
-      ) : (
-        <>
-          <BiCopy />
-        </>
-      )}
+    <button
+      aria-label="Copiar link"
+      disabled={copied}
+      onClick={copyLink}
+      className={`btn ${className} ${copiedClassName}`}
+    >
+      {copied ? <BiCheck size="1.1rem" /> : <BiCopy />}
     </button>
   )
 }

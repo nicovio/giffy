@@ -12,8 +12,6 @@
 
 .masonry-grid img {
   width: 100%;
-  /* max-height: 15rem; */
-  /* object-fit: cover; */
   border-radius: var(--gif-border-radius);
 }
 
@@ -21,7 +19,6 @@
   .masonry-grid :is(img, .Gif-link) {
     height: 100%;
     padding: 0;
-    /* max-height: 100%; */
   }
 
   .Gif-link {

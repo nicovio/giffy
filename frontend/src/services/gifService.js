@@ -7,9 +7,9 @@ const fromImageDataToGif = ({ data, rendition }) => {
 }
 
 const fetchGifs = async ({ limit = 15, keyword = 'morty', page = 0, rating = 'g' } = {}) => {
-  const url = `${GIPHY_API_URL}/gifs/search?api_key=${GIPHY_API_KEY}&limit=${limit}&offset=${
-    page * limit
-  }&rating=${rating}&lang=en&q=${keyword}`
+  const offset = page * limit
+  const params = `api_key=${GIPHY_API_KEY}&limit=${limit}&offset=${offset}&rating=${rating}&lang=en&q=${keyword}`
+  const url = `${GIPHY_API_URL}/gifs/search?${params}`
   const response = await fetch(url)
   const { data, pagination } = await response.json()
   const hasNextPage = !pagination || pagination.count + pagination.offset < pagination.total_count

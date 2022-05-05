@@ -6,13 +6,17 @@ import NavLinks from '../NavLinks/NavLinks'
 
 const DesktopNavbar = ({ matchLoginOrRegister, keyword }) => {
   return (
-    <header className="gf-header">
+    <header className="gf-header header-desktop">
       <Logo />
-      {!matchLoginOrRegister && <SearchForm initialKeyword={keyword} />}
+      {!matchLoginOrRegister && (
+        <>
+          <SearchForm initialKeyword={keyword} />
+          <SideNav />
+        </>
+      )}
       <div className="links">
         <NavLinks />
       </div>
-      {!matchLoginOrRegister && <SideNav />}
     </header>
   )
 }

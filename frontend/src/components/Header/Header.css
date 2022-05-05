@@ -14,7 +14,7 @@
   margin: auto;
 }
 
-.gf-header .links {
+.gf-header.header-desktop .links {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -80,7 +80,6 @@
   color: white;
   width: 100%;
   transition: filter ease 0.3s;
-  /* outline: 1px solid rgb(29, 29, 29); */
 }
 
 @media screen and (max-width: 950px) {

@@ -15,8 +15,6 @@ function SearchResults({ params }) {
 
   const title = loading ? 'Cargando' : `${gifs.length} resultados de ${keyword}`
 
-  const spinnerStyle = { marginTop: '2rem' }
-
   useEffect(() => {
     if (isNearScreen) {
       loadNextPage()
@@ -25,22 +23,16 @@ function SearchResults({ params }) {
 
   return (
     <>
-      {loading ? (
-        <Spinner style={{ marginTop: '10rem' }} />
-      ) : (
-        <>
-          <Helmet>
-            <title>{title}</title>
-            <meta name="description" content={title} />
-          </Helmet>
-          <div className="App-results">
-            <h2 className="App-title">{keyword}</h2>
-            <ListOfGifs gifs={gifs} />
-            {!loading && loadingNextPage && <Spinner style={spinnerStyle} />}
-            <div className="visor" id="visor" ref={externalRef}></div>
-          </div>
-        </>
-      )}
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={title} />
+      </Helmet>
+      <div className="App-results">
+        <h2 className="App-title">{keyword}</h2>
+        {loading ? <Spinner style={{ marginTop: '10rem' }} /> : <ListOfGifs gifs={gifs} />}
+        {!loading && loadingNextPage && <Spinner style={{ marginTop: '2rem' }} />}
+        <div className="visor" id="visor" ref={externalRef}></div>
+      </div>
     </>
   )
 }

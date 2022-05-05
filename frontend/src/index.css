@@ -151,7 +151,6 @@ img {
 
 .Gradient-text {
   background-color: white;
-  /* background-size: 100%;
   background-repeat: repeat; */
   background-clip: text;
   -webkit-background-clip: text;
@@ -184,13 +183,9 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   background-color: var(--input-bg-color);
-  /* border: 2px solid rgba(114, 113, 113, 0.867); */
   color: white;
 
-  /* border: 1px solid green; */
   -webkit-text-fill-color: white;
-  /* box-shadow: 0 0 0px 1000px #000 inset; */
-  /* -webkit-box-shadow: 0 0 0px 1000px #000 inset; */
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -204,7 +199,6 @@ select:-webkit-autofill:focus {
 
 ::-webkit-scrollbar-track {
   background-color: var(--scrollbar-track-color);
-  /* background-color: hsl(204, 50%, 50%); */
   border-radius: 100vw;
   margin-block: 0.5rem;
 }

@@ -12,7 +12,7 @@ export default function Favourites() {
   return (
     <div className="App-results">
       <h2 className="Gradient-title Gradient-text">
-        <span className="bold"> Favoritos</span>
+        <span className="bold">Favoritos</span>
       </h2>
       <ListOfGifs gifs={favs} />
     </div>

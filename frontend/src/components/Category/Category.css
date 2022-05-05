@@ -8,16 +8,12 @@
 }
 
 .Category-list {
-  /* display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem; */
   margin-top: 0;
   animation: appearFromLeft 0.5s normal, opacity 1s normal;
 }
 
 .Category-list li {
   width: 100%;
-  /* white-space: nowrap; */
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0.2rem;

@@ -4,17 +4,16 @@
   margin-top: 2.5rem;
   color: white;
   background-color: #b00020;
-  /* background-color: #290007;
-  border: 1px solid #b00020; */
   display: flex;
   justify-content: center;
   border-radius: 10px;
   animation: opacity 1s normal;
 }
 
-.error-container strong {
+.error-container span {
   font-size: 0.9rem;
   text-align: center;
+  font-weight: bold;
 }
 
 .error-container .close-btn {

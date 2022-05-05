@@ -50,7 +50,7 @@ export default function Register() {
               <label htmlFor="username">Usuario</label>
               <Field
                 className={touched.username && errors.username ? 'has-error' : ''}
-                autoComplete="username"
+                autoComplete="username" 
                 id="username"
                 name="username"
                 type="text"

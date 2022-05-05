@@ -5,7 +5,7 @@ import { loginService } from 'services/login'
 import { getErrorMessage } from 'utils/getErrorMessage'
 import { useLocation } from 'wouter'
 
-export default function useUser() {
+export default function useUser({ onLogin = () => {} } = {}) {
   const { jwt, setJWT, favs, setFavs } = useContext(Context)
   const [state, setState] = useState({ loading: false, error: '' })
   const [, navigate] = useLocation()
@@ -18,6 +18,7 @@ export default function useUser() {
         localStorage.setItem('jwt', jwt)
         setJWT(jwt)
         setState({ loading: false, error: '' })
+        onLogin()
       } catch (err) {
         console.log(err)
         localStorage.removeItem('jwt')
@@ -25,7 +26,7 @@ export default function useUser() {
         setState({ loading: false, error: message })
       }
     },
-    [setJWT]
+    [setJWT, onLogin]
   )
 
   const logout = useCallback(() => {
@@ -35,7 +36,7 @@ export default function useUser() {
   }, [setJWT, navigate])
 
   const addFav = useCallback(
-    async ({ gif }) => {
+    async (gif) => {
       try {
         const favs = await favService.addFav({ gif, jwt })
         setFavs(favs)
@@ -62,6 +63,8 @@ export default function useUser() {
     [jwt, setFavs]
   )
 
+  const isLogged = useCallback(() => Boolean(jwt), [jwt])
+
   const isFaved = ({ id }) => {
     return favs.some((fav) => fav.id === id)
   }
@@ -71,7 +74,7 @@ export default function useUser() {
   }
 
   return {
-    isLogged: Boolean(jwt),
+    isLogged,
     login,
     logout,
     isLoginloading: state.loading,

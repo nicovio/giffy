@@ -3,7 +3,7 @@ import FormError from 'components/Form/FormError/FormError'
 import React, { forwardRef } from 'react'
 import { useFormContext } from 'react-hook-form'
 
-function Input(props, ref) {
+function Input(props) {
   const {
     register,
     formState: { errors },
@@ -14,7 +14,16 @@ function Input(props, ref) {
   return (
     <>
       <label htmlFor={name}>{label}</label>
-      <input {...props} {...register(name)} aria-label={name} className={errors[name] ? 'has-error' : ''} />
+      <input
+        autoCapitalize="off"
+        autoComplete="off"
+        autoCorrect="off"
+        spellCheck="false"
+        {...props}
+        {...register(name)}
+        aria-label={name}
+        className={errors[name] ? 'has-error' : ''}
+      />
       <ErrorMessage errors={errors} name={name} render={FormError} />
     </>
   )

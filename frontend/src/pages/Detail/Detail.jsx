@@ -13,21 +13,17 @@ export default function Detail({ params }) {
 
   if (error) return <Redirect to="/404" />
 
+  if (loading || !gif) return <Spinner style={{ marginTop: '10rem' }} />
+
   return (
     <>
-      {loading || !gif ? (
-        <Spinner style={{ marginTop: '10rem' }} />
-      ) : (
-        <>
-          <Helmet>
-            <title>{title} | Giffy</title>
-          </Helmet>
-          <div className="Detail-container">
-            <Gif gif={gif} />
-            <GifButtons gif={gif} />
-            </div>
-          </>
-      )}
+      <Helmet>
+        <title>{title} | Giffy</title>
+      </Helmet>
+      <div className="Detail-container">
+        <Gif gif={gif} />
+        <GifButtons gif={gif} />
+      </div>
     </>
   )
 }

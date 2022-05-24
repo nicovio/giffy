@@ -1,3 +1,4 @@
+import Error from 'components/Error/Error'
 import Form from 'components/Form/Form'
 import Input from 'components/Form/Input/Input'
 import useMedia from 'hooks/useMedia'
@@ -14,11 +15,13 @@ function Register() {
   const methods = useForm({ defaultValues, mode: 'all' })
   const isTablet = useMedia('(max-width: 950px)')
   const autoFocus = isTablet ? {} : { autoFocus: 'on' }
-
+  const [error, setError] = useState()
   const {
     register,
     formState: { errors, isValid, isDirty },
   } = methods
+
+  const clearError = () => setError(null)
 
   const onSubmit = async (values) => {
     try {
@@ -26,6 +29,7 @@ function Register() {
       setRegistered(true)
     } catch (err) {
       console.log(err)
+      setError(err)
     }
   }
 
@@ -79,6 +83,7 @@ function Register() {
             {isSubmitting ? 'Registrando usuario...' : 'Registrarse'}
           </button>
         </section>
+        {error && <Error message={error.message} onClose={clearError} />}
       </Form>
     </FormProvider>
   )

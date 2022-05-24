@@ -1,7 +1,9 @@
 import React from 'react'
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r']
-export default function Rating({ rating, handleRatingChange }) {
+
+function RatingSelect({ rating, handleRatingChange }) {
+  console.log("rating")
   return (
     <select value={rating} onChange={handleRatingChange} name="rating" aria-label="Rating">
       <option disabled>Rating</option>
@@ -13,3 +15,5 @@ export default function Rating({ rating, handleRatingChange }) {
     </select>
   )
 }
+
+export default React.memo(RatingSelect)

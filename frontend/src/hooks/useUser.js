@@ -7,6 +7,11 @@ import { getErrorMessage } from 'utils/getErrorMessage'
 export default function useUser({ onLogin = () => {} } = {}) {
   const { jwt, setJWT, favs, setFavs } = useContext(Context)
   const [state, setState] = useState({ loading: false, error: '' })
+
+  const clearError = useCallback(() => {
+    setState((currentState) => ({ loading: currentState.loading, error: false }))
+  }, [])
+
   const login = useCallback(
     async (username, password) => {
       try {
@@ -46,7 +51,7 @@ export default function useUser({ onLogin = () => {} } = {}) {
         setState({ loading: false, error: message })
       }
     },
-    [setFavs, jwt, logout]
+    [setFavs, jwt, logout, clearError]
   )
 
   const deleteFav = useCallback(
@@ -64,18 +69,17 @@ export default function useUser({ onLogin = () => {} } = {}) {
         setState({ loading: false, error: message })
       }
     },
-    [jwt, setFavs, logout]
+    [jwt, setFavs, logout, clearError]
   )
 
   const isLogged = useCallback(() => Boolean(jwt), [jwt])
 
-  const isFaved = ({ id }) => {
-    return favs?.some((fav) => fav.id === id)
-  }
-
-  const clearError = () => {
-    setState((currentState) => ({ loading: currentState.loading, error: false }))
-  }
+  const isFaved = useCallback(
+    ({ id }) => {
+      return favs?.some((fav) => fav.id === id)
+    },
+    [favs]
+  )
 
   return {
     isLogged,

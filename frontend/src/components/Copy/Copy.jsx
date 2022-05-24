@@ -29,7 +29,7 @@ export default function Copy({ gif, className }) {
       onClick={copyLink}
       className={`btn ${className} ${copiedClassName}`}
     >
-      {copied ? <BiCheck size="1.1rem" /> : <BiCopy />}
+      {copied ? <BiCheck size="17.6px" /> : <BiCopy />}
     </button>
   )
 }

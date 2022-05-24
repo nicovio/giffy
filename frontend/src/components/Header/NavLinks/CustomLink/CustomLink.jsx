@@ -1,14 +1,15 @@
-import React from 'react';
-import { Link, useRoute } from 'wouter';
+import React from 'react'
+import { Link } from 'wouter'
 import './CustomLink.css'
 
-export default function CustomLink(props) {
-    const to = encodeURI(props.to)
-    const [isActive] = useRoute(to)
-
-    return (
-        <Link {...props}>
-            <a href='replace' style={props.style} className={`${props.className} ${isActive ? "active-link" : ""}`} > <span >{props.children}</span></a>
-        </Link>
-    )
+function CustomLink(props) {
+  return (
+    <Link {...props}>
+      <a href="replace" style={props.style} className={`${props.className}`}>
+        <span>{props.children}</span>
+      </a>
+    </Link>
+  )
 }
+
+export default React.memo(CustomLink)

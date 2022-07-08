@@ -25,10 +25,3 @@
   text-align: center;
   font-size: max(1rem, 1.5vw);
 }
-
-@media screen and (max-width: 950px) {
-  .Detail-container picture,
-  .Detail-container img {
-    max-height: 100%;
-  }
-}

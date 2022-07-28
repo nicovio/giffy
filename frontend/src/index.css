@@ -4,6 +4,7 @@
   --scrollbar-thumb-color: hsl(192, 100%, 60%);
   --scrollbar-track-color: hsl(192, 100%, 10%);
   --input-bg-color: #2f3247;
+  --outline-default: 1px solid rgba(126, 126, 126, 0.349);
 }
 
 html {
@@ -132,21 +133,19 @@ img {
   font-weight: 300;
   padding: 1rem 0;
   width: fit-content;
-  background-image: linear-gradient(
-    45deg,
-    hsl(156deg 100% 50%) 0%,
-    hsl(174deg 100% 47%) 9%,
-    hsl(187deg 100% 49%) 18%,
-    hsl(189deg 100% 49%) 27%,
-    hsl(170deg 100% 47%) 36%,
-    hsl(88deg 89% 72%) 45%,
-    hsl(48deg 100% 64%) 55%,
-    hsl(33deg 100% 61%) 64%,
-    hsl(15deg 100% 63%) 73%,
-    hsl(8deg 100% 61%) 82%,
-    hsl(7deg 100% 56%) 91%,
-    hsl(0deg 100% 50%) 100%
-  );
+  background-image: linear-gradient(45deg,
+      hsl(156deg 100% 50%) 0%,
+      hsl(174deg 100% 47%) 9%,
+      hsl(187deg 100% 49%) 18%,
+      hsl(189deg 100% 49%) 27%,
+      hsl(170deg 100% 47%) 36%,
+      hsl(88deg 89% 72%) 45%,
+      hsl(48deg 100% 64%) 55%,
+      hsl(33deg 100% 61%) 64%,
+      hsl(15deg 100% 63%) 73%,
+      hsl(8deg 100% 61%) 82%,
+      hsl(7deg 100% 56%) 91%,
+      hsl(0deg 100% 50%) 100%);
 }
 
 .Gradient-text {
@@ -234,6 +233,7 @@ select:-webkit-autofill:focus {
   from {
     backdrop-filter: blur(0);
   }
+
   to {
     backdrop-filter: blur(3px);
   }
@@ -283,6 +283,7 @@ select:-webkit-autofill:focus {
   from {
     color: white;
   }
+
   to {
     color: red;
   }

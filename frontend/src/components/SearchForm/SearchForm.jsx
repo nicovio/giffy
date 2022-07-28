@@ -1,5 +1,5 @@
 import useForm from 'components/SearchForm/useForm'
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 import { useLocation } from 'wouter'
 import RatingSelect from './RatingSelect'
 import SearchButton from './SearchButton'
@@ -9,6 +9,8 @@ function SearchForm({ initialKeyword = '', initialRating = 'g' }) {
   const [, pushLocation] = useLocation()
 
   const { keyword, rating, updateKeyword, updateRating } = useForm({ initialKeyword, initialRating })
+
+  const searchInput = useRef(null)
 
   useEffect(() => {
     if (initialKeyword) updateKeyword(initialKeyword)
@@ -20,6 +22,7 @@ function SearchForm({ initialKeyword = '', initialRating = 'g' }) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    searchInput.current.blur()
     pushLocation(`/search/${keyword}/${rating}`)
   }
 
@@ -35,6 +38,8 @@ function SearchForm({ initialKeyword = '', initialRating = 'g' }) {
       <div className="inputs-container">
         <RatingSelect rating={rating} handleRatingChange={handleRatingChange} />
         <input
+          onClick={() => searchInput.current.select()}
+          ref={searchInput}
           autoCorrect="off"
           autoCapitalize="off"
           autoComplete="off"

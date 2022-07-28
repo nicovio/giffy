@@ -21,9 +21,23 @@
   padding: 0.8rem;
 }
 
+.inputs-container :is(input, button, select) {
+  border: 2px solid transparent;
+}
+
 .inputs-container :is(select:focus, input:focus, button:focus-visible) {
-  outline: 2px solid var(--brand-color_2);
+  border: 2px solid var(--brand-color_2);
   z-index: 10;
+}
+
+.inputs-container input:focus~button {
+  border: 2px solid var(--brand-color_2);
+  background-color: transparent;
+  border-left: none;
+}
+
+.inputs-container input:focus {
+  border-right: transparent;
 }
 
 .inputs-container button {
@@ -33,6 +47,7 @@
 
 .inputs-container button:focus-visible {
   background-color: var(--bg-color);
+  outline: none;
 }
 
 .inputs-container button:disabled {
@@ -40,8 +55,6 @@
 }
 
 .inputs-container select {
-  border: none;
-  border-right: 2px solid var(--bg-color);
   border-radius: 0;
   padding: 0.25rem;
   font-size: 1rem;
@@ -52,6 +65,7 @@
     order: 3;
     padding: 0.5rem 0.1rem;
   }
+
   .search-form {
     width: 100%;
   }

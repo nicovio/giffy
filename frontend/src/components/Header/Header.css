@@ -9,8 +9,7 @@
   padding: 0.5rem;
   box-sizing: border-box;
   background-color: var(--bg-color);
-  outline: 6px solid var(--bg-color);
-  border-bottom: 1px solid rgb(78, 78, 78);
+  border-bottom: var(--outline-default);
   margin: auto;
 }
 
@@ -37,7 +36,7 @@
   border-radius: 10px;
 }
 
-.gf-header .links > .midulink {
+.gf-header .links>.midulink {
   padding: 0.4rem;
 }
 

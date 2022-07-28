@@ -8,7 +8,7 @@
   justify-content: center;
   position: relative;
   border-radius: var(--gif-border-radius);
-  outline: 1px solid rgba(126, 126, 126, 0.349);
+  outline: var(--outline-default);
   background-color: var(--bg-color);
   padding: 0.5rem;
   transition: all 0.3s ease;
@@ -36,13 +36,16 @@
 .Gif-link-container:hover:nth-child(5n + 2) {
   --outline-color: var(--brand-color_2);
 }
+
 .Gif-link-container:hover:nth-child(5n + 3) {
   --outline-color: var(--brand-color_3);
   --link-text-color: white;
 }
+
 .Gif-link-container:hover:nth-child(5n + 4) {
   --outline-color: var(--brand-color_4);
 }
+
 .Gif-link-container:hover:nth-child(5n + 5) {
   --outline-color: var(--brand-color_5);
 }

@@ -1,11 +1,15 @@
 import Error from 'components/Error/Error'
 import ListOfGifs from 'components/ListOfGifs/ListOfGifs'
 import useGifs from 'hooks/useGifs'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Helmet from 'react-helmet'
 
 export default function Home() {
   const { loading, gifs, error, clearError } = useGifs({ limit: 15 })
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <>
